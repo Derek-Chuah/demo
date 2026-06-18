@@ -1,0 +1,605 @@
+{
+  "issues": [
+    {
+      "id": "healthcare",
+      "name": "Healthcare",
+      "description": "Public vs private health systems, coverage, and access",
+      "questions": [0, 1, 2, 38],
+      "priority": "high"
+    },
+    {
+      "id": "housing",
+      "name": "Housing & Development",
+      "description": "Affordability, zoning, supply, and development policy",
+      "questions": [3],
+      "priority": "high"
+    },
+    {
+      "id": "climate",
+      "name": "Climate & Energy",
+      "description": "Decarbonization, energy policy, fossil fuels, renewables",
+      "questions": [4, 5, 56, 58],
+      "priority": "high"
+    },
+    {
+      "id": "indigenous",
+      "name": "Indigenous Affairs",
+      "description": "Self-determination, reconciliation, land rights, treaties",
+      "questions": [6],
+      "priority": "medium"
+    },
+    {
+      "id": "immigration",
+      "name": "Immigration & Integration",
+      "description": "Immigration levels, refugee policy, integration",
+      "questions": [7, 8, 46],
+      "priority": "high"
+    },
+    {
+      "id": "education",
+      "name": "Education",
+      "description": "Curriculum, post-secondary funding, student debt",
+      "questions": [11, 12],
+      "priority": "medium"
+    },
+    {
+      "id": "justice",
+      "name": "Law & Order",
+      "description": "Gun control, criminal justice, policing, sentencing",
+      "questions": [13, 14, 15],
+      "priority": "medium"
+    },
+    {
+      "id": "labor",
+      "name": "Labour & Workers",
+      "description": "Union power, wages, working conditions, strikes",
+      "questions": [16, 17, 18],
+      "priority": "medium"
+    },
+    {
+      "id": "social",
+      "name": "Social Values",
+      "description": "Abortion, LGBTQ+ rights, gender identity, religious freedom",
+      "questions": [19, 20, 21],
+      "priority": "medium"
+    },
+    {
+      "id": "foreign",
+      "name": "Foreign Policy & Trade",
+      "description": "NATO, military spending, international relations, trade",
+      "questions": [22, 23, 24, 25, 26, 39, 40, 41, 42, 43, 44, 45],
+      "priority": "high"
+    },
+    {
+      "id": "economy",
+      "name": "Economy & Taxation",
+      "description": "Corporate taxes, government spending, deficits, fiscal policy",
+      "questions": [27, 28, 30, 31, 32, 59],
+      "priority": "high"
+    },
+    {
+      "id": "governance",
+      "name": "Governance & Democracy",
+      "description": "Federalism, electoral reform, language, media, institutions",
+      "questions": [9, 10, 29, 33, 34, 35, 50, 51],
+      "priority": "medium"
+    },
+    {
+      "id": "current",
+      "name": "Current Events",
+      "description": "2024-2025 political developments and government actions",
+      "questions": [36, 37, 47, 48, 49, 52, 53, 54, 55, 57, 60],
+      "priority": "high"
+    }
+  ],
+  "factions": {
+    "liberal": {
+      "name": "Liberal Party of Canada",
+      "primaryColor": "#E8102E",
+      "factions": [
+        {
+          "id": "social-liberal",
+          "name": "Social Liberal Wing",
+          "description": "Progressive on social issues, interventionist on economy, strong public programs",
+          "characteristics": {
+            "economic": [0, 40],
+            "progressive": [60, 100],
+            "authority": [30, 50],
+            "nationalism": [40, 60]
+          },
+          "probability": 0,
+          "keyPositions": {
+            "healthcare": "Universal public system, pharmacare, dental care",
+            "environment": "Aggressive carbon pricing, climate action",
+            "immigration": "High immigration, refugee acceptance",
+            "indigenous": "Strong reconciliation, land rights",
+            "labor": "Strong union support, worker protections"
+          },
+          "examples": ["Justin Trudeau (early)", "Chrystia Freeland"],
+          "historicalContext": "Dominant under Pierre Trudeau (1970s-80s), resurgent under Trudeau Jr."
+        },
+        {
+          "id": "centrist",
+          "name": "Centrist Pragmatists",
+          "description": "Balance efficiency with social programs, moderate on most issues, incremental change",
+          "characteristics": {
+            "economic": [40, 55],
+            "progressive": [45, 65],
+            "authority": [40, 55],
+            "nationalism": [45, 60]
+          },
+          "probability": 0,
+          "keyPositions": {
+            "healthcare": "Public system with private options, modest funding increases",
+            "environment": "Balanced approach, technology-focused",
+            "immigration": "Moderate levels, focus on integration",
+            "economy": "Pragmatic spending, deficit management",
+            "labor": "Work with unions, not against them"
+          },
+          "examples": ["Jean Chrétien", "Paul Martin"],
+          "historicalContext": "Dominated Canadian politics 1993-2006, currently strong faction"
+        },
+        {
+          "id": "bay-street",
+          "name": "Bay Street Liberals",
+          "description": "Business-friendly, lower spending, market-oriented, pro-trade",
+          "characteristics": {
+            "economic": [50, 70],
+            "progressive": [35, 55],
+            "authority": [40, 60],
+            "nationalism": [45, 65]
+          },
+          "probability": 0,
+          "keyPositions": {
+            "healthcare": "More private sector involvement, user fees",
+            "economy": "Lower corporate taxes, reduced spending",
+            "trade": "Free trade, USMCA support",
+            "regulation": "Deregulation, business-friendly policies",
+            "deficits": "Balance budget priority"
+          },
+          "examples": ["Paul Martin", "Some Finance Ministers"],
+          "historicalContext": "Influential on economic policy, weaker on social issues"
+        },
+        {
+          "id": "civil-libertarian",
+          "name": "Civil Libertarian Liberals",
+          "description": "Strong on civil rights and privacy, skeptical of government power, progressive on freedoms",
+          "characteristics": {
+            "economic": [35, 55],
+            "progressive": [65, 85],
+            "authority": [20, 40],
+            "nationalism": [40, 60]
+          },
+          "probability": 0,
+          "keyPositions": {
+            "privacy": "Strong privacy protection, oppose surveillance",
+            "freedoms": "Strong protection of civil liberties",
+            "justice": "Criminal justice reform, minimize incarceration",
+            "lgbtq": "Full rights expansion, no religious exemptions",
+            "government": "Skeptical of government overreach"
+          },
+          "examples": ["Some Justice Ministers", "Privacy advocates"],
+          "historicalContext": "Smaller faction, influential on justice/privacy issues"
+        }
+      ]
+    },
+    "ndp": {
+      "name": "New Democratic Party",
+      "primaryColor": "#F37021",
+      "factions": [
+        {
+          "id": "socialist-left",
+          "name": "Socialist Left",
+          "description": "Left-wing, anti-capitalist, supports worker control, radical social change",
+          "characteristics": {
+            "economic": [0, 30],
+            "progressive": [70, 100],
+            "authority": [35, 55],
+            "nationalism": [40, 60]
+          },
+          "probability": 0,
+          "keyPositions": {
+            "economy": "Wealth redistribution, worker cooperatives, anti-corporate",
+            "healthcare": "Fully public, expand dramatically",
+            "labor": "Strong union support, worker control of production",
+            "environment": "Radical climate action, ban fossil fuels",
+            "capitalism": "Fundamentally opposed to capitalism"
+          },
+          "examples": ["Émilie Nguyen-Tass", "Some riding activists"],
+          "historicalContext": "Present since CCF founding, minority faction within NDP"
+        },
+        {
+          "id": "social-democrat",
+          "name": "Social Democrats",
+          "description": "Left-leaning but accepts capitalism, strong public programs, worker power",
+          "characteristics": {
+            "economic": [20, 45],
+            "progressive": [65, 85],
+            "authority": [40, 55],
+            "nationalism": [45, 60]
+          },
+          "probability": 0,
+          "keyPositions": {
+            "healthcare": "Universal public system, expand coverage",
+            "economy": "Progressive taxation, public services",
+            "labor": "Strong union backing, worker rights",
+            "environment": "Aggressive climate action",
+            "housing": "Public and co-op housing"
+          },
+          "examples": ["Jack Layton", "Jagmeet Singh (current)"],
+          "historicalContext": "Dominant faction, provides NDP mainstream appeal"
+        },
+        {
+          "id": "progressive-identity",
+          "name": "Progressive Identity Politics",
+          "description": "Focus on social justice, identity issues, intersectionality, activism",
+          "characteristics": {
+            "economic": [25, 50],
+            "progressive": [75, 100],
+            "authority": [35, 50],
+            "nationalism": [40, 60]
+          },
+          "probability": 0,
+          "keyPositions": {
+            "identity": "Strong focus on marginalized communities",
+            "indigenous": "Land back, sovereignty support",
+            "lgbtq": "Full rights expansion, no compromises",
+            "climate": "Climate justice, impacts on communities",
+            "police": "Defund police, transform justice system",
+            "immigration": "Pro-refugee, anti-border"
+          },
+          "examples": ["Mustapha Farrakhan critics, grassroots activists"],
+          "historicalContext": "Growing faction, influences policy direction"
+        },
+        {
+          "id": "economic-nationalist",
+          "name": "Economic Nationalist NDP",
+          "description": "Left-wing economically, nationalist on trade/sovereignty, Canadian focus",
+          "characteristics": {
+            "economic": [15, 40],
+            "progressive": [55, 75],
+            "authority": [45, 60],
+            "nationalism": [60, 80]
+          },
+          "probability": 0,
+          "keyPositions": {
+            "trade": "Skeptical of free trade, protect Canadian industries",
+            "resources": "Resource nationalism, keep wealth in Canada",
+            "sovereignty": "Strong Canadian sovereignty focus",
+            "american": "Skeptical of American influence",
+            "culture": "Protect Canadian culture and identity"
+          },
+          "examples": ["Some Western NDP members"],
+          "historicalContext": "Present in Western Canada, less prominent nationally"
+        }
+      ]
+    },
+    "conservative": {
+      "name": "Conservative Party of Canada",
+      "primaryColor": "#1F4788",
+      "factions": [
+        {
+          "id": "social-conservative",
+          "name": "Social Conservative Wing",
+          "description": "Right-wing economically and socially, traditional values, law and order",
+          "characteristics": {
+            "economic": [60, 80],
+            "progressive": [20, 40],
+            "authority": [55, 75],
+            "nationalism": [60, 80]
+          },
+          "probability": 0,
+          "keyPositions": {
+            "abortion": "Restrict access, defund abortion services",
+            "lgbtq": "Oppose expansion of rights, religious exemptions",
+            "immigration": "Reduce immigration, stricter enforcement",
+            "law-order": "Law and order priority, tough on crime",
+            "guns": "Gun rights support, oppose restrictions",
+            "values": "Traditional family values, Christian heritage"
+          },
+          "examples": ["Pierre Poilievre (appeals to)", "Some caucus members"],
+          "historicalContext": "Influential since Reform/Alliance merger, strong Western support"
+        },
+        {
+          "id": "red-tory",
+          "name": "Red Tory / Progressive Conservative",
+          "description": "Market-oriented but pragmatic, some social spending, moderate on social issues",
+          "characteristics": {
+            "economic": [55, 70],
+            "progressive": [40, 60],
+            "authority": [50, 65],
+            "nationalism": [55, 70]
+          },
+          "probability": 0,
+          "keyPositions": {
+            "healthcare": "Public system but more efficiency focus",
+            "social": "Pragmatic on social issues, not ideological",
+            "spending": "Lower spending but maintain programs",
+            "environment": "Technology-focused climate action",
+            "immigration": "Moderate intake, skills-based",
+            "tradition": "Respect institutions and traditions"
+          },
+          "examples": ["Brian Mulroney", "Some Moderate MPs"],
+          "historicalContext": "Declining faction, stronger under Progressive Conservatives"
+        },
+        {
+          "id": "libertarian-right",
+          "name": "Libertarian Right",
+          "description": "Strong free market, minimal government, individual liberty, low taxes",
+          "characteristics": {
+            "economic": [70, 90],
+            "progressive": [30, 50],
+            "authority": [30, 50],
+            "nationalism": [45, 65]
+          },
+          "probability": 0,
+          "keyPositions": {
+            "economy": "Free market, minimal regulation",
+            "taxes": "Low taxes, reduce government",
+            "spending": "Cut government programs",
+            "government": "Skeptical of government power",
+            "regulation": "Deregulation priority",
+            "freedom": "Individual choice priority"
+          },
+          "examples": ["Some Alberta-based MPs", "Reform roots"],
+          "historicalContext": "Present since Alliance days, strong in Western Canada"
+        },
+        {
+          "id": "western-populist",
+          "name": "Western Populist / Sovereigntist",
+          "description": "Right-wing economically and socially, strong Canadian/Western nationalism, anti-establishment",
+          "characteristics": {
+            "economic": [65, 80],
+            "progressive": [20, 40],
+            "authority": [55, 70],
+            "nationalism": [70, 90]
+          },
+          "probability": 0,
+          "keyPositions": {
+            "sovereignty": "Strong Canadian sovereignty, skeptical of globalism",
+            "western": "Western Canada focus, alienation responsive",
+            "trade": "Skeptical of international agreements",
+            "immigration": "Reduce immigration, protect Canadian jobs",
+            "establishment": "Anti-establishment, populist rhetoric",
+            "nationalism": "Strong nationalist sentiment"
+          },
+          "examples": ["Pierre Poilievre (appeals to)", "Western MPs"],
+          "historicalContext": "Strong in Western Canada, growing appeal across party"
+        }
+      ]
+    }
+  },
+  "contradictions": [
+    {
+      "id": "housing-density",
+      "name": "Housing Affordability vs. Opposition to Density",
+      "description": "Wanting affordable housing while opposing density creates a fundamental tension",
+      "questions": [3, 11],
+      "questionIndices": [3, 11],
+      "severity": "high",
+      "condition": "answers[3] < 2 && answers[11] > 2",
+      "explanation": "Housing affordability is primarily constrained by supply. Density is a major supply lever. Most affordable housing solutions require some density increase. Opposing both makes affordability harder.",
+      "resolutions": [
+        {
+          "name": "Prioritize Affordability",
+          "description": "Accept density as necessary for affordability",
+          "text": "Support building more apartments and townhouses in urban areas to increase supply and reduce prices. Accept some neighborhood change as the cost of affordability.",
+          "examples": ["YIMBY movement advocates", "Vancouver Housing activists"],
+          "leaders": []
+        },
+        {
+          "name": "Prioritize Neighborhood Character",
+          "description": "Accept that this means higher housing costs",
+          "text": "Maintain neighborhood character and oppose density. Use other tools for affordability: subsidies, rent control, public housing. Accept that housing will remain expensive.",
+          "examples": ["Suburban communities", "Neighborhood associations"],
+          "leaders": []
+        },
+        {
+          "name": "Compromise Position",
+          "description": "Support modest density with design standards",
+          "text": "Allow some density increase but with strong urban design standards, transit investment, and community services. The 'missing middle' approach.",
+          "examples": ["Missing middle housing", "15-minute cities"],
+          "leaders": []
+        }
+      ]
+    },
+    {
+      "id": "climate-oil",
+      "name": "Climate Action vs. Oil Expansion",
+      "description": "Supporting rapid climate action while approving oil sands expansion is fundamentally contradictory",
+      "questions": [4, 56, 58],
+      "questionIndices": [4, 56, 58],
+      "severity": "high",
+      "condition": "answers[4] < 2 && answers[56] > 2",
+      "explanation": "Oil sands expansion increases Canadian emissions. Rapid decarbonization and oil expansion are mutually exclusive. This contradiction reflects the tension between climate goals and energy industry support.",
+      "resolutions": [
+        {
+          "name": "Prioritize Climate",
+          "description": "Ban oil expansion, transition economy",
+          "text": "Support banning new oil sands projects. Accept economic transition costs. Invest heavily in renewable energy and retraining.",
+          "examples": ["Climate activists", "Green Party platform"],
+          "leaders": []
+        },
+        {
+          "name": "Prioritize Energy Security",
+          "description": "Accept emissions, manage them with offsets",
+          "text": "Support oil expansion for energy security and jobs. Use carbon pricing and offsets to address emissions. Accept slower transition.",
+          "examples": ["Alberta government", "Industry groups"],
+          "leaders": []
+        },
+        {
+          "name": "Compromise Position",
+          "description": "Limited expansion with strict emissions management",
+          "text": "Allow limited, temporary expansion while rapidly transitioning economy. Strict emissions controls on expansion. Heavy investment in clean energy.",
+          "examples": ["Some economists", "Pragmatic environmentalists"],
+          "leaders": []
+        }
+      ]
+    },
+    {
+      "id": "immigration-housing",
+      "name": "High Immigration + Cheap Housing (Supply Conflict)",
+      "description": "High immigration intake combined with expectation of cheap housing creates supply/demand conflict",
+      "questions": [7, 3],
+      "questionIndices": [7, 3],
+      "severity": "medium",
+      "condition": "answers[7] >= 2 && answers[3] < 2",
+      "explanation": "Population growth from high immigration increases housing demand. Housing supply is constrained. High immigration + cheap housing requires massive supply increases. This contradiction often appears when not considering supply-side solutions.",
+      "resolutions": [
+        {
+          "name": "Accept Housing Cost Increases",
+          "description": "High immigration, accept higher housing prices",
+          "text": "Support high immigration but accept that it increases housing prices. This is economically normal. Focus immigration on people with resources.",
+          "examples": ["Economist consensus"],
+          "leaders": []
+        },
+        {
+          "name": "Lower Immigration, Protect Affordability",
+          "description": "Reduce immigration to protect housing affordability",
+          "text": "Reduce immigration to match housing supply. Prioritize citizens' housing needs. Lower immigration solves supply-demand mismatch.",
+          "examples": ["Conservative platform 2024"],
+          "leaders": []
+        },
+        {
+          "name": "Massive Housing Supply Increase",
+          "description": "Support both with aggressive supply-side policies",
+          "text": "Support high immigration AND upzone aggressively, eliminate zoning restrictions, build public housing. Requires political will for density.",
+          "examples": ["YIMBY + progressive immigration"],
+          "leaders": []
+        }
+      ]
+    },
+    {
+      "id": "labor-costs",
+      "name": "Strong Worker Protections + Low Prices (Cost Conflict)",
+      "description": "Wanting strong worker protections and union power while expecting low consumer prices",
+      "questions": [16, 11],
+      "questionIndices": [16, 11],
+      "severity": "medium",
+      "condition": "answers[16] < 2 && answers[11] > 2",
+      "explanation": "Higher worker pay and protections increase labor costs, which increase prices. Strong unions and cheap goods are partially in tension. This contradiction appears when not considering trade-offs.",
+      "resolutions": [
+        {
+          "name": "Prioritize Worker Wages",
+          "description": "Accept higher prices for better worker conditions",
+          "text": "Support strong unions and worker power. Accept that this increases prices. Quality of life for workers more important than cheap goods.",
+          "examples": ["Labor union advocates", "Scandinavian model"],
+          "leaders": []
+        },
+        {
+          "name": "Prioritize Low Prices",
+          "description": "Accept lower wages for consumer savings",
+          "text": "Minimize worker regulations to keep costs low. Accept that this means lower wages. Consumer savings and jobs matter more.",
+          "examples": ["Retail industry", "Low-cost advocates"],
+          "leaders": []
+        },
+        {
+          "name": "Efficiency + Fair Wages",
+          "description": "Productivity increases allow both",
+          "text": "Support worker protections but through productivity gains, not regulations. Invest in training and efficiency to pay workers more without raising prices.",
+          "examples": ["Some economists", "Progressive business"],
+          "leaders": []
+        }
+      ]
+    },
+    {
+      "id": "freedom-enforcement",
+      "name": "Individual Freedom vs. Drug Enforcement",
+      "description": "Wanting both individual freedom and strict drug enforcement",
+      "questions": [13, 2],
+      "questionIndices": [13, 2],
+      "severity": "medium",
+      "condition": "answers[13] < 2 && answers[2] > 2",
+      "explanation": "Strict drug enforcement requires government limiting individual freedom to use drugs. Full freedom and full enforcement are in tension.",
+      "resolutions": [
+        {
+          "name": "Prioritize Freedom",
+          "description": "Decriminalize drugs, focus on treatment",
+          "text": "Legalize or decriminalize drugs. Treat addiction as health issue, not criminal. Accept risks of more drug use.",
+          "examples": ["Portugal model", "Drug policy reformers"],
+          "leaders": []
+        },
+        {
+          "name": "Prioritize Enforcement",
+          "description": "Accept limits on freedom to prevent drug use",
+          "text": "Strong drug enforcement, strict penalties, limit drug access. Accept that this limits some freedoms. Protect public health.",
+          "examples": ["Traditional law enforcement", "Drug war advocates"],
+          "leaders": []
+        },
+        {
+          "name": "Treat & Harm Reduction",
+          "description": "Allow use but manage harms",
+          "text": "Decriminalize use, provide treatment and harm reduction. Heavy enforcement on trafficking. Balance freedom with public health.",
+          "examples": ["Supervised consumption sites", "Treatment courts"],
+          "leaders": []
+        }
+      ]
+    },
+    {
+      "id": "trade-sovereignty",
+      "name": "Pro-Trade vs. Sovereignty",
+      "description": "Supporting free trade while wanting Canadian sovereignty can create tensions",
+      "questions": [25, 22],
+      "questionIndices": [25, 22],
+      "severity": "low",
+      "condition": "answers[25] >= 3 && answers[22] < 1",
+      "explanation": "Free trade agreements limit some national sovereignty by requiring compliance with international rules. Extreme sovereignty limits trade. Some tension exists but is manageable.",
+      "resolutions": [
+        {
+          "name": "Prioritize Trade",
+          "description": "Accept some sovereignty limits for trade benefits",
+          "text": "Support free trade agreements. Accept that international rules limit some sovereignty options. Trade benefits outweigh sovereignty concerns.",
+          "examples": ["Economists", "USMCA supporters"],
+          "leaders": []
+        },
+        {
+          "name": "Prioritize Sovereignty",
+          "description": "Limit trade to protect sovereignty",
+          "text": "Support protectionist policies. Maintain full sovereignty over regulations. Accept higher prices for independence.",
+          "examples": ["Economic nationalists", "Protectionists"],
+          "leaders": []
+        },
+        {
+          "name": "Strategic Trade",
+          "description": "Trade where beneficial, protect key sectors",
+          "text": "Selective trade agreements that preserve sovereignty on critical sectors. Protect domestic industries while accessing markets.",
+          "examples": ["Strategic trade policy"],
+          "leaders": []
+        }
+      ]
+    },
+    {
+      "id": "spending-taxes",
+      "name": "Want Services but Oppose Higher Taxes",
+      "description": "Wanting government services while opposing tax increases",
+      "questions": [27, 28],
+      "questionIndices": [27, 28],
+      "severity": "medium",
+      "condition": "answers[27] < 2 && answers[28] > 2",
+      "explanation": "Government services cost money. Wanting more services but lower taxes requires either cutting other services or running deficits. This is unsustainable long-term.",
+      "resolutions": [
+        {
+          "name": "Accept Higher Taxes",
+          "description": "Pay for services through taxation",
+          "text": "Support higher taxes to fund desired services. More progressive taxation funds redistribution and services.",
+          "examples": ["Tax-and-spend progressives"],
+          "leaders": []
+        },
+        {
+          "name": "Reduce Services",
+          "description": "Keep taxes low by cutting services",
+          "text": "Accept lower service levels to keep taxes low. Cut government programs. Limited government model.",
+          "examples": ["Libertarians", "Low-tax conservatives"],
+          "leaders": []
+        },
+        {
+          "name": "Efficiency Model",
+          "description": "Same services, lower costs through efficiency",
+          "text": "Maintain services but improve government efficiency. Technology, better management reduce costs. Same services, lower taxes.",
+          "examples": ["Moderate reformers"],
+          "leaders": []
+        }
+      ]
+    }
+  ]
+}
