@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canadian Political Alignment Test</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-phase2.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="app">
+        <!-- Navigation Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>Canadian Political Alignment Test</h1>
+                <p class="subtitle">Where do you stand on Canadian politics?</p>
+                <div class="header-controls">
+                    <button id="themeToggle" class="theme-btn" title="Toggle dark mode">🌙</button>
+                    <button id="resetBtn" class="reset-btn" style="display: none;">Start Over</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+            <!-- Loading Screen -->
+            <div id="loadingScreen" class="screen active">
+                <div class="loading-content">
+                    <h2>Loading Canadian Political Test...</h2>
+                    <p>Preparing questions and scoring system</p>
+                    <div class="spinner"></div>
+                </div>
+            </div>
+
+            <!-- Welcome Screen -->
+            <div id="welcomeScreen" class="screen" style="display: none;">
+                <div class="welcome-content">
+                    <h2>Welcome to the Canadian Political Alignment Test</h2>
+                    <p>This test measures your political positions on 4 axes:</p>
+                    
+                    <div class="axes-info">
+                        <div class="axis-card">
+                            <h3>📊 Economic</h3>
+                            <p><strong>Left:</strong> Regulation, spending, redistribution</p>
+                            <p><strong>Right:</strong> Markets, low taxes, efficiency</p>
+                        </div>
+                        
+                        <div class="axis-card">
+                            <h3>🌱 Progressive</h3>
+                            <p><strong>Traditional:</strong> Gradual change, caution</p>
+                            <p><strong>Progressive:</strong> Reform, social change</p>
+                        </div>
+                        
+                        <div class="axis-card">
+                            <h3>⚖️ Authority</h3>
+                            <p><strong>Liberty:</strong> Civil rights, privacy, freedom</p>
+                            <p><strong>Order:</strong> Security, enforcement, law & order</p>
+                        </div>
+                        
+                        <div class="axis-card">
+                            <h3>🌍 Nationalism</h3>
+                            <p><strong>Globalist:</strong> International, open borders</p>
+                            <p><strong>Nationalist:</strong> Sovereignty, borders, Canada-first</p>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>About This Test</h3>
+                        <ul>
+                            <li>⏱️ Takes 15-20 minutes for the full test</li>
+                            <li>📱 Works on desktop, tablet, and mobile</li>
+                            <li>💾 Your progress is saved automatically</li>
+                            <li>📊 Get detailed results with party alignment</li>
+                            <li>📤 Export and share your results</li>
+                        </ul>
+                    </div>
+
+                    <div class="button-group">
+                        <button id="startBtn" class="btn btn-primary btn-large">Start Test</button>
+                        <button id="quickStartBtn" class="btn btn-secondary">Quick Mode (5 min)</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Screen -->
+            <div id="quizScreen" class="screen" style="display: none;">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="progressFill" class="progress-fill"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span id="questionNumber">1</span> / <span id="totalQuestions">80</span>
+                    </div>
+                </div>
+
+                <div class="quiz-content">
+                    <div id="sectionLabel" class="section-label" style="display: none;"></div>
+                    
+                    <div id="questionCard" class="question-card">
+                        <h2 id="questionText" class="question-text"></h2>
+                        <p id="questionSubtext" class="question-subtext"></p>
+                        
+                        <div id="optionsContainer" class="options-container">
+                            <!-- Options will be inserted here -->
+                        </div>
+                    </div>
+
+                    <div class="quiz-controls">
+                        <button id="prevBtn" class="btn btn-secondary" style="display: none;">← Back</button>
+                        <button id="nextBtn" class="btn btn-primary" disabled>Next →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="resultsScreen" class="screen" style="display: none;">
+                <div class="results-content">
+                    <h2>Your Political Alignment</h2>
+                    
+                    <!-- Axis Results -->
+                    <div class="results-section">
+                        <h3>Your Scores</h3>
+                        <div id="axisResults" class="axis-results">
+                            <!-- Axis charts will be inserted here -->
+                        </div>
+                    </div>
+
+                    <!-- Party Alignment -->
+                    <div class="results-section">
+                        <h3>Party Alignment</h3>
+                        <div id="partyAlignment" class="party-alignment">
+                            <!-- Party matches will be inserted here -->
+                        </div>
+                    </div>
+
+                    <!-- Faction Results -->
+                    <div id="factionResults" class="results-section" style="display: none;">
+                        <h3>Political Factions</h3>
+                        <div id="factionContent">
+                            <!-- Faction details will be inserted here -->
+                        </div>
+                    </div>
+
+                    <!-- Export Options -->
+                    <div class="results-section">
+                        <h3>Share & Export</h3>
+                        <div class="export-buttons">
+                            <button id="exportJsonBtn" class="btn btn-secondary">📥 Download JSON</button>
+                            <button id="exportPdfBtn" class="btn btn-secondary">📄 Download PDF</button>
+                            <button id="shareUrlBtn" class="btn btn-secondary">🔗 Get Share Link</button>
+                            <button id="shareQrBtn" class="btn btn-secondary">📱 QR Code</button>
+                        </div>
+                        <div id="shareModal" class="modal" style="display: none;">
+                            <div class="modal-content">
+                                <button class="modal-close" onclick="closeModal()">&times;</button>
+                                <div id="shareContent"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Retake Test -->
+                    <div class="results-section">
+                        <button id="retakeBtn" class="btn btn-primary btn-large">Take Test Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Canadian Political Alignment Test v1.0 | <a href="#" onclick="showAbout()">About</a> | <a href="#" onclick="showFAQ()">FAQ</a></p>
+        </footer>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app-phase2.js"></script>
+</body>
+</html>

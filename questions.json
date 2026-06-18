@@ -1,0 +1,1529 @@
+{
+  "questions": [
+    {
+      "id": "Q001",
+      "sectionLabel": "Healthcare & Public Services",
+      "text": "On healthcare delivery: Should Canada expand private options?",
+      "subtext": "Public system under strain. Some propose private clinics and insurance.",
+      "difficulty": "basic",
+      "options": [
+        {
+          "text": "Strengthen public-only; ban private parallel system",
+          "score": [0.08, 0.12, 0.15, 0.08]
+        },
+        {
+          "text": "Mostly public; allow limited private for efficiency",
+          "score": [0.15, 0.08, 0.1, 0.08]
+        },
+        {
+          "text": "Mixed public-private; competition improves care",
+          "score": [0.3, 0.1, 0.08, 0.15]
+        },
+        {
+          "text": "Market-based system; government safety net only",
+          "score": [0.4, 0.15, 0.08, 0.2]
+        }
+      ]
+    },
+    {
+      "id": "Q002",
+      "sectionLabel": "Mental Health & Addiction",
+      "text": "On mental health funding: Should it match physical healthcare spending?",
+      "subtext": "Mental health currently 5-7% of budgets. Opioid crisis raging. Underfunded?",
+      "difficulty": "basic",
+      "options": [
+        {
+          "text": "Major increase; fund crisis response and prevention equally",
+          "score": [0.08, 0.15, 0.15, 0.08]
+        },
+        {
+          "text": "Significant increase; address gaps but realistically",
+          "score": [0.2, 0.12, 0.1, 0.08]
+        },
+        {
+          "text": "Adequate now; efficiency matters more than dollars",
+          "score": [0.3, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "Private treatment better; limit government role",
+          "score": [0.4, 0.02, 0.02, 0.2]
+        }
+      ]
+    },
+    {
+      "id": "Q003",
+      "sectionLabel": "Childcare & Parental Support",
+      "text": "On childcare: Should government fund universal $10/day daycare?",
+      "subtext": "Federal deal with provinces started rollout. Cost: $30B+ annually.",
+      "difficulty": "basic",
+      "options": [
+        {
+          "text": "Universal public childcare; essential infrastructure",
+          "score": [0.08, 0.15, 0.12, 0.08]
+        },
+        {
+          "text": "Public daycare + subsidies for lower income",
+          "score": [0.2, 0.12, 0.08, 0.08]
+        },
+        {
+          "text": "Subsidies only; let private market lead",
+          "score": [0.35, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "Minimal government role; families decide",
+          "score": [0.4, 0.02, 0.02, 0.2]
+        }
+      ]
+    },
+    {
+      "id": "Q004",
+      "sectionLabel": "Housing & Development",
+      "text": "On housing affordability: What's Canada's best response?",
+      "subtext": "Prices doubled in decade. Zoning, taxation, public housing debated.",
+      "difficulty": "basic",
+      "options": [
+        {
+          "text": "Strict rent control; heavy speculation taxes",
+          "score": [0.08, 0.15, 0.12, 0.08]
+        },
+        {
+          "text": "Public/co-op housing; regulate speculation moderately",
+          "score": [0.15, 0.12, 0.1, 0.12]
+        },
+        {
+          "text": "Deregulate zoning; let developers build",
+          "score": [0.3, 0.08, 0.1, 0.2]
+        },
+        {
+          "text": "Market solves it; minimal intervention",
+          "score": [0.4, 0.08, 0.08, 0.25]
+        }
+      ]
+    },
+    {
+      "id": "Q005",
+      "sectionLabel": "Climate & Energy Transition",
+      "text": "On decarbonization: How fast should Canada transition?",
+      "subtext": "Net-zero 2050. Oil/gas still significant. Balance climate with jobs.",
+      "difficulty": "basic",
+      "options": [
+        {
+          "text": "Rapid phase-out; massive green investment",
+          "score": [0.08, 0.15, 0.18, 0.08]
+        },
+        {
+          "text": "Manage transition carefully; protect workers",
+          "score": [0.2, 0.12, 0.12, 0.1]
+        },
+        {
+          "text": "Oil essential; invest in cleaner tech, not bans",
+          "score": [0.3, 0.08, 0.08, 0.18]
+        },
+        {
+          "text": "Climate alarmism overblown; growth first",
+          "score": [0.4, 0.05, 0.05, 0.25]
+        }
+      ]
+    },
+    {
+      "id": "Q006",
+      "sectionLabel": "Retrospective: Trudeau Climate Record",
+      "text": "On Trudeau's carbon tax: Right policy or economic harm?",
+      "subtext": "$170/tonne now. Some say effective, others blame for inflation.",
+      "difficulty": "basic",
+      "options": [
+        {
+          "text": "Right approach; market mechanism works",
+          "score": [0.1, 0.1, 0.08, 0.08]
+        },
+        {
+          "text": "Good idea but rebates inadequate; needs adjustment",
+          "score": [0.2, 0.08, 0.08, 0.08]
+        },
+        {
+          "text": "Wrong tool; hurts working people unfairly",
+          "score": [0.35, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "Economic sabotage; should be abolished",
+          "score": [0.4, 0.02, 0.02, 0.25]
+        }
+      ]
+    },
+    {
+      "id": "Q007",
+      "sectionLabel": "Indigenous Affairs & Reconciliation",
+      "text": "On Indigenous self-determination: How far should Canada go?",
+      "subtext": "UNDRIP implementation. Sovereignty, land rights, resource control debated.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Constitutional sovereignty; significant land/resource rights",
+          "score": [0.08, 0.15, 0.2, 0.08]
+        },
+        {
+          "text": "Strong self-governance; resource agreements (within federation)",
+          "score": [0.15, 0.12, 0.12, 0.1]
+        },
+        {
+          "text": "Equal treatment; targeted socioeconomic support",
+          "score": [0.3, 0.08, 0.08, 0.18]
+        },
+        {
+          "text": "Apologized and invested; move forward",
+          "score": [0.4, 0.05, 0.05, 0.25]
+        }
+      ]
+    },
+    {
+      "id": "Q008",
+      "sectionLabel": "Immigration & Integration",
+      "text": "On immigration intake: What level best serves Canada?",
+      "subtext": "Record 2024 intake (1M+). Housing strain, integration concerns debated.",
+      "difficulty": "basic",
+      "options": [
+        {
+          "text": "Keep high intake; diversity strengthens Canada economically",
+          "score": [0.15, 0.15, 0.12, 0.08]
+        },
+        {
+          "text": "Moderate intake; prioritize integration",
+          "score": [0.25, 0.12, 0.08, 0.1]
+        },
+        {
+          "text": "Current too high; citizens priority",
+          "score": [0.35, 0.08, 0.05, 0.18]
+        },
+        {
+          "text": "Skilled only; end general immigration",
+          "score": [0.4, 0.05, 0.05, 0.25]
+        }
+      ]
+    },
+    {
+      "id": "Q009",
+      "sectionLabel": "Retrospective: Immigration Targets",
+      "text": "On Trudeau raising immigration targets (2022-2024): Wise decision?",
+      "subtext": "Targets rose to 1M+ during housing crisis. Good policy or worsened affordability?",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Right; strengthens economy and demographics long-term",
+          "score": [0.12, 0.12, 0.1, 0.08]
+        },
+        {
+          "text": "Good intent but timing poor; should have waited",
+          "score": [0.2, 0.08, 0.08, 0.08]
+        },
+        {
+          "text": "Mistake; worsened housing and wage pressure",
+          "score": [0.35, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "Catastrophic policy; responsible for affordability collapse",
+          "score": [0.4, 0.02, 0.02, 0.25]
+        }
+      ]
+    },
+    {
+      "id": "Q010",
+      "sectionLabel": "Federalism & Governance",
+      "text": "On federal-provincial balance: Should Ottawa have more power?",
+      "subtext": "Healthcare, education, environment jurisdictions contested.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Strong federal leadership; Canada needs unity",
+          "score": [0.12, 0.12, 0.1, 0.08]
+        },
+        {
+          "text": "Shared jurisdiction; feds set minimums",
+          "score": [0.25, 0.1, 0.08, 0.1]
+        },
+        {
+          "text": "Provinces should lead; Ottawa focuses on defence/trade",
+          "score": [0.35, 0.08, 0.05, 0.18]
+        },
+        {
+          "text": "Decentralize; let provinces experiment",
+          "score": [0.4, 0.05, 0.05, 0.25]
+        }
+      ]
+    },
+    {
+      "id": "Q011",
+      "sectionLabel": "Cost of Living & Inflation",
+      "text": "On inflation crisis: What's the government's responsibility?",
+      "subtext": "CPI peaked at 8.1% (2022). Groceries, rent soaring. Government response debate.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Supply chain/global issues; government limited role",
+          "score": [0.25, 0.08, 0.08, 0.15]
+        },
+        {
+          "text": "Some government responsibility; stimulus was too much",
+          "score": [0.35, 0.05, 0.05, 0.1]
+        },
+        {
+          "text": "Bank of Canada should have raised rates faster",
+          "score": [0.4, 0.02, 0.02, 0.15]
+        },
+        {
+          "text": "Price controls and subsidies needed",
+          "score": [0.15, 0.15, 0.12, 0.08]
+        }
+      ]
+    },
+    {
+      "id": "Q012",
+      "sectionLabel": "Education & Curriculum",
+      "text": "On school curriculum: What should be taught?",
+      "subtext": "Debates: sex ed, gender/sexuality, CRT, Indigenous history.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Comprehensive progressive curriculum; decolonize and include all",
+          "score": [0.08, 0.18, 0.15, 0.08]
+        },
+        {
+          "text": "Balance traditional and progressive; evidence-based, age-appropriate",
+          "score": [0.25, 0.12, 0.08, 0.1]
+        },
+        {
+          "text": "Focus on basics; parents decide values",
+          "score": [0.35, 0.05, 0.05, 0.2]
+        },
+        {
+          "text": "Protect from ideological indoctrination",
+          "score": [0.4, 0.02, 0.02, 0.28]
+        }
+      ]
+    },
+    {
+      "id": "Q013",
+      "sectionLabel": "Post-Secondary Education",
+      "text": "On university costs and student debt: What's the solution?",
+      "subtext": "Average debt: $28K. Tuition rising. Debt forgiveness debated.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Free tuition; universal higher education access",
+          "score": [0.08, 0.18, 0.15, 0.08]
+        },
+        {
+          "text": "Subsidized tuition; expand support for low-income",
+          "score": [0.2, 0.15, 0.1, 0.08]
+        },
+        {
+          "text": "Student debt manageable; education is investment",
+          "score": [0.35, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "Market competition; minimize government role",
+          "score": [0.4, 0.02, 0.02, 0.25]
+        }
+      ]
+    },
+    {
+      "id": "Q014",
+      "sectionLabel": "Law & Order: Gun Control",
+      "text": "On gun control: Where's Canada's balance right?",
+      "subtext": "Stricter than US. Handgun bans proposed. Enforcement debates.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Much stricter; phase out handguns and semi-automatics",
+          "score": [0.08, 0.15, 0.15, 0.08]
+        },
+        {
+          "text": "Current regulations about right; focus enforcement",
+          "score": [0.25, 0.1, 0.08, 0.1]
+        },
+        {
+          "text": "Over-regulated; legal owners responsible; focus criminals",
+          "score": [0.35, 0.05, 0.05, 0.2]
+        },
+        {
+          "text": "Americans right; self-defence fundamental",
+          "score": [0.4, 0.05, 0.05, 0.25]
+        }
+      ]
+    },
+    {
+      "id": "Q015",
+      "sectionLabel": "Criminal Justice & Policing",
+      "text": "On criminal justice approach: What works?",
+      "subtext": "Violent crime rising. Debates: enforcement vs. root causes vs. rehabilitation.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Address root causes (poverty, addiction); decriminalize",
+          "score": [0.08, 0.18, 0.15, 0.08]
+        },
+        {
+          "text": "Balance enforcement with rehabilitation and accountability",
+          "score": [0.25, 0.12, 0.08, 0.1]
+        },
+        {
+          "text": "Get tough; enforce laws strictly",
+          "score": [0.35, 0.05, 0.05, 0.2]
+        },
+        {
+          "text": "Law and order first; police need resources",
+          "score": [0.4, 0.02, 0.02, 0.28]
+        }
+      ]
+    },
+    {
+      "id": "Q016",
+      "sectionLabel": "Retrospective: Gang Violence Response",
+      "text": "On rising gang violence (Toronto, Vancouver): Government response adequate?",
+      "subtext": "Shootings increased 2021-2023. Some blame weak enforcement.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Serious; needs major law enforcement coordination",
+          "score": [0.1, 0.08, 0.15, 0.12]
+        },
+        {
+          "text": "Real but manageable; local policing and social investment",
+          "score": [0.2, 0.1, 0.1, 0.1]
+        },
+        {
+          "text": "Overstated; historically low; address root causes",
+          "score": [0.3, 0.15, 0.08, 0.1]
+        },
+        {
+          "text": "Police hamstrung by progressive policies; tougher enforcement",
+          "score": [0.35, 0.02, 0.2, 0.15]
+        }
+      ]
+    },
+    {
+      "id": "Q017",
+      "sectionLabel": "Taxation & Corporate Policy",
+      "text": "On corporate taxation: How should Canada tax business?",
+      "subtext": "Tech, pharma avoid taxes. OECD minimum 15% coming.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Raise corporate taxes significantly; redistribute wealth",
+          "score": [0.08, 0.15, 0.12, 0.08]
+        },
+        {
+          "text": "Close loopholes, moderate rates; fair share but competitive",
+          "score": [0.25, 0.1, 0.08, 0.1]
+        },
+        {
+          "text": "Lower corporate taxes; attracts investment",
+          "score": [0.35, 0.05, 0.05, 0.2]
+        },
+        {
+          "text": "Slash corporate taxes; they flee to US anyway",
+          "score": [0.4, 0.02, 0.02, 0.28]
+        }
+      ]
+    },
+    {
+      "id": "Q018",
+      "sectionLabel": "Labour & Workers' Rights",
+      "text": "On labour power and union strength: What's the balance?",
+      "subtext": "Union density declining. Gig economy growing. Wage stagnation.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Strengthen unions; collective power essential",
+          "score": [0.08, 0.15, 0.15, 0.08]
+        },
+        {
+          "text": "Protect workers; unions good but not absolute",
+          "score": [0.25, 0.1, 0.08, 0.1]
+        },
+        {
+          "text": "Union power limits competitiveness; individual choice",
+          "score": [0.35, 0.05, 0.05, 0.2]
+        },
+        {
+          "text": "Unions block efficiency; minimize power",
+          "score": [0.4, 0.02, 0.02, 0.28]
+        }
+      ]
+    },
+    {
+      "id": "Q019",
+      "sectionLabel": "Retrospective: Rail and Nurse Strikes",
+      "text": "On 2023 rail and nurse strikes: How should Trudeau have handled?",
+      "subtext": "Nurses struck for wages; rail threatened disruption. Mediation vs. forced arbitration.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Let strikes play out; market determines wages",
+          "score": [0.3, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "Government mediation appropriate; balanced settlement",
+          "score": [0.25, 0.08, 0.08, 0.08]
+        },
+        {
+          "text": "Should have backed unions more; demands were modest",
+          "score": [0.15, 0.15, 0.1, 0.08]
+        },
+        {
+          "text": "Should have forced arbitration; strikes harm public",
+          "score": [0.35, 0.02, 0.2, 0.12]
+        }
+      ]
+    },
+    {
+      "id": "Q020",
+      "sectionLabel": "Abortion & Reproductive Rights",
+      "text": "On abortion access: What's Canada's policy?",
+      "subtext": "Canada has no federal restrictions. Late-term, parental notification debated.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Fully unrestricted; bodily autonomy paramount",
+          "score": [0.12, 0.18, 0.15, 0.08]
+        },
+        {
+          "text": "Unrestricted early; reasonable limits on late-term",
+          "score": [0.2, 0.12, 0.1, 0.1]
+        },
+        {
+          "text": "Restrictions on late-term; parental notification",
+          "score": [0.3, 0.05, 0.05, 0.18]
+        },
+        {
+          "text": "Significantly restrict; life begins at conception",
+          "score": [0.4, 0.02, 0.02, 0.28]
+        }
+      ]
+    },
+    {
+      "id": "Q021",
+      "sectionLabel": "LGBTQ+ Rights & Gender Identity",
+      "text": "On LGBTQ+ rights and gender identity: Where should Canada stand?",
+      "subtext": "Gender-affirming care, conversion therapy bans, drag shows, religious exemptions.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Actively protect/expand LGBTQ+ rights; no religious exemptions",
+          "score": [0.08, 0.2, 0.18, 0.08]
+        },
+        {
+          "text": "Protect rights; allow limited religious exemptions",
+          "score": [0.2, 0.15, 0.12, 0.1]
+        },
+        {
+          "text": "Protect rights but preserve religious freedom",
+          "score": [0.3, 0.08, 0.05, 0.18]
+        },
+        {
+          "text": "Traditional values priority; limit LGBTQ+ visibility",
+          "score": [0.4, 0.02, 0.02, 0.28]
+        }
+      ]
+    },
+    {
+      "id": "Q022",
+      "sectionLabel": "Retrospective: Conversion Therapy Ban",
+      "text": "On Trudeau's conversion therapy ban (2021): Appropriate action?",
+      "subtext": "Criminalized therapy. Religious groups objected; LGBTQ+ groups celebrated.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Necessary protection; it's abuse",
+          "score": [0.08, 0.18, 0.15, 0.08]
+        },
+        {
+          "text": "Right goal but implementation could balance religious rights better",
+          "score": [0.2, 0.12, 0.1, 0.08]
+        },
+        {
+          "text": "Overreach; shouldn't regulate family/religious decisions",
+          "score": [0.35, 0.05, 0.05, 0.2]
+        },
+        {
+          "text": "Attack on religious freedom; shouldn't pass",
+          "score": [0.4, 0.02, 0.02, 0.25]
+        }
+      ]
+    },
+    {
+      "id": "Q023",
+      "sectionLabel": "Foreign Policy & International Relations",
+      "text": "On NATO and military spending: What should Canada's role be?",
+      "subtext": "Russia invasion, 2% NATO target, China concerns, NORAD modernization.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Diplomatic focus; minimize military spending",
+          "score": [0.12, 0.15, 0.15, 0.08]
+        },
+        {
+          "text": "Meet NATO commitments; strengthen allies",
+          "score": [0.28, 0.1, 0.08, 0.1]
+        },
+        {
+          "text": "Increase military; Russia and China threats serious",
+          "score": [0.35, 0.05, 0.05, 0.2]
+        },
+        {
+          "text": "Significant rearmament; NATO must deter",
+          "score": [0.4, 0.02, 0.02, 0.28]
+        }
+      ]
+    },
+    {
+      "id": "Q024",
+      "sectionLabel": "Retrospective: Russia Sanctions",
+      "text": "On Russia sanctions response (2022): Adequate government action?",
+      "subtext": "Heavy sanctions imposed but energy sector partially spared. Effective?",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Strong response; effective sanctions on energy/finance",
+          "score": [0.15, 0.12, 0.08, 0.08]
+        },
+        {
+          "text": "Adequate but could have gone further on energy",
+          "score": [0.25, 0.1, 0.08, 0.08]
+        },
+        {
+          "text": "Overdone; harmed Canadian economy",
+          "score": [0.35, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "Performative; real leverage requires US leadership",
+          "score": [0.4, 0.05, 0.05, 0.25]
+        }
+      ]
+    },
+    {
+      "id": "Q025",
+      "sectionLabel": "Middle East Conflicts",
+      "text": "On Israel-Palestine: How should Canada respond?",
+      "subtext": "Settlements, humanitarian crises, recognition, arms sales debated.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Criticize settlements; support Palestinian statehood",
+          "score": [0.15, 0.18, 0.12, 0.08]
+        },
+        {
+          "text": "Support Israel's security but criticize settlements; two-state solution",
+          "score": [0.28, 0.1, 0.08, 0.1]
+        },
+        {
+          "text": "Strongly support Israel as democracy and ally",
+          "score": [0.35, 0.05, 0.05, 0.2]
+        },
+        {
+          "text": "Israel must have security; skeptical of Palestinian governance",
+          "score": [0.4, 0.02, 0.02, 0.28]
+        }
+      ]
+    },
+    {
+      "id": "Q026",
+      "sectionLabel": "Trade & Protectionism",
+      "text": "On trade policy: Free trade or protectionism?",
+      "subtext": "USMCA, China tariffs, supply chain resilience, Buy Canadian debated.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Fair trade with labour/environmental standards",
+          "score": [0.15, 0.15, 0.12, 0.08]
+        },
+        {
+          "text": "Open trade with labour standards",
+          "score": [0.28, 0.1, 0.08, 0.1]
+        },
+        {
+          "text": "Mostly free trade; protectionism risks harm",
+          "score": [0.35, 0.05, 0.05, 0.2]
+        },
+        {
+          "text": "Aggressive trade wars; protect domestic",
+          "score": [0.4, 0.02, 0.02, 0.28]
+        }
+      ]
+    },
+    {
+      "id": "Q027",
+      "sectionLabel": "Retrospective: Huawei Arrest",
+      "text": "On Meng Wanzhou arrest (2018): Was it justified?",
+      "subtext": "Detained Huawei CFO; China detained two Canadian diplomats. Strategic blunder?",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Right; enforce rule of law even under pressure",
+          "score": [0.2, 0.1, 0.1, 0.12]
+        },
+        {
+          "text": "Legally correct but strategically costly",
+          "score": [0.28, 0.08, 0.08, 0.08]
+        },
+        {
+          "text": "Mistake; damaged Canada-China relations",
+          "score": [0.35, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "Capitulated to US pressure; endangered diplomats",
+          "score": [0.4, 0.05, 0.05, 0.2]
+        }
+      ]
+    },
+    {
+      "id": "Q028",
+      "sectionLabel": "Fiscal Policy & Spending",
+      "text": "On government spending and deficits: How should Canada manage?",
+      "subtext": "Debt $35B+ interest annually. Services vs. restraint trade-off.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Invest heavily; debt manageable if used wisely",
+          "score": [0.08, 0.15, 0.12, 0.08]
+        },
+        {
+          "text": "Spend on priorities; balance budget over time",
+          "score": [0.25, 0.1, 0.08, 0.1]
+        },
+        {
+          "text": "Cut spending to reduce debt; smaller government",
+          "score": [0.35, 0.05, 0.05, 0.2]
+        },
+        {
+          "text": "Urgent austerity; path unsustainable",
+          "score": [0.4, 0.02, 0.02, 0.28]
+        }
+      ]
+    },
+    {
+      "id": "Q029",
+      "sectionLabel": "Senior Care & Pensions",
+      "text": "On seniors support: What's Canada's obligation?",
+      "subtext": "CPP/OAS stable but expensive. Long-term care underfunded. Aging population growing.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Expand CPP and publicly-funded long-term care",
+          "score": [0.08, 0.15, 0.12, 0.08]
+        },
+        {
+          "text": "Current system adequate; monitor sustainability",
+          "score": [0.25, 0.08, 0.08, 0.08]
+        },
+        {
+          "text": "Means-test benefits; reduce for wealthy",
+          "score": [0.35, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "Privatize; individuals save for retirement",
+          "score": [0.4, 0.02, 0.02, 0.25]
+        }
+      ]
+    },
+    {
+      "id": "Q030",
+      "sectionLabel": "Language & Quebec",
+      "text": "On language and Quebec: How should Canada approach this?",
+      "subtext": "Bill 101 and Bill 96 limit English. Federal bilingualism debates.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Protect French; Quebec's measures justified",
+          "score": [0.2, 0.12, 0.12, 0.08]
+        },
+        {
+          "text": "Both official; bilingual Canada, respect Quebec",
+          "score": [0.3, 0.1, 0.08, 0.1]
+        },
+        {
+          "text": "Bilingualism wasteful; let provinces choose",
+          "score": [0.35, 0.05, 0.05, 0.18]
+        },
+        {
+          "text": "Language restrictions undemocratic",
+          "score": [0.4, 0.02, 0.02, 0.25]
+        }
+      ]
+    },
+    {
+      "id": "Q031",
+      "sectionLabel": "Retrospective: Trudeau Scandals",
+      "text": "On Trudeau scandal management: How well did he handle ethical issues?",
+      "subtext": "SNC-Lavalin (2019), blackface (2019), WE Charity (2020). Pattern of problems?",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Handled fairly well; owned mistakes and moved on",
+          "score": [0.15, 0.08, 0.08, 0.08]
+        },
+        {
+          "text": "Some poor judgment but no real corruption",
+          "score": [0.25, 0.08, 0.08, 0.08]
+        },
+        {
+          "text": "Pattern of bad judgment; eroded trust",
+          "score": [0.35, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "Corrupt and entitled; should have resigned",
+          "score": [0.4, 0.02, 0.02, 0.2]
+        }
+      ]
+    },
+    {
+      "id": "Q032",
+      "sectionLabel": "Supply Management & Agriculture",
+      "text": "On supply management (dairy, eggs, poultry): Keep or reform?",
+      "subtext": "Protects farmers but raises food prices. Trade deals pressure reform.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Keep full supply management; protect farmers",
+          "score": [0.15, 0.08, 0.12, 0.25]
+        },
+        {
+          "text": "Gradual reform; transition support for farmers",
+          "score": [0.28, 0.08, 0.08, 0.15]
+        },
+        {
+          "text": "Eliminate; lower prices benefit consumers",
+          "score": [0.35, 0.05, 0.05, 0.08]
+        },
+        {
+          "text": "Full market competition; no protections",
+          "score": [0.4, 0.02, 0.02, 0.05]
+        }
+      ]
+    },
+    {
+      "id": "Q033",
+      "sectionLabel": "Electoral Reform",
+      "text": "On voting systems: Should Canada change how we elect MPs?",
+      "subtext": "Trudeau promised electoral reform; broke that promise. PR vs. FPTP debate.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Proportional representation; fair representation of all",
+          "score": [0.22, 0.15, 0.12, 0.08]
+        },
+        {
+          "text": "Mixed system; balance clarity and fairness",
+          "score": [0.32, 0.1, 0.08, 0.08]
+        },
+        {
+          "text": "FPTP is fine; simple and stable",
+          "score": [0.4, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "Change destabilizes; keep current",
+          "score": [0.45, 0.02, 0.02, 0.2]
+        }
+      ]
+    },
+    {
+      "id": "Q034",
+      "sectionLabel": "Media & CBC Funding",
+      "text": "On CBC and media funding: What's government's role?",
+      "subtext": "CBC budget declining. Private media struggling. Misinformation concerns.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Increase CBC funding significantly; public broadcasting essential",
+          "score": [0.12, 0.15, 0.12, 0.08]
+        },
+        {
+          "text": "Maintain current CBC funding; modest support",
+          "score": [0.25, 0.08, 0.08, 0.08]
+        },
+        {
+          "text": "CBC funding adequate; let private market lead",
+          "score": [0.35, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "Privatize CBC; too much government propaganda",
+          "score": [0.4, 0.02, 0.02, 0.25]
+        }
+      ]
+    },
+    {
+      "id": "Q035",
+      "sectionLabel": "Technology & AI Regulation",
+      "text": "On artificial intelligence regulation: How should Canada respond?",
+      "subtext": "AI rapidly advancing. Concerns: bias, jobs, copyright, misinformation.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Strong regulation; mandatory bias testing, transparency, oversight",
+          "score": [0.15, 0.15, 0.15, 0.08]
+        },
+        {
+          "text": "Moderate regulation; industry self-regulation plus minimums",
+          "score": [0.28, 0.1, 0.1, 0.08]
+        },
+        {
+          "text": "Light regulation; innovation mustn't be stifled",
+          "score": [0.35, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "No regulation; market handles risks",
+          "score": [0.4, 0.02, 0.02, 0.25]
+        }
+      ]
+    },
+    {
+      "id": "Q036",
+      "sectionLabel": "Current Events: Government Leadership",
+      "text": "On Trudeau's resignation announcement (May 2025): Was it the right time?",
+      "subtext": "Trudeau announced stepping down as Liberal leader but staying PM temporarily.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Should have left immediately; prolonged transition destabilizing",
+          "score": [0.1, 0.12, 0.1, 0.1]
+        },
+        {
+          "text": "Reasonable compromise; allows orderly transition",
+          "score": [0.25, 0.08, 0.08, 0.08]
+        },
+        {
+          "text": "Smart move; defuses crisis and lets Liberals reset",
+          "score": [0.35, 0.05, 0.05, 0.1]
+        },
+        {
+          "text": "Never should have resigned; caucus overthrew him",
+          "score": [0.4, 0.02, 0.02, 0.15]
+        }
+      ]
+    },
+    {
+      "id": "Q037",
+      "sectionLabel": "Current Events: Poilievre Opposition",
+      "text": "On Pierre Poilievre's 'Axe the Tax' campaign: Credible policy or populism?",
+      "subtext": "Poilievre campaigns to eliminate carbon tax and regulations. Serious or reckless?",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Reckless; abandons climate and worker protections",
+          "score": [0.1, 0.15, 0.12, 0.08]
+        },
+        {
+          "text": "Populist but reflects legitimate voter frustration on cost of living",
+          "score": [0.25, 0.08, 0.08, 0.12]
+        },
+        {
+          "text": "Serious fiscal alternative; needs detailed costing",
+          "score": [0.35, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "Exactly right; government bloat is destroying affordability",
+          "score": [0.4, 0.02, 0.02, 0.2]
+        }
+      ]
+    },
+    {
+      "id": "Q038",
+      "sectionLabel": "Current Events: Cost of Living",
+      "text": "On Canada's cost of living surge (2024-2025): Who's most to blame?",
+      "subtext": "Inflation persists; rent, groceries, utilities soaring. Government vs. global.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Mostly global supply/interest rate issues; government limited control",
+          "score": [0.25, 0.05, 0.08, 0.15]
+        },
+        {
+          "text": "Both government spending and external factors; joint responsibility",
+          "score": [0.35, 0.08, 0.08, 0.1]
+        },
+        {
+          "text": "Government spending worsened inflation significantly",
+          "score": [0.4, 0.02, 0.02, 0.15]
+        },
+        {
+          "text": "Corporate greed and price gouging; government should intervene more",
+          "score": [0.15, 0.15, 0.1, 0.08]
+        }
+      ]
+    },
+    {
+      "id": "Q039",
+      "sectionLabel": "Current Events: Healthcare Crisis",
+      "text": "On provincial healthcare system failures (2024-2025): Federal intervention or provincial responsibility?",
+      "subtext": "ERs closing; waits surging; provinces underfunded or mismanaged?",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Federal must increase transfers and set strict accountability",
+          "score": [0.1, 0.12, 0.1, 0.08]
+        },
+        {
+          "text": "Increase transfers but let provinces lead implementation",
+          "score": [0.2, 0.1, 0.08, 0.08]
+        },
+        {
+          "text": "Provinces need to improve efficiency with current funding",
+          "score": [0.35, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "Provinces should privatize more; government inefficient",
+          "score": [0.4, 0.02, 0.02, 0.2]
+        }
+      ]
+    },
+    {
+      "id": "Q040",
+      "sectionLabel": "Current Events: India & Diplomacy",
+      "text": "On Canada-India tensions (2023-2024): Trudeau's handling of allegations?",
+      "subtext": "Trudeau alleged Indian agents murdered Sikh activist. India denied; crisis.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Trudeau right to expose; stand firm on sovereignty",
+          "score": [0.15, 0.12, 0.1, 0.15]
+        },
+        {
+          "text": "Justified concern but handled poorly; damaged relationship",
+          "score": [0.25, 0.08, 0.08, 0.08]
+        },
+        {
+          "text": "Overblown accusations; worsened ties unnecessarily",
+          "score": [0.35, 0.05, 0.05, 0.1]
+        },
+        {
+          "text": "Destabilized geopolitics with unproven allegations",
+          "score": [0.4, 0.02, 0.02, 0.15]
+        }
+      ]
+    },
+    {
+      "id": "Q041",
+      "sectionLabel": "Current Events: Palestinian Rights",
+      "text": "On Canada's UN votes regarding Palestine (2024-2025): Correct stance?",
+      "subtext": "Canada abstained on some votes, voted for Palestinian UN seats. Criticized from both sides.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Should support Palestinian statehood more strongly; genocide concerns",
+          "score": [0.15, 0.18, 0.15, 0.08]
+        },
+        {
+          "text": "Canada's balanced position is appropriate",
+          "score": [0.3, 0.1, 0.08, 0.08]
+        },
+        {
+          "text": "Too anti-Israel; compromises alliance with democracy",
+          "score": [0.4, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "Virtue signalling; shouldn't take sides in foreign disputes",
+          "score": [0.45, 0.02, 0.02, 0.2]
+        }
+      ]
+    },
+    {
+      "id": "Q042",
+      "sectionLabel": "Current Events: China Trade War",
+      "text": "On Canada-China trade tensions (2024-2025): How should Canada respond to tariffs?",
+      "subtext": "China imposed retaliatory tariffs on canola, pork. Canada imposed own tariffs.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Maintain stand against Chinese unfair practices",
+          "score": [0.25, 0.08, 0.08, 0.15]
+        },
+        {
+          "text": "Stand firm but pursue diplomatic resolution",
+          "score": [0.32, 0.08, 0.08, 0.08]
+        },
+        {
+          "text": "Tariffs hurt Canadian farmers; prioritize trade over politics",
+          "score": [0.38, 0.05, 0.05, 0.12]
+        },
+        {
+          "text": "Economic warfare with China hurts Canada most",
+          "score": [0.4, 0.02, 0.02, 0.18]
+        }
+      ]
+    },
+    {
+      "id": "Q043",
+      "sectionLabel": "Current Events: Syria Reintegration",
+      "text": "On Syria's re-joining Arab League (2023) and Assad normalization: Should Canada engage?",
+      "subtext": "Assad's Syria officially welcomed back. Some call for normalization; others demand justice.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Engage diplomatically; constructive engagement better than isolation",
+          "score": [0.28, 0.08, 0.08, 0.1]
+        },
+        {
+          "text": "Limited engagement; accountability first before normalization",
+          "score": [0.32, 0.1, 0.1, 0.08]
+        },
+        {
+          "text": "Maintain isolation; Assad committed war crimes",
+          "score": [0.35, 0.15, 0.12, 0.05]
+        },
+        {
+          "text": "Arab League decision; Canada shouldn't interfere",
+          "score": [0.4, 0.05, 0.05, 0.15]
+        }
+      ]
+    },
+    {
+      "id": "Q044",
+      "sectionLabel": "Current Events: AI Regulation",
+      "text": "On Canada's AI regulation pace (2024-2025): Moving too fast or too slow?",
+      "subtext": "EU and US moving on AI regulation; Canada still drafting policy.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Regulate quickly before harms proliferate; follow EU lead",
+          "score": [0.15, 0.15, 0.15, 0.08]
+        },
+        {
+          "text": "Moderate pace with industry input; avoid EU overreach",
+          "score": [0.28, 0.08, 0.08, 0.08]
+        },
+        {
+          "text": "Light regulation; competition drives safety",
+          "score": [0.38, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "Hands-off; AI innovation can't be stifled",
+          "score": [0.45, 0.02, 0.02, 0.2]
+        }
+      ]
+    },
+    {
+      "id": "Q045",
+      "sectionLabel": "Current Events: US Trade Relations",
+      "text": "On Trump 2.0 and Canada-US trade (2025): How should Canada prepare?",
+      "subtext": "Trump re-elected; threatens tariffs, USMCA renegotiation, border wall cost-sharing.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Strengthen ties with other nations; reduce US dependency",
+          "score": [0.2, 0.1, 0.1, 0.15]
+        },
+        {
+          "text": "Negotiate hard but maintain good relationship",
+          "score": [0.32, 0.08, 0.08, 0.08]
+        },
+        {
+          "text": "Accommodate US demands; too dependent to resist",
+          "score": [0.38, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "Tariffs are negotiating tactic; call his bluff",
+          "score": [0.35, 0.08, 0.1, 0.15]
+        }
+      ]
+    },
+    {
+      "id": "Q046",
+      "sectionLabel": "Current Events: NATO Spending",
+      "text": "On Canada's NATO 2% commitment (2025): Can we afford it during affordability crisis?",
+      "subtext": "NATO pressure to reach 2% GDP on defence. Canada at ~1.3%. Budget conflict.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Commit to 2%; global security is non-negotiable",
+          "score": [0.28, 0.08, 0.08, 0.15]
+        },
+        {
+          "text": "Gradual path to 2%; balance defence and social needs",
+          "score": [0.32, 0.1, 0.08, 0.1]
+        },
+        {
+          "text": "Increase modestly; can't afford full 2%",
+          "score": [0.35, 0.12, 0.08, 0.08]
+        },
+        {
+          "text": "Stay at current levels; money better spent at home",
+          "score": [0.4, 0.15, 0.1, 0.08]
+        }
+      ]
+    },
+    {
+      "id": "Q047",
+      "sectionLabel": "Current Events: Immigration Pause",
+      "text": "On Trudeau's immigration target pause/reduction (2024): Correct policy shift?",
+      "subtext": "Reduced targets from 1M to 885K, then further. Recognition of errors?",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Overdue correction; high intake worsened housing and strain",
+          "score": [0.35, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "Reasonable adjustment; admits some error in timing",
+          "score": [0.3, 0.1, 0.08, 0.08]
+        },
+        {
+          "text": "Unnecessary panic; targets were reasonable",
+          "score": [0.22, 0.12, 0.1, 0.08]
+        },
+        {
+          "text": "Scapegoating immigrants for government failures",
+          "score": [0.15, 0.18, 0.12, 0.08]
+        }
+      ]
+    },
+    {
+      "id": "Q048",
+      "sectionLabel": "Current Events: Dental Care Rollout",
+      "text": "On Dental Care Plan rollout issues (2024-2025): Implementation failure or growing pains?",
+      "subtext": "Promised dental coverage delayed; dentist participation low; eligibility questions.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Growing pains; important program worth patience",
+          "score": [0.2, 0.12, 0.1, 0.08]
+        },
+        {
+          "text": "Poor rollout but fixable; shows good intent",
+          "score": [0.28, 0.08, 0.08, 0.08]
+        },
+        {
+          "text": "Government incompetence; implementation failure",
+          "score": [0.35, 0.05, 0.05, 0.12]
+        },
+        {
+          "text": "Predictable government waste; shouldn't have tried",
+          "score": [0.4, 0.02, 0.02, 0.15]
+        }
+      ]
+    },
+    {
+      "id": "Q049",
+      "sectionLabel": "Current Events: Healthcare IT",
+      "text": "On cyber attacks disrupting healthcare (2024-2025): Government response adequate?",
+      "subtext": "UnitedHealth ransomware attack disrupted Canadian healthcare. Cybersecurity failures?",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Exposes need for massive healthcare IT investment federally",
+          "score": [0.15, 0.12, 0.12, 0.08]
+        },
+        {
+          "text": "Provinces need better cybersecurity; federal coordination helps",
+          "score": [0.28, 0.08, 0.08, 0.08]
+        },
+        {
+          "text": "Private companies fragile; government should manage systems",
+          "score": [0.32, 0.1, 0.1, 0.08]
+        },
+        {
+          "text": "Overblown crisis; normal business risk",
+          "score": [0.4, 0.05, 0.05, 0.15]
+        }
+      ]
+    },
+    {
+      "id": "Q050",
+      "sectionLabel": "Current Events: University Protests",
+      "text": "On university Gaza encampments (2024): Balance free speech vs. university responsibility?",
+      "subtext": "Pro-Palestinian student encampments occupied campuses. Police removed some.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Universities right to clear disruptions; student access compromised",
+          "score": [0.3, 0.08, 0.12, 0.1]
+        },
+        {
+          "text": "Allow peaceful protest; remove only if disruptive",
+          "score": [0.25, 0.15, 0.1, 0.08]
+        },
+        {
+          "text": "Police response was heavy-handed; criminalizing protest",
+          "score": [0.2, 0.18, 0.12, 0.08]
+        },
+        {
+          "text": "Universities too permissive; need stricter management",
+          "score": [0.38, 0.05, 0.15, 0.1]
+        }
+      ]
+    },
+    {
+      "id": "Q051",
+      "sectionLabel": "Current Events: Judicial Independence",
+      "text": "On Stephen Harper's criticism of judicial independence (2024-2025): Legitimate or assault?",
+      "subtext": "Harper criticized court decisions on sentencing, immigration. Debate on judicial activism.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Legitimate debate on judicial philosophy; courts overreach",
+          "score": [0.35, 0.05, 0.08, 0.12]
+        },
+        {
+          "text": "Valid concerns but rhetoric undermines court independence",
+          "score": [0.32, 0.08, 0.08, 0.1]
+        },
+        {
+          "text": "Courts making policy; judiciary should follow law",
+          "score": [0.38, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "Attack on independence; dangerous to rule of law",
+          "score": [0.18, 0.15, 0.15, 0.08]
+        }
+      ]
+    },
+    {
+      "id": "Q052",
+      "sectionLabel": "Current Events: Alberta Sovereignty",
+      "text": "On Alberta sovereignty movement (2024-2025): Legitimate grievance or separatism?",
+      "subtext": "Danielle Smith explores autonomy on tax, pensions, immigration.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Alberta overreach; threatens confederation",
+          "score": [0.15, 0.1, 0.1, 0.05]
+        },
+        {
+          "text": "Legitimate provincial concerns; negotiate federally",
+          "score": [0.3, 0.08, 0.08, 0.15]
+        },
+        {
+          "text": "Alberta right to explore more autonomy; feds give too little",
+          "score": [0.38, 0.05, 0.05, 0.25]
+        },
+        {
+          "text": "Should separate; better off independent",
+          "score": [0.4, 0.02, 0.02, 0.35]
+        }
+      ]
+    },
+    {
+      "id": "Q053",
+      "sectionLabel": "Current Events: B.C. Crisis",
+      "text": "On B.C.'s housing and cost of living spiral (2024-2025): Provincial/federal failure?",
+      "subtext": "Record homelessness, affordability crisis. NDP government mismanagement or systemic?",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "NDP failed; need Conservative management and market solutions",
+          "score": [0.35, 0.05, 0.08, 0.1]
+        },
+        {
+          "text": "Mixed: some government failure and structural problems",
+          "score": [0.32, 0.08, 0.08, 0.08]
+        },
+        {
+          "text": "Systemic housing crisis; needs federal intervention",
+          "score": [0.2, 0.15, 0.1, 0.08]
+        },
+        {
+          "text": "Market failure; need public housing and price controls",
+          "score": [0.15, 0.18, 0.12, 0.08]
+        }
+      ]
+    },
+    {
+      "id": "Q054",
+      "sectionLabel": "Current Events: Pharmacare Deal",
+      "text": "On NDP-Liberal pharmacare deal (2024): Good progressive policy or budget burden?",
+      "subtext": "NDP extracted pharmacare and dental commitments. Coverage expanding but costs rising.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Excellent social program; investment in healthcare",
+          "score": [0.15, 0.15, 0.12, 0.08]
+        },
+        {
+          "text": "Good idea but implementation challenging and expensive",
+          "score": [0.25, 0.1, 0.08, 0.08]
+        },
+        {
+          "text": "Excessive spending; Liberals bought NDP support",
+          "score": [0.35, 0.05, 0.05, 0.12]
+        },
+        {
+          "text": "Wasteful pork barrel politics; unaffordable",
+          "score": [0.4, 0.02, 0.02, 0.15]
+        }
+      ]
+    },
+    {
+      "id": "Q055",
+      "sectionLabel": "Current Events: Convoy Legacy",
+      "text": "On Trudeau's handling of 2022 Convoy and Emergencies Act: Justified or authoritarian?",
+      "subtext": "Invoked Emergencies Act first time since 1988. Froze accounts. Debate on powers.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Necessary; convoy blocked economy and posed security threat",
+          "score": [0.25, 0.08, 0.15, 0.1]
+        },
+        {
+          "text": "Justified but overreaching; weaker measures could have worked",
+          "score": [0.32, 0.08, 0.1, 0.08]
+        },
+        {
+          "text": "Authoritarian overreach; peaceful protest shouldn't trigger it",
+          "score": [0.38, 0.12, 0.05, 0.15]
+        },
+        {
+          "text": "Trampled civil liberties; dangerous precedent",
+          "score": [0.4, 0.15, 0.02, 0.2]
+        }
+      ]
+    },
+    {
+      "id": "Q056",
+      "sectionLabel": "Current Events: Foreign Interference",
+      "text": "On response to foreign interference (2023-2024): Adequate transparency?",
+      "subtext": "Revelations of Chinese election interference. Debate over disclosure timing.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Government too slow; voters deserved to know earlier",
+          "score": [0.2, 0.1, 0.12, 0.1]
+        },
+        {
+          "text": "Reasonable timing; balancing security and transparency",
+          "score": [0.3, 0.08, 0.08, 0.08]
+        },
+        {
+          "text": "Overblown; foreign interference normal in democracies",
+          "score": [0.38, 0.05, 0.08, 0.12]
+        },
+        {
+          "text": "Security concerns justify delay; transparency less important",
+          "score": [0.4, 0.02, 0.15, 0.1]
+        }
+      ]
+    },
+    {
+      "id": "Q057",
+      "sectionLabel": "Current Events: Trans Mountain Pipeline",
+      "text": "On Trans Mountain Pipeline expansion completion (2024): Worth the investment?",
+      "subtext": "$34B project completed. Environmental groups say misguided; Alberta says essential.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Mistake; money should fund renewables, not fossil fuel expansion",
+          "score": [0.15, 0.18, 0.12, 0.08]
+        },
+        {
+          "text": "Necessary transitional infrastructure; oil needed during transition",
+          "score": [0.32, 0.08, 0.08, 0.15]
+        },
+        {
+          "text": "Good investment; economic benefit and energy security",
+          "score": [0.38, 0.05, 0.08, 0.2]
+        },
+        {
+          "text": "Waste of money; pipeline never needed",
+          "score": [0.4, 0.15, 0.1, 0.05]
+        }
+      ]
+    },
+    {
+      "id": "Q058",
+      "sectionLabel": "Current Events: Colombia Deportations",
+      "text": "On Canada-Colombia deportation dispute (2024): Government right to cancel flights?",
+      "subtext": "Trump administration tried military plane deportations. Canada paused flights in protest.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Right stance; inhumane treatment and violation of sovereignty",
+          "score": [0.18, 0.15, 0.12, 0.12]
+        },
+        {
+          "text": "Made point but pragmatically must cooperate eventually",
+          "score": [0.28, 0.08, 0.08, 0.08]
+        },
+        {
+          "text": "Grandstanding; Canada should cooperate with US",
+          "score": [0.35, 0.05, 0.05, 0.15]
+        },
+        {
+          "text": "Weakness; Canada shouldn't challenge US authority",
+          "score": [0.4, 0.02, 0.02, 0.2]
+        }
+      ]
+    },
+    {
+      "id": "Q059",
+      "sectionLabel": "Current Events: Oil Sands Expansion",
+      "text": "On continued oil sands expansion (2024-2025): Compatible with net-zero goals?",
+      "subtext": "Cenovus, Suncor expanding capacity despite net-zero 2050 targets.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Incompatible with climate targets; should ban expansion",
+          "score": [0.12, 0.18, 0.15, 0.08]
+        },
+        {
+          "text": "Tension but necessary during transition; manage emissions",
+          "score": [0.28, 0.08, 0.08, 0.12]
+        },
+        {
+          "text": "Economic necessity; climate targets too rigid",
+          "score": [0.38, 0.05, 0.05, 0.2]
+        },
+        {
+          "text": "Oil industry essential; no limits needed",
+          "score": [0.42, 0.02, 0.02, 0.25]
+        }
+      ]
+    },
+    {
+      "id": "Q060",
+      "sectionLabel": "Current Events: Supply Chain Resilience",
+      "text": "On Canada's economic vulnerability (2024-2025): How dependent on US and China?",
+      "subtext": "Recent disruptions show Canada lacks independent supply chains. Strategic concern.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Need major domestic capacity in critical sectors; invest federally",
+          "score": [0.15, 0.12, 0.1, 0.2]
+        },
+        {
+          "text": "Strengthen supply chains but keep trading relationships",
+          "score": [0.28, 0.08, 0.08, 0.15]
+        },
+        {
+          "text": "Some redundancy okay but global trade more efficient",
+          "score": [0.38, 0.05, 0.05, 0.1]
+        },
+        {
+          "text": "Self-sufficiency is fantasy; embrace global trade",
+          "score": [0.42, 0.02, 0.02, 0.05]
+        }
+      ]
+    },
+    {
+      "id": "Q061",
+      "sectionLabel": "Current Events: Two-Tier Healthcare",
+      "text": "On growing private healthcare in Canada (2024-2025): Inevitable or system failure?",
+      "subtext": "Private clinics expanding; wait times fuel private demand. Public system breakdown?",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Public system failing; need to accept mixed model",
+          "score": [0.32, 0.08, 0.08, 0.12]
+        },
+        {
+          "text": "Public system underfunded; fix that before accepting private",
+          "score": [0.2, 0.15, 0.1, 0.08]
+        },
+        {
+          "text": "Two-tier divides country; must strengthen public",
+          "score": [0.12, 0.18, 0.12, 0.08]
+        },
+        {
+          "text": "Private choice improves system; allow more private",
+          "score": [0.4, 0.02, 0.05, 0.15]
+        }
+      ]
+    }
+  ]
+}
