@@ -268,24 +268,11 @@ class QuizApp {
     }
 
     renderAxisResults(econ, prog, auth, nat) {
-        let container = document.getElementById('axisResults');
-        
-        // If element doesn't exist, create it in results-content
+        const container = document.getElementById('results-content');
         if (!container) {
-            const resultsContent = document.getElementById('results-content');
-            if (!resultsContent) {
-                console.error('Results content container not found');
-                return;
-            }
-            
-            const section = document.createElement('div');
-            section.className = 'results-section';
-            section.innerHTML = '<div id="axisResults"></div>';
-            resultsContent.appendChild(section);
-            container = document.getElementById('axisResults');
+            console.error('Results content container not found');
+            return;
         }
-
-        container.innerHTML = '';
 
         const axes = [
             { label: 'Economic', value: econ, left: 'Left: Regulation', right: 'Right: Markets' },
@@ -294,61 +281,56 @@ class QuizApp {
             { label: 'Nationalism', value: nat, left: 'Globalist: Open', right: 'Nationalist: Sovereignty' }
         ];
 
+        let axisHTML = '';
         axes.forEach(axis => {
-            const axisDiv = document.createElement('div');
-            axisDiv.className = 'axis-result';
-            
             const color = axis.value > 65 ? '#D32F2F' : axis.value > 50 ? '#E6A0A0' : axis.value > 40 ? '#1976D2' : '#64B5F6';
             
-            axisDiv.innerHTML = `
-                <h4>${axis.label}</h4>
-                <div class="axis-bar">
-                    <div class="axis-fill" style="width: ${axis.value}%; background: ${color};">
-                        <span>${axis.value}%</span>
+            axisHTML += `
+                <div class="axis-result">
+                    <h4>${axis.label}</h4>
+                    <div class="axis-bar">
+                        <div class="axis-fill" style="width: ${axis.value}%; background: ${color};">
+                            <span>${axis.value}%</span>
+                        </div>
+                    </div>
+                    <div class="axis-endpoints">
+                        <span>${axis.left}</span>
+                        <span>${axis.right}</span>
                     </div>
                 </div>
-                <div class="axis-endpoints">
-                    <span>${axis.left}</span>
-                    <span>${axis.right}</span>
-                </div>
             `;
-            
-            container.appendChild(axisDiv);
         });
+
+        const section = document.createElement('div');
+        section.className = 'results-section';
+        section.innerHTML = axisHTML;
+        container.appendChild(section);
     }
 
     renderPartyAlignment(econ, prog, auth, nat) {
-        let container = document.getElementById('partyAlignment');
-        
-        // If element doesn't exist, create it in results-content
+        const container = document.getElementById('results-content');
         if (!container) {
-            const resultsContent = document.getElementById('results-content');
-            if (!resultsContent) {
-                console.error('Results content container not found');
-                return;
-            }
-            
-            const section = document.createElement('div');
-            section.className = 'results-section';
-            section.innerHTML = '<h3>Party Alignment</h3><div id="partyAlignment"></div>';
-            resultsContent.appendChild(section);
-            container = document.getElementById('partyAlignment');
+            console.error('Results content container not found');
+            return;
         }
-
-        container.innerHTML = '';
 
         const parties = this.calculatePartyAlignment(econ, prog, auth, nat);
 
+        let partyHTML = '';
         parties.slice(0, 3).forEach(party => {
-            const partyDiv = document.createElement('div');
-            partyDiv.className = 'party-item';
-            partyDiv.innerHTML = `
-                <div class="party-name">${party.name}</div>
-                <div class="party-desc">${party.desc}</div>
-                <div class="alignment-score">Match: ${party.match}%</div>
+            partyHTML += `
+                <div class="party-item">
+                    <div class="party-name">${party.name}</div>
+                    <div class="party-desc">${party.desc}</div>
+                    <div class="alignment-score">Match: ${party.match}%</div>
+                </div>
             `;
-            container.appendChild(partyDiv);
         });
+
+        const section = document.createElement('div');
+        section.className = 'results-section';
+        section.innerHTML = `<h3>Party Alignment</h3><div class="party-alignment">${partyHTML}</div>`;
+        container.appendChild(section);
     }
 
     calculatePartyAlignment(econ, prog, auth, nat) {
