@@ -1,6 +1,6 @@
 // Canadian Political Alignment Test - Phase 3
 // Complete with Issue Clustering, Faction Analysis, Enhanced Contradictions, Visualizations
- 
+
 class QuizApp {
     constructor() {
         this.questions = [];
@@ -15,7 +15,7 @@ class QuizApp {
         
         this.init();
     }
- 
+
     async init() {
         this.setupEventListeners();
         this.applyDarkMode();
@@ -24,7 +24,7 @@ class QuizApp {
         this.loadSavedProgress();
         this.showWelcomeScreen();
     }
- 
+
     setupEventListeners() {
         const listeners = {
             'startBtn': () => this.startQuiz('full'),
@@ -49,7 +49,7 @@ class QuizApp {
             }
         });
     }
- 
+
     async loadQuestions() {
         try {
             const response = await fetch('questions.json');
@@ -61,7 +61,7 @@ class QuizApp {
             alert('Failed to load quiz questions. Please refresh the page.');
         }
     }
- 
+
     async loadPhaseData() {
         try {
             const response = await fetch('data-phase3.json');
@@ -72,7 +72,7 @@ class QuizApp {
             this.phaseData = { issues: [], factions: {}, contradictions: [] };
         }
     }
- 
+
     loadSavedProgress() {
         const saved = localStorage.getItem('quizProgress');
         if (saved) {
@@ -83,7 +83,7 @@ class QuizApp {
             this.testMode = progress.testMode;
         }
     }
- 
+
     saveProgress() {
         const progress = {
             currentQuestionIndex: this.currentQuestionIndex,
@@ -94,11 +94,11 @@ class QuizApp {
         };
         localStorage.setItem('quizProgress', JSON.stringify(progress));
     }
- 
+
     showWelcomeScreen() {
         document.getElementById('welcomeScreen').style.display = 'block';
     }
- 
+
     startQuiz(mode) {
         this.testMode = mode;
         this.startTime = Date.now();
@@ -106,7 +106,7 @@ class QuizApp {
         document.getElementById('resetBtn').style.display = 'inline-block';
         this.renderQuestion();
     }
- 
+
     renderQuestion() {
         const screen = document.getElementById('quizScreen');
         if (!screen) {
@@ -114,21 +114,21 @@ class QuizApp {
             return;
         }
         screen.style.display = 'block';
- 
+
         if (!this.questions || this.questions.length === 0) {
             console.error('No questions loaded');
             return;
         }
- 
+
         if (this.currentQuestionIndex >= this.questions.length) {
             console.error('Question index out of bounds');
             this.showResults();
             return;
         }
- 
+
         const question = this.questions[this.currentQuestionIndex];
         const isNewSection = question.sectionLabel !== this.currentSection;
- 
+
         if (isNewSection) {
             this.currentSection = question.sectionLabel;
             const sectionLabel = document.getElementById('sectionLabel');
@@ -142,7 +142,7 @@ class QuizApp {
                 sectionLabel.style.display = 'none';
             }
         }
- 
+
         const questionText = document.getElementById('questionText');
         const questionSubtext = document.getElementById('questionSubtext');
         if (questionText) questionText.textContent = question.text;
@@ -153,9 +153,9 @@ class QuizApp {
         if (questionNumber) questionNumber.textContent = this.currentQuestionIndex + 1;
         if (totalQuestions) totalQuestions.textContent = this.questions.length;
         this.updateProgressBar();
- 
+
         this.renderOptions(question);
- 
+
         const prevBtn = document.getElementById('prevBtn');
         if (prevBtn) {
             prevBtn.style.display = this.currentQuestionIndex > 0 ? 'inline-block' : 'none';
@@ -166,29 +166,29 @@ class QuizApp {
             nextBtn.disabled = this.answers[this.currentQuestionIndex] === undefined;
         }
     }
- 
+
     renderOptions(question) {
         const container = document.getElementById('optionsContainer');
         container.innerHTML = '';
- 
+
         question.options.forEach((option, index) => {
             const button = document.createElement('button');
             button.className = 'option-btn';
             button.textContent = option.text;
- 
+
             if (this.answers[this.currentQuestionIndex] === index) {
                 button.classList.add('selected');
             }
- 
+
             button.addEventListener('click', () => this.selectOption(index));
             container.appendChild(button);
         });
     }
- 
+
     selectOption(optionIndex) {
         const question = this.questions[this.currentQuestionIndex];
         const option = question.options[optionIndex];
- 
+
         // If answer is already set, undo previous score
         if (this.answers[this.currentQuestionIndex] !== undefined) {
             const previousOption = question.options[this.answers[this.currentQuestionIndex]];
@@ -196,7 +196,7 @@ class QuizApp {
                 this.scores[i] -= previousOption.score[i];
             }
         }
- 
+
         // Set new answer
         this.answers[this.currentQuestionIndex] = optionIndex;
         
@@ -204,16 +204,16 @@ class QuizApp {
         for (let i = 0; i < 4; i++) {
             this.scores[i] = Math.max(0, Math.min(10, this.scores[i] + option.score[i]));
         }
- 
+
         const buttons = document.querySelectorAll('.option-btn');
         buttons.forEach((btn, idx) => {
             btn.classList.toggle('selected', idx === optionIndex);
         });
- 
+
         document.getElementById('nextBtn').disabled = false;
         this.saveProgress();
     }
- 
+
     nextQuestion() {
         if (this.currentQuestionIndex < this.questions.length - 1) {
             this.currentQuestionIndex++;
@@ -222,22 +222,22 @@ class QuizApp {
             this.showResults();
         }
     }
- 
+
     previousQuestion() {
         if (this.currentQuestionIndex > 0) {
             this.currentQuestionIndex--;
             this.renderQuestion();
         }
     }
- 
+
     updateProgressBar() {
         const progressFill = document.getElementById('progressFill');
         if (!progressFill) return;
- 
+
         const progress = ((this.currentQuestionIndex + 1) / this.questions.length) * 100;
         progressFill.style.width = progress + '%';
     }
- 
+
     showResults() {
         document.getElementById('quizScreen').style.display = 'none';
         document.getElementById('resultsScreen').style.display = 'block';
@@ -250,7 +250,7 @@ class QuizApp {
         const prog = Math.round((this.scores[1] / 10) * 100);
         const auth = Math.round((this.scores[2] / 10) * 100);
         const nat = Math.round((this.scores[3] / 10) * 100);
- 
+
         this.renderAxisResults(econ, prog, auth, nat);
         this.renderPartyAlignment(econ, prog, auth, nat);
         this.renderRadarChart(econ, prog, auth, nat);
@@ -266,18 +266,34 @@ class QuizApp {
             timestamp: Date.now()
         });
     }
- 
+
     renderAxisResults(econ, prog, auth, nat) {
-        const container = document.getElementById('axisResults');
+        let container = document.getElementById('axisResults');
+        
+        // If element doesn't exist, create it in results-content
+        if (!container) {
+            const resultsContent = document.getElementById('results-content');
+            if (!resultsContent) {
+                console.error('Results content container not found');
+                return;
+            }
+            
+            const section = document.createElement('div');
+            section.className = 'results-section';
+            section.innerHTML = '<div id="axisResults"></div>';
+            resultsContent.appendChild(section);
+            container = document.getElementById('axisResults');
+        }
+
         container.innerHTML = '';
- 
+
         const axes = [
             { label: 'Economic', value: econ, left: 'Left: Regulation', right: 'Right: Markets' },
             { label: 'Progressive', value: prog, left: 'Tradition: Caution', right: 'Progressive: Reform' },
             { label: 'Authority', value: auth, left: 'Civil Liberties', right: 'Law & Order' },
             { label: 'Nationalism', value: nat, left: 'Globalist: Open', right: 'Nationalist: Sovereignty' }
         ];
- 
+
         axes.forEach(axis => {
             const axisDiv = document.createElement('div');
             axisDiv.className = 'axis-result';
@@ -300,12 +316,29 @@ class QuizApp {
             container.appendChild(axisDiv);
         });
     }
- 
+
     renderPartyAlignment(econ, prog, auth, nat) {
-        const parties = this.calculatePartyAlignment(econ, prog, auth, nat);
-        const container = document.getElementById('partyAlignment');
+        let container = document.getElementById('partyAlignment');
+        
+        // If element doesn't exist, create it in results-content
+        if (!container) {
+            const resultsContent = document.getElementById('results-content');
+            if (!resultsContent) {
+                console.error('Results content container not found');
+                return;
+            }
+            
+            const section = document.createElement('div');
+            section.className = 'results-section';
+            section.innerHTML = '<h3>Party Alignment</h3><div id="partyAlignment"></div>';
+            resultsContent.appendChild(section);
+            container = document.getElementById('partyAlignment');
+        }
+
         container.innerHTML = '';
- 
+
+        const parties = this.calculatePartyAlignment(econ, prog, auth, nat);
+
         parties.slice(0, 3).forEach(party => {
             const partyDiv = document.createElement('div');
             partyDiv.className = 'party-item';
@@ -317,7 +350,7 @@ class QuizApp {
             container.appendChild(partyDiv);
         });
     }
- 
+
     calculatePartyAlignment(econ, prog, auth, nat) {
         const parties = [];
         
@@ -337,7 +370,7 @@ class QuizApp {
                 });
             }
         }
- 
+
         if (econ >= 40 && econ <= 55 && prog >= 45 && prog <= 60) {
             parties.push({
                 name: 'Liberals',
@@ -345,7 +378,7 @@ class QuizApp {
                 match: Math.round(Math.min(90, 80 - Math.abs(econ - 48) + Math.abs(prog - 50)))
             });
         }
- 
+
         if (econ > 55) {
             if (prog < 45) {
                 parties.push({
@@ -362,7 +395,7 @@ class QuizApp {
                 });
             }
         }
- 
+
         if (parties.length === 0) {
             parties.push({
                 name: 'Independent/Cross-party',
@@ -370,17 +403,17 @@ class QuizApp {
                 match: 65
             });
         }
- 
+
         return parties;
     }
- 
+
     // PHASE 3: ISSUE ANALYSIS
     renderIssueAnalysis() {
         if (!this.phaseData || !this.phaseData.issues) {
             console.error('Phase data not loaded');
             return;
         }
- 
+
         const container = document.getElementById('results-content');
         if (!container) {
             console.error('Results container not found');
@@ -391,7 +424,7 @@ class QuizApp {
         const sortedIssues = Object.entries(issueScores)
             .sort((a, b) => b[1].strength - a[1].strength)
             .slice(0, 8);
- 
+
         let issueHTML = '<div class="issue-grid">';
         
         sortedIssues.forEach(([issueId, data]) => {
@@ -417,7 +450,7 @@ class QuizApp {
         issueSection.innerHTML = `<h3>Your Issue Priorities</h3>${issueHTML}`;
         container.appendChild(issueSection);
     }
- 
+
     calculateIssueScores() {
         const scores = {};
         
@@ -444,14 +477,14 @@ class QuizApp {
         
         return scores;
     }
- 
+
     // PHASE 3: FACTION ANALYSIS
     renderFactionAnalysis(econ, prog, auth, nat) {
         if (!this.phaseData || !this.phaseData.factions) {
             console.error('Faction data not loaded');
             return;
         }
- 
+
         const container = document.getElementById('results-content');
         if (!container) {
             console.error('Results container not found');
@@ -496,7 +529,7 @@ class QuizApp {
         factionSection.innerHTML = `<h3>Your Political Faction</h3>${factionHTML}`;
         container.appendChild(factionSection);
     }
- 
+
     calculateFactionScores(econ, prog, auth, nat) {
         if (!this.phaseData || !this.phaseData.factions) {
             console.error('Faction data not loaded');
@@ -507,7 +540,7 @@ class QuizApp {
                 matches: {}
             }];
         }
- 
+
         const scores = [];
         
         Object.entries(this.phaseData.factions).forEach(([partyId, party]) => {
@@ -535,7 +568,7 @@ class QuizApp {
         
         return scores.sort((a, b) => b.probability - a.probability);
     }
- 
+
     // PHASE 3: RADAR CHART
     renderRadarChart(econ, prog, auth, nat) {
         const container = document.getElementById('results-content');
@@ -560,12 +593,12 @@ class QuizApp {
                     console.error('Radar chart canvas not found');
                     return;
                 }
- 
+
                 if (typeof Chart === 'undefined') {
                     console.error('Chart.js library not loaded');
                     return;
                 }
- 
+
                 try {
                     const ctx = canvas.getContext('2d');
                     new Chart(ctx, {
@@ -603,7 +636,7 @@ class QuizApp {
             }, 100);
         });
     }
- 
+
     // PHASE 3: ENHANCED CONTRADICTIONS
     renderEnhancedContradictions() {
         const contradictions = this.detectContradictions();
@@ -643,13 +676,13 @@ class QuizApp {
         contradictionSection.innerHTML = `<h3>Possible Contradictions</h3>${html}`;
         container.appendChild(contradictionSection);
     }
- 
+
     detectContradictions() {
         if (!this.phaseData || !this.phaseData.contradictions) {
             console.error('Contradiction data not loaded');
             return [];
         }
- 
+
         const found = [];
         
         this.phaseData.contradictions.forEach(contradiction => {
@@ -671,20 +704,20 @@ class QuizApp {
         
         return found;
     }
- 
+
     // COMPARISON MODE (From Phase 2)
     showComparisonMode() {
         const screen = document.getElementById('resultsScreen');
         const results = JSON.parse(localStorage.getItem('quizResults') || '[]');
         const latestResult = results[results.length - 1];
- 
+
         if (!latestResult) return;
- 
+
         const econ = latestResult.econ;
         const prog = latestResult.prog;
         const auth = latestResult.auth;
         const nat = latestResult.nat;
- 
+
         const container = document.getElementById('results-content');
         if (!container) {
             console.error('Results container not found');
@@ -706,26 +739,26 @@ class QuizApp {
         container.appendChild(comparisonSection);
         this.showComparisonTab('national', null);
     }
- 
+
     showComparisonTab(tab, btn) {
         const content = document.getElementById('comparison-content');
         if (!content) {
             console.error('Comparison content container not found');
             return;
         }
- 
+
         const results = JSON.parse(localStorage.getItem('quizResults') || '[]');
         const latestResult = results[results.length - 1];
- 
+
         if (!latestResult) return;
- 
+
         const userScores = {
             econ: latestResult.econ,
             prog: latestResult.prog,
             auth: latestResult.auth,
             nat: latestResult.nat
         };
- 
+
         if (tab === 'national') {
             this.renderNationalComparison(content, userScores);
         } else if (tab === 'parties') {
@@ -733,7 +766,7 @@ class QuizApp {
         } else if (tab === 'history') {
             this.renderResultsHistory(content);
         }
- 
+
         // Update button states
         document.querySelectorAll('.tab-btn').forEach(b => {
             b.classList.remove('active');
@@ -742,7 +775,7 @@ class QuizApp {
             btn.classList.add('active');
         }
     }
- 
+
     renderNationalComparison(container, userScores) {
         const nationalAvg = {
             econ: 48,
@@ -750,7 +783,7 @@ class QuizApp {
             auth: 50,
             nat: 52
         };
- 
+
         const html = `
             <div class="comparison-grid">
                 <div class="comparison-item">
@@ -807,17 +840,17 @@ class QuizApp {
                 </div>
             </div>
         `;
- 
+
         container.innerHTML = html;
     }
- 
+
     renderPartyComparison(container, userScores) {
         const partyPositions = {
             'Liberal': { econ: 45, prog: 55, auth: 45, nat: 50 },
             'NDP': { econ: 28, prog: 72, auth: 45, nat: 48 },
             'Conservative': { econ: 72, prog: 35, auth: 55, nat: 65 }
         };
- 
+
         let html = '<div class="party-comparison-grid">';
         
         Object.entries(partyPositions).forEach(([party, positions]) => {
@@ -834,11 +867,11 @@ class QuizApp {
                 </div>
             `;
         });
- 
+
         html += '</div>';
         container.innerHTML = html;
     }
- 
+
     renderResultsHistory(container) {
         const resultsHistory = JSON.parse(localStorage.getItem('quizResults') || '[]');
         
@@ -846,7 +879,7 @@ class QuizApp {
             container.innerHTML = '<p>No previous results. Take the quiz to build history.</p>';
             return;
         }
- 
+
         let html = '<div class="results-history">';
         
         resultsHistory.forEach((result, idx) => {
@@ -864,11 +897,11 @@ class QuizApp {
                 </div>
             `;
         });
- 
+
         html += '</div>';
         container.innerHTML = html;
     }
- 
+
     calculateSimilarity(userScores, partyScores) {
         const diffs = [
             Math.abs(userScores.econ - partyScores.econ),
@@ -880,14 +913,14 @@ class QuizApp {
         const avgDiff = diffs.reduce((a, b) => a + b) / 4;
         return Math.max(0, Math.round(100 - avgDiff));
     }
- 
+
     // UTILITIES
     saveResults(results) {
         const savedResults = JSON.parse(localStorage.getItem('quizResults') || '[]');
         savedResults.push(results);
         localStorage.setItem('quizResults', JSON.stringify(savedResults.slice(-10)));
     }
- 
+
     resetTest() {
         if (confirm('Start over? Progress will be lost.')) {
             localStorage.removeItem('quizProgress');
@@ -901,13 +934,13 @@ class QuizApp {
             document.getElementById('welcomeScreen').style.display = 'block';
         }
     }
- 
+
     toggleDarkMode() {
         this.darkMode = !this.darkMode;
         localStorage.setItem('darkMode', this.darkMode);
         this.applyDarkMode();
     }
- 
+
     applyDarkMode() {
         if (this.darkMode) {
             document.body.classList.add('dark-mode');
@@ -917,7 +950,7 @@ class QuizApp {
             document.getElementById('themeToggle').textContent = '🌙';
         }
     }
- 
+
     exportJSON() {
         const results = JSON.parse(localStorage.getItem('quizResults') || '[]');
         if (results.length === 0) {
@@ -936,7 +969,7 @@ class QuizApp {
                 nationalism: latestResult.nat
             }
         };
- 
+
         const jsonString = JSON.stringify(data, null, 2);
         const blob = new Blob([jsonString], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
@@ -946,28 +979,28 @@ class QuizApp {
         a.click();
         URL.revokeObjectURL(url);
     }
- 
+
     exportPDF() {
         const results = JSON.parse(localStorage.getItem('quizResults') || '[]');
         if (results.length === 0) {
             alert('No results to export. Take the quiz first.');
             return;
         }
- 
+
         const latestResult = results[results.length - 1];
- 
+
         const content = `
 Canadian Political Alignment Test - Phase 3 Results
- 
+
 Test Date: ${new Date(latestResult.timestamp).toLocaleDateString()}
- 
+
 SCORES:
 Economic: ${latestResult.econ}% | Progressive: ${latestResult.prog}%
 Authority: ${latestResult.auth}% | Nationalism: ${latestResult.nat}%
- 
+
 Generated by Canadian Political Alignment Test v3.0
         `.trim();
- 
+
         const element = document.createElement('div');
         element.innerHTML = `<pre>${content}</pre>`;
         
@@ -978,22 +1011,22 @@ Generated by Canadian Political Alignment Test v3.0
             html2canvas: { scale: 2 },
             jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
         };
- 
+
         if (typeof html2pdf === 'undefined') {
             alert('PDF export library not loaded. Try again in a moment.');
             return;
         }
- 
+
         html2pdf().set(opt).from(element).save();
     }
- 
+
     shareURL() {
         const results = JSON.parse(localStorage.getItem('quizResults') || '[]');
         if (results.length === 0) {
             alert('No results to share. Take the quiz first.');
             return;
         }
- 
+
         const latestResult = results[results.length - 1];
         
         const data = {
@@ -1002,7 +1035,7 @@ Generated by Canadian Political Alignment Test v3.0
             auth: latestResult.auth,
             nat: latestResult.nat
         };
- 
+
         const encoded = btoa(JSON.stringify(data));
         const shareUrl = `${window.location.origin}${window.location.pathname}?results=${encoded}`;
         
@@ -1011,13 +1044,13 @@ Generated by Canadian Political Alignment Test v3.0
             alert('Share modal not found in page.');
             return;
         }
- 
+
         const shareContent = document.getElementById('shareContent');
         if (!shareContent) {
             alert('Share content container not found.');
             return;
         }
- 
+
         shareContent.innerHTML = `
             <h3>Share Your Results</h3>
             <input type="text" value="${shareUrl}" readonly style="width: 100%; padding: 10px; margin: 10px 0;">
@@ -1025,14 +1058,14 @@ Generated by Canadian Political Alignment Test v3.0
         `;
         modal.style.display = 'flex';
     }
- 
+
     shareQR() {
         const results = JSON.parse(localStorage.getItem('quizResults') || '[]');
         if (results.length === 0) {
             alert('No results to share. Take the quiz first.');
             return;
         }
- 
+
         const latestResult = results[results.length - 1];
         
         const data = {
@@ -1041,24 +1074,24 @@ Generated by Canadian Political Alignment Test v3.0
             auth: latestResult.auth,
             nat: latestResult.nat
         };
- 
+
         const encoded = btoa(JSON.stringify(data));
         const shareUrl = `${window.location.origin}${window.location.pathname}?results=${encoded}`;
- 
+
         const modal = document.getElementById('shareModal');
         if (!modal) {
             alert('Share modal not found in page.');
             return;
         }
- 
+
         const shareContent = document.getElementById('shareContent');
         if (!shareContent) {
             alert('Share content container not found.');
             return;
         }
- 
+
         shareContent.innerHTML = '<h3>Share via QR Code</h3><div id="qrcode"></div>';
- 
+
         if (typeof QRCode === 'undefined') {
             shareContent.innerHTML = '<p>QR Code library not loaded. Try again in a moment.</p>';
             return;
@@ -1073,12 +1106,12 @@ Generated by Canadian Political Alignment Test v3.0
         modal.style.display = 'flex';
     }
 }
- 
+
 // Utility functions
 function closeModal() {
     document.getElementById('shareModal').style.display = 'none';
 }
- 
+
 function copyToClipboard(button) {
     const input = button.previousElementSibling;
     input.select();
@@ -1086,7 +1119,7 @@ function copyToClipboard(button) {
     button.textContent = 'Copied!';
     setTimeout(() => { button.textContent = 'Copy Link'; }, 2000);
 }
- 
+
 function showAbout() {
     const modal = document.getElementById('modal');
     document.getElementById('modalBody').innerHTML = `
@@ -1096,7 +1129,7 @@ function showAbout() {
     `;
     modal.style.display = 'flex';
 }
- 
+
 function showFAQ() {
     const modal = document.getElementById('modal');
     document.getElementById('modalBody').innerHTML = `
@@ -1108,7 +1141,7 @@ function showFAQ() {
     `;
     modal.style.display = 'flex';
 }
- 
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     window.app = new QuizApp();
