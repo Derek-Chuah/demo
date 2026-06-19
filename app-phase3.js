@@ -327,10 +327,6 @@ class QuizApp {
             .sort((a, b) => b[1].strength - a[1].strength)
             .slice(0, 8);
 
-        const issueSection = document.createElement('div');
-        issueSection.className = 'results-section';
-        issueSection.innerHTML = '<h3>Your Issue Priorities</h3><div id="issue-content"></div>';
-        
         let issueHTML = '<div class="issue-grid">';
         
         sortedIssues.forEach(([issueId, data]) => {
@@ -350,7 +346,10 @@ class QuizApp {
         });
         
         issueHTML += '</div>';
-        document.getElementById('issue-content').innerHTML = issueHTML;
+        
+        const issueSection = document.createElement('div');
+        issueSection.className = 'results-section';
+        issueSection.innerHTML = `<h3>Your Issue Priorities</h3>${issueHTML}`;
         container.appendChild(issueSection);
     }
 
@@ -386,13 +385,6 @@ class QuizApp {
         const factionScores = this.calculateFactionScores(econ, prog, auth, nat);
         const topFaction = factionScores[0];
         
-        const factionSection = document.createElement('div');
-        factionSection.className = 'results-section';
-        factionSection.innerHTML = `
-            <h3>Your Political Faction</h3>
-            <div id="faction-content"></div>
-        `;
-        
         let factionHTML = `
             <div class="faction-primary">
                 <h4>${topFaction.faction.name}</h4>
@@ -422,7 +414,10 @@ class QuizApp {
         });
         
         factionHTML += '</div>';
-        document.getElementById('faction-content').innerHTML = factionHTML;
+        
+        const factionSection = document.createElement('div');
+        factionSection.className = 'results-section';
+        factionSection.innerHTML = `<h3>Your Political Faction</h3>${factionHTML}`;
         container.appendChild(factionSection);
     }
 
@@ -508,9 +503,6 @@ class QuizApp {
         if (contradictions.length === 0) return;
         
         const container = document.getElementById('results-content');
-        const contradictionSection = document.createElement('div');
-        contradictionSection.className = 'results-section';
-        contradictionSection.innerHTML = '<h3>Possible Contradictions</h3><div id="contradiction-content"></div>';
         
         let html = '';
         
@@ -534,7 +526,9 @@ class QuizApp {
             `;
         });
         
-        document.getElementById('contradiction-content').innerHTML = html;
+        const contradictionSection = document.createElement('div');
+        contradictionSection.className = 'results-section';
+        contradictionSection.innerHTML = `<h3>Possible Contradictions</h3>${html}`;
         container.appendChild(contradictionSection);
     }
 
