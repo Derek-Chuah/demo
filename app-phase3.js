@@ -540,20 +540,21 @@ class QuizApp {
 
     detectContradictions() {
         const found = [];
-        const answers = this.answers;  // Make answers available to eval
         
         this.phaseData.contradictions.forEach(contradiction => {
             const condition = contradiction.condition;
             
             try {
-                if (eval(condition)) {
+                // Use Function constructor to properly scope 'answers' parameter
+                const fn = new Function('answers', `return ${condition}`);
+                if (fn(this.answers)) {
                     found.push({
                         contradiction: contradiction,
                         severity: contradiction.severity
                     });
                 }
             } catch (e) {
-                console.error('Error evaluating contradiction:', e);
+                console.error('Error evaluating contradiction:', condition, e);
             }
         });
         
