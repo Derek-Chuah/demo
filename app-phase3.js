@@ -369,14 +369,16 @@ class QuizApp {
             issue.questions.forEach(qIdx => {
                 if (this.answers[qIdx] !== undefined) {
                     const option = this.questions[qIdx].options[this.answers[qIdx]];
+                    // Average all 4 axes for the issue score (0-10 scale)
                     const avgScore = (option.score[0] + option.score[1] + option.score[2] + option.score[3]) / 4;
-                    totalScore += avgScore * 10;
+                    totalScore += avgScore;
                     count++;
                 }
             });
             
+            // Convert to 0-100% scale
             scores[issue.id] = {
-                strength: count > 0 ? Math.round(totalScore / count) : 0,
+                strength: count > 0 ? Math.round((totalScore / count) * 10) : 0,
                 count: count
             };
         });
