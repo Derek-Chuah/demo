@@ -5,91 +5,104 @@
       "name": "Healthcare",
       "description": "Public vs private health systems, coverage, and access",
       "questions": [0, 1, 2, 38],
-      "priority": "high"
+      "priority": "high",
+      "weight": 1.5
     },
     {
       "id": "housing",
       "name": "Housing & Development",
       "description": "Affordability, zoning, supply, and development policy",
       "questions": [3],
-      "priority": "high"
+      "priority": "high",
+      "weight": 1.5
     },
     {
       "id": "climate",
       "name": "Climate & Energy",
       "description": "Decarbonization, energy policy, fossil fuels, renewables",
       "questions": [4, 5, 56, 58],
-      "priority": "high"
+      "priority": "high",
+      "weight": 1.5
     },
     {
       "id": "indigenous",
       "name": "Indigenous Affairs",
       "description": "Self-determination, reconciliation, land rights, treaties",
       "questions": [6],
-      "priority": "medium"
+      "priority": "medium",
+      "weight": 1.0
     },
     {
       "id": "immigration",
       "name": "Immigration & Integration",
       "description": "Immigration levels, refugee policy, integration",
       "questions": [7, 8, 46],
-      "priority": "high"
+      "priority": "high",
+      "weight": 1.5
     },
     {
       "id": "education",
       "name": "Education",
       "description": "Curriculum, post-secondary funding, student debt",
       "questions": [11, 12],
-      "priority": "medium"
+      "priority": "medium",
+      "weight": 1.0
     },
     {
       "id": "justice",
       "name": "Law & Order",
       "description": "Gun control, criminal justice, policing, sentencing",
       "questions": [13, 14, 15],
-      "priority": "medium"
+      "priority": "medium",
+      "weight": 1.0
     },
     {
       "id": "labor",
       "name": "Labour & Workers",
       "description": "Union power, wages, working conditions, strikes",
       "questions": [16, 17, 18],
-      "priority": "medium"
+      "priority": "medium",
+      "weight": 1.0
     },
     {
       "id": "social",
       "name": "Social Values",
       "description": "Abortion, LGBTQ+ rights, gender identity, religious freedom",
       "questions": [19, 20, 21],
-      "priority": "medium"
+      "priority": "medium",
+      "weight": 1.0
     },
     {
       "id": "foreign",
       "name": "Foreign Policy & Trade",
       "description": "NATO, military spending, international relations, trade",
       "questions": [22, 23, 24, 25, 26, 39, 40, 41, 42, 43, 44, 45],
-      "priority": "high"
+      "priority": "high",
+      "weight": 1.5
     },
     {
       "id": "economy",
       "name": "Economy & Taxation",
       "description": "Corporate taxes, government spending, deficits, fiscal policy",
       "questions": [27, 28, 30, 31, 32, 59],
-      "priority": "high"
+      "priority": "high",
+      "weight": 1.5
     },
     {
       "id": "governance",
       "name": "Governance & Democracy",
       "description": "Federalism, electoral reform, language, media, institutions",
       "questions": [9, 10, 29, 33, 34, 35, 50, 51],
-      "priority": "medium"
+      "priority": "medium",
+      "weight": 1.0
     },
     {
       "id": "current",
       "name": "Current Events",
       "description": "2024-2025 political developments and government actions",
       "questions": [36, 37, 47, 48, 49, 52, 53, 54, 55, 57, 60],
-      "priority": "high"
+      "priority": "high",
+      "weight": 1.5
     }
   ],
   "factions": {
