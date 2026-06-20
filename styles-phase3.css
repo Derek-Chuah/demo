@@ -515,7 +515,71 @@
     }
 }
 
-/* DARK MODE ENHANCEMENTS */
+/* POLITICAL TRAJECTORY (Phase 3 Tier 2) */
+.trajectory-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.trend-item {
+    background: var(--background);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.trend-item strong {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.trend-item span {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.trend-item small {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+.trend-item.economic {
+    border-left-color: #1976D2;
+}
+
+.trend-item.economic span {
+    color: #1976D2;
+}
+
+.trend-item.progressive {
+    border-left-color: #D32F2F;
+}
+
+.trend-item.progressive span {
+    color: #D32F2F;
+}
+
+.trend-item.authority {
+    border-left-color: #388E3C;
+}
+
+.trend-item.authority span {
+    color: #388E3C;
+}
+
+.trend-item.nationalism {
+    border-left-color: #F57C00;
+}
+
+.trend-item.nationalism span {
+    color: #F57C00;
+}
 body.dark-mode .issue-item,
 body.dark-mode .faction-alt,
 body.dark-mode .contradiction-item,
