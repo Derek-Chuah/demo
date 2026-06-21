@@ -526,10 +526,17 @@ class QuizApp {
         const container = document.getElementById('results-content');
         if (!container) return;
 
+        // Normalize probabilities to 100% (they're currently independent matches)
+        const totalProbability = factionScores.reduce((sum, f) => sum + f.probability, 0);
+        const normalizedScores = factionScores.map(f => ({
+            ...f,
+            probability: Math.round((f.probability / totalProbability) * 100)
+        }));
+
         // Get top 5 factions, group rest as "Other"
-        const topFactions = factionScores.slice(0, 5);
+        const topFactions = normalizedScores.slice(0, 5);
         let otherProbability = 0;
-        factionScores.slice(5).forEach(f => {
+        normalizedScores.slice(5).forEach(f => {
             otherProbability += f.probability;
         });
 
@@ -541,7 +548,7 @@ class QuizApp {
 
         if (otherProbability > 0) {
             chartLabels.push('Other Factions');
-            chartData.push(Math.round(otherProbability));
+            chartData.push(otherProbability);
             chartColors.push('#BDBDBD');
         }
 
@@ -609,7 +616,7 @@ class QuizApp {
             return [{
                 party: 'Unknown',
                 faction: { name: 'Independent/Cross-party' },
-                probability: 50,
+                probability: 100,
                 matches: {}
             }];
         }
@@ -633,12 +640,26 @@ class QuizApp {
                 scores.push({
                     party: party.name,
                     faction: faction,
-                    probability: Math.round(avgMatch),
+                    rawScore: avgMatch,
+                    probability: 0, // Will be normalized
                     matches: { econMatch, progMatch, authMatch, natMatch }
                 });
             });
         });
-        
+
+        // Normalize probabilities to sum to 100%
+        const totalScore = scores.reduce((sum, s) => sum + s.rawScore, 0);
+        scores.forEach(score => {
+            score.probability = Math.round((score.rawScore / totalScore) * 100);
+        });
+
+        // Ensure sum = 100% (handle rounding errors)
+        const sum = scores.reduce((total, s) => total + s.probability, 0);
+        if (sum !== 100) {
+            const diff = 100 - sum;
+            if (scores[0]) scores[0].probability += diff; // Add/subtract from top faction
+        }
+
         return scores.sort((a, b) => b.probability - a.probability);
     }
 
