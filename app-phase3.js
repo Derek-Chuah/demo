@@ -200,9 +200,9 @@ class QuizApp {
         // Set new answer
         this.answers[this.currentQuestionIndex] = optionIndex;
         
-        // Add new score
+        // Add new score — no clamping; normalization happens in showResults()
         for (let i = 0; i < 4; i++) {
-            this.scores[i] = Math.max(0, Math.min(10, this.scores[i] + option.score[i]));
+            this.scores[i] += option.score[i];
         }
 
         const buttons = document.querySelectorAll('.option-btn');
@@ -246,10 +246,23 @@ class QuizApp {
         const container = document.getElementById('results-content');
         container.innerHTML = '';
         
-        const econ = Math.round((this.scores[0] / 10) * 100);
-        const prog = Math.round((this.scores[1] / 10) * 100);
-        const auth = Math.round((this.scores[2] / 10) * 100);
-        const nat = Math.round((this.scores[3] / 10) * 100);
+        // NEW NORMALIZATION: compute max possible per axis from answered questions.
+        // Each option scores 0.0–2.0 per axis. Max possible = sum of max scores across axis.
+        // This ensures 0% = most left/prog/lib/global, 100% = most right/trad/order/nat.
+        const axisMax = [0, 0, 0, 0];
+        this.questions.forEach((question, qIdx) => {
+            if (this.answers[qIdx] !== undefined) {
+                for (let axis = 0; axis < 4; axis++) {
+                    const maxForQ = Math.max(...question.options.map(o => o.score[axis]));
+                    axisMax[axis] += maxForQ;
+                }
+            }
+        });
+        const normalize = (score, max) => max > 0 ? Math.round(Math.min(100, Math.max(0, (score / max) * 100))) : 50;
+        const econ = normalize(this.scores[0], axisMax[0]);
+        const prog = normalize(this.scores[1], axisMax[1]);
+        const auth = normalize(this.scores[2], axisMax[2]);
+        const nat  = normalize(this.scores[3], axisMax[3]);
 
         this.renderAxisResults(econ, prog, auth, nat);
         this.renderPartyAlignment(econ, prog, auth, nat);
