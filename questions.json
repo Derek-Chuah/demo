@@ -1,753 +1,2747 @@
 {
-  "issues": [
+  "questions": [
     {
-      "id": "healthcare",
-      "name": "Healthcare & Welfare",
-      "questions": [
-        0,
-        8,
-        48,
-        50,
-        51,
-        52
-      ],
-      "weight": 1.2
-    },
-    {
-      "id": "housing",
-      "name": "Housing & Affordability",
-      "questions": [
-        3,
-        4
-      ],
-      "weight": 1.1
-    },
-    {
-      "id": "climate",
-      "name": "Climate & Energy",
-      "questions": [
-        7,
-        41,
-        56
-      ],
-      "weight": 1.1
-    },
-    {
-      "id": "indigenous",
-      "name": "Indigenous Rights",
-      "questions": [
-        14,
-        54
-      ],
-      "weight": 1.0
-    },
-    {
-      "id": "immigration",
-      "name": "Immigration & Integration",
-      "questions": [
-        28,
-        30,
-        36,
-        33
-      ],
-      "weight": 1.1
-    },
-    {
-      "id": "education",
-      "name": "Education & Youth",
-      "questions": [
-        12,
-        49,
-        58
-      ],
-      "weight": 0.9
-    },
-    {
-      "id": "justice",
-      "name": "Law, Order & Civil Liberties",
-      "questions": [
-        17,
-        20,
-        21,
-        24,
-        25
-      ],
-      "weight": 1.0
-    },
-    {
-      "id": "labor",
-      "name": "Labour & Workers",
-      "questions": [
-        2,
-        9,
-        53
-      ],
-      "weight": 1.0
-    },
-    {
-      "id": "social",
-      "name": "Social Values",
-      "questions": [
-        10,
-        11,
-        13,
-        15,
-        16,
-        18
-      ],
-      "weight": 1.0
-    },
-    {
-      "id": "foreign",
-      "name": "Foreign Policy & Defence",
-      "questions": [
-        31,
-        32,
-        34,
-        35,
-        38,
-        40,
-        46,
-        59,
-        60
-      ],
-      "weight": 1.0
-    },
-    {
-      "id": "economy",
-      "name": "Economy & Taxation",
-      "questions": [
-        1,
-        4,
-        5,
-        6,
-        44,
-        57
-      ],
-      "weight": 1.1
-    },
-    {
-      "id": "governance",
-      "name": "Governance & Democracy",
-      "questions": [
-        22,
-        23,
-        27,
-        29,
-        55
-      ],
-      "weight": 1.0
-    },
-    {
-      "id": "geopolitics",
-      "name": "Canada & the World",
-      "questions": [
-        32,
-        38,
-        42,
-        46,
-        60
-      ],
-      "weight": 1.0
-    }
-  ],
-  "factions": {
-    "liberal": {
-      "name": "Liberal Party of Canada",
-      "primaryColor": "#E8102E",
-      "factions": [
+      "id": "Q001",
+      "sectionLabel": "Healthcare & Public Services",
+      "text": "Should Canada maintain a fully public healthcare system or allow private competition?",
+      "subtext": "Canadian healthcare wait times are among the worst in the OECD. Private clinics are expanding in BC, Alberta, and Quebec.",
+      "difficulty": "basic",
+      "options": [
         {
-          "id": "social-liberal",
-          "name": "Social Liberal Wing",
-          "description": "Progressive on social issues, interventionist on economy, strong public programs",
-          "characteristics": {
-            "economic": [
-              0,
-              40
-            ],
-            "progressive": [
-              60,
-              100
-            ],
-            "authority": [
-              30,
-              50
-            ],
-            "nationalism": [
-              40,
-              60
-            ]
-          },
-          "probability": 0,
-          "keyPositions": {
-            "healthcare": "Universal public system, pharmacare, dental care",
-            "environment": "Aggressive carbon pricing, climate action",
-            "immigration": "High immigration, refugee acceptance",
-            "indigenous": "Strong reconciliation, land rights",
-            "labor": "Strong union support, worker protections"
-          },
-          "examples": [
-            "Justin Trudeau (early)",
-            "Chrystia Freeland"
-          ],
-          "historicalContext": "Dominant under Pierre Trudeau (1970s-80s), resurgent under Trudeau Jr."
+          "text": "Fully public system — ban private parallel insurance and for-profit delivery entirely.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "id": "centrist",
-          "name": "Centrist Pragmatists",
-          "description": "Balance efficiency with social programs, moderate on most issues, incremental change",
-          "characteristics": {
-            "economic": [
-              40,
-              55
-            ],
-            "progressive": [
-              45,
-              65
-            ],
-            "authority": [
-              40,
-              55
-            ],
-            "nationalism": [
-              45,
-              60
-            ]
-          },
-          "probability": 0,
-          "keyPositions": {
-            "healthcare": "Public system with private options, modest funding increases",
-            "environment": "Balanced approach, technology-focused",
-            "immigration": "Moderate levels, focus on integration",
-            "economy": "Pragmatic spending, deficit management",
-            "labor": "Work with unions, not against them"
-          },
-          "examples": [
-            "Jean Chrétien",
-            "Paul Martin"
-          ],
-          "historicalContext": "Dominated Canadian politics 1993-2006, currently strong faction"
+          "text": "Mostly public — allow limited private clinics for overflow, but no private insurance.",
+          "score": [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "id": "bay-street",
-          "name": "Bay Street Liberals",
-          "description": "Business-friendly, lower spending, market-oriented, pro-trade",
-          "characteristics": {
-            "economic": [
-              50,
-              70
-            ],
-            "progressive": [
-              35,
-              55
-            ],
-            "authority": [
-              40,
-              60
-            ],
-            "nationalism": [
-              45,
-              65
-            ]
-          },
-          "probability": 0,
-          "keyPositions": {
-            "healthcare": "More private sector involvement, user fees",
-            "economy": "Lower corporate taxes, reduced spending",
-            "trade": "Free trade, USMCA support",
-            "regulation": "Deregulation, business-friendly policies",
-            "deficits": "Balance budget priority"
-          },
-          "examples": [
-            "Paul Martin",
-            "Some Finance Ministers"
-          ],
-          "historicalContext": "Influential on economic policy, weaker on social issues"
+          "text": "Mixed system — allow private insurance and clinics to compete alongside the public system.",
+          "score": [
+            1.2,
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "id": "civil-libertarian",
-          "name": "Civil Libertarian Liberals",
-          "description": "Strong on civil rights and privacy, skeptical of government power, progressive on freedoms",
-          "characteristics": {
-            "economic": [
-              35,
-              55
-            ],
-            "progressive": [
-              65,
-              85
-            ],
-            "authority": [
-              20,
-              40
-            ],
-            "nationalism": [
-              40,
-              60
-            ]
-          },
-          "probability": 0,
-          "keyPositions": {
-            "privacy": "Strong privacy protection, oppose surveillance",
-            "freedoms": "Strong protection of civil liberties",
-            "justice": "Criminal justice reform, minimize incarceration",
-            "lgbtq": "Full rights expansion, no religious exemptions",
-            "government": "Skeptical of government overreach"
-          },
-          "examples": [
-            "Some Justice Ministers",
-            "Privacy advocates"
-          ],
-          "historicalContext": "Smaller faction, influential on justice/privacy issues"
-        }
-      ]
-    },
-    "ndp": {
-      "name": "New Democratic Party",
-      "primaryColor": "#F37021",
-      "factions": [
-        {
-          "id": "socialist-left",
-          "name": "Socialist Left",
-          "description": "Left-wing, anti-capitalist, supports worker control, radical social change",
-          "characteristics": {
-            "economic": [
-              0,
-              30
-            ],
-            "progressive": [
-              70,
-              100
-            ],
-            "authority": [
-              35,
-              55
-            ],
-            "nationalism": [
-              40,
-              60
-            ]
-          },
-          "probability": 0,
-          "keyPositions": {
-            "economy": "Wealth redistribution, worker cooperatives, anti-corporate",
-            "healthcare": "Fully public, expand dramatically",
-            "labor": "Strong union support, worker control of production",
-            "environment": "Radical climate action, ban fossil fuels",
-            "capitalism": "Fundamentally opposed to capitalism"
-          },
-          "examples": [
-            "Émilie Nguyen-Tass",
-            "Some riding activists"
-          ],
-          "historicalContext": "Present since CCF founding, minority faction within NDP"
-        },
-        {
-          "id": "social-democrat",
-          "name": "Social Democrats",
-          "description": "Left-leaning but accepts capitalism, strong public programs, worker power",
-          "characteristics": {
-            "economic": [
-              20,
-              45
-            ],
-            "progressive": [
-              65,
-              85
-            ],
-            "authority": [
-              40,
-              55
-            ],
-            "nationalism": [
-              45,
-              60
-            ]
-          },
-          "probability": 0,
-          "keyPositions": {
-            "healthcare": "Universal public system, expand coverage",
-            "economy": "Progressive taxation, public services",
-            "labor": "Strong union backing, worker rights",
-            "environment": "Aggressive climate action",
-            "housing": "Public and co-op housing"
-          },
-          "examples": [
-            "Jack Layton",
-            "Jagmeet Singh (current)"
-          ],
-          "historicalContext": "Dominant faction, provides NDP mainstream appeal"
-        },
-        {
-          "id": "progressive-identity",
-          "name": "Progressive Identity Politics",
-          "description": "Focus on social justice, identity issues, intersectionality, activism",
-          "characteristics": {
-            "economic": [
-              25,
-              50
-            ],
-            "progressive": [
-              75,
-              100
-            ],
-            "authority": [
-              35,
-              50
-            ],
-            "nationalism": [
-              40,
-              60
-            ]
-          },
-          "probability": 0,
-          "keyPositions": {
-            "identity": "Strong focus on marginalized communities",
-            "indigenous": "Land back, sovereignty support",
-            "lgbtq": "Full rights expansion, no compromises",
-            "climate": "Climate justice, impacts on communities",
-            "police": "Defund police, transform justice system",
-            "immigration": "Pro-refugee, anti-border"
-          },
-          "examples": [
-            "Mustapha Farrakhan critics, grassroots activists"
-          ],
-          "historicalContext": "Growing faction, influences policy direction"
-        },
-        {
-          "id": "economic-nationalist",
-          "name": "Economic Nationalist NDP",
-          "description": "Left-wing economically, nationalist on trade/sovereignty, Canadian focus",
-          "characteristics": {
-            "economic": [
-              15,
-              40
-            ],
-            "progressive": [
-              55,
-              75
-            ],
-            "authority": [
-              45,
-              60
-            ],
-            "nationalism": [
-              60,
-              80
-            ]
-          },
-          "probability": 0,
-          "keyPositions": {
-            "trade": "Skeptical of free trade, protect Canadian industries",
-            "resources": "Resource nationalism, keep wealth in Canada",
-            "sovereignty": "Strong Canadian sovereignty focus",
-            "american": "Skeptical of American influence",
-            "culture": "Protect Canadian culture and identity"
-          },
-          "examples": [
-            "Some Western NDP members"
-          ],
-          "historicalContext": "Present in Western Canada, less prominent nationally"
-        }
-      ]
-    },
-    "conservative": {
-      "name": "Conservative Party of Canada",
-      "primaryColor": "#1F4788",
-      "factions": [
-        {
-          "id": "social-conservative",
-          "name": "Social Conservative Wing",
-          "description": "Right-wing economically and socially, traditional values, law and order",
-          "characteristics": {
-            "economic": [
-              60,
-              80
-            ],
-            "progressive": [
-              20,
-              40
-            ],
-            "authority": [
-              55,
-              75
-            ],
-            "nationalism": [
-              60,
-              80
-            ]
-          },
-          "probability": 0,
-          "keyPositions": {
-            "abortion": "Restrict access, defund abortion services",
-            "lgbtq": "Oppose expansion of rights, religious exemptions",
-            "immigration": "Reduce immigration, stricter enforcement",
-            "law-order": "Law and order priority, tough on crime",
-            "guns": "Gun rights support, oppose restrictions",
-            "values": "Traditional family values, Christian heritage"
-          },
-          "examples": [
-            "Pierre Poilievre (appeals to)",
-            "Some caucus members"
-          ],
-          "historicalContext": "Influential since Reform/Alliance merger, strong Western support"
-        },
-        {
-          "id": "red-tory",
-          "name": "Red Tory / Progressive Conservative",
-          "description": "Market-oriented but pragmatic, some social spending, moderate on social issues",
-          "characteristics": {
-            "economic": [
-              55,
-              70
-            ],
-            "progressive": [
-              40,
-              60
-            ],
-            "authority": [
-              50,
-              65
-            ],
-            "nationalism": [
-              55,
-              70
-            ]
-          },
-          "probability": 0,
-          "keyPositions": {
-            "healthcare": "Public system but more efficiency focus",
-            "social": "Pragmatic on social issues, not ideological",
-            "spending": "Lower spending but maintain programs",
-            "environment": "Technology-focused climate action",
-            "immigration": "Moderate intake, skills-based",
-            "tradition": "Respect institutions and traditions"
-          },
-          "examples": [
-            "Brian Mulroney",
-            "Some Moderate MPs"
-          ],
-          "historicalContext": "Declining faction, stronger under Progressive Conservatives"
-        },
-        {
-          "id": "libertarian-right",
-          "name": "Libertarian Right",
-          "description": "Strong free market, minimal government, individual liberty, low taxes",
-          "characteristics": {
-            "economic": [
-              70,
-              90
-            ],
-            "progressive": [
-              30,
-              50
-            ],
-            "authority": [
-              30,
-              50
-            ],
-            "nationalism": [
-              45,
-              65
-            ]
-          },
-          "probability": 0,
-          "keyPositions": {
-            "economy": "Free market, minimal regulation",
-            "taxes": "Low taxes, reduce government",
-            "spending": "Cut government programs",
-            "government": "Skeptical of government power",
-            "regulation": "Deregulation priority",
-            "freedom": "Individual choice priority"
-          },
-          "examples": [
-            "Some Alberta-based MPs",
-            "Reform roots"
-          ],
-          "historicalContext": "Present since Alliance days, strong in Western Canada"
-        },
-        {
-          "id": "western-populist",
-          "name": "Western Populist / Sovereigntist",
-          "description": "Right-wing economically and socially, strong Canadian/Western nationalism, anti-establishment",
-          "characteristics": {
-            "economic": [
-              65,
-              80
-            ],
-            "progressive": [
-              20,
-              40
-            ],
-            "authority": [
-              55,
-              70
-            ],
-            "nationalism": [
-              70,
-              90
-            ]
-          },
-          "probability": 0,
-          "keyPositions": {
-            "sovereignty": "Strong Canadian sovereignty, skeptical of globalism",
-            "western": "Western Canada focus, alienation responsive",
-            "trade": "Skeptical of international agreements",
-            "immigration": "Reduce immigration, protect Canadian jobs",
-            "establishment": "Anti-establishment, populist rhetoric",
-            "nationalism": "Strong nationalist sentiment"
-          },
-          "examples": [
-            "Pierre Poilievre (appeals to)",
-            "Western MPs"
-          ],
-          "historicalContext": "Strong in Western Canada, growing appeal across party"
-        }
-      ]
-    }
-  },
-  "contradictions": [
-    {
-      "id": "c001",
-      "name": "Housing Affordability vs. Anti-Development",
-      "description": "You support affordable housing but oppose market-led housing supply increases.",
-      "explanation": "Supporting affordable housing while opposing density and development typically leads to higher costs — you may want housing to be cheaper but through public provision rather than market mechanisms.",
-      "condition": "answers[3] !== undefined && answers[3] <= 1 && answers[30] !== undefined && answers[30] <= 1",
-      "severity": "medium",
-      "resolutions": [
-        {
-          "name": "Public Housing Route",
-          "text": "Commit to public and non-profit housing construction as the primary supply mechanism."
-        },
-        {
-          "name": "Market-Left Hybrid",
-          "text": "Accept some private development alongside strong rent controls and social housing."
+          "text": "Market-led system — government funds a safety net only; most care is private.",
+          "score": [
+            2.0,
+            0.0,
+            0.0,
+            0.0
+          ]
         }
       ]
     },
     {
-      "id": "c002",
-      "name": "Climate Action vs. Oil Expansion",
-      "description": "You support climate action but also support expanded oil sands or Trans Mountain.",
-      "explanation": "Favouring both aggressive emissions reduction and expanded fossil fuel infrastructure creates a fundamental tension — the IEA says no new oil fields are consistent with 1.5°C.",
-      "condition": "answers[7] !== undefined && answers[7] <= 1 && answers[56] !== undefined && answers[56] >= 2",
-      "severity": "high",
-      "resolutions": [
+      "id": "Q002",
+      "sectionLabel": "Taxation & Redistribution",
+      "text": "How should Canada tax high incomes and corporate profits?",
+      "subtext": "Canada's top federal rate is 33%. Some propose a wealth tax; others argue high taxes drive away investment.",
+      "difficulty": "basic",
+      "options": [
         {
-          "name": "Just Transition",
-          "text": "Accept that managed decline of oil sands is necessary for climate targets."
+          "text": "Significantly raise corporate and top personal tax rates; implement a wealth tax on assets over $10M.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "name": "Technology Optimist",
-          "text": "Believe carbon capture and clean tech will allow both oil extraction and emissions reduction."
+          "text": "Close loopholes and raise rates modestly; make the system more progressive.",
+          "score": [
+            0.6,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Keep current rates — the balance is roughly right.",
+          "score": [
+            1.2,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Cut corporate taxes and flatten personal rates to attract investment and growth.",
+          "score": [
+            2.0,
+            0.0,
+            0.0,
+            0.0
+          ]
         }
       ]
     },
     {
-      "id": "c003",
-      "name": "High Immigration + Housing Crisis",
-      "description": "You support high immigration levels but also want affordable housing.",
-      "explanation": "Record immigration (1.2M+/yr) puts significant pressure on housing demand. These goals create tension without a major supply-side response.",
-      "condition": "answers[30] !== undefined && answers[30] <= 1 && answers[3] !== undefined && answers[3] <= 1",
-      "severity": "medium",
-      "resolutions": [
+      "id": "Q003",
+      "sectionLabel": "Labour & Unions",
+      "text": "What role should unions play in Canada's economy?",
+      "subtext": "Private sector union density has fallen from 35% to 15% since the 1980s. Gig work is growing. Wages have stagnated.",
+      "difficulty": "basic",
+      "options": [
         {
-          "name": "Supply-Side Investment",
-          "text": "Massive public housing construction can accommodate both goals simultaneously."
+          "text": "Expand union rights significantly — card-check, sectoral bargaining, ban replacement workers.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "name": "Managed Intake",
-          "text": "Moderate immigration levels temporarily until housing supply catches up."
+          "text": "Strengthen existing union protections; make it easier to organize without going full sectoral.",
+          "score": [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Current framework is adequate — unions have enough power already.",
+          "score": [
+            1.2,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Right-to-work reforms — reduce union power; workers should negotiate individually.",
+          "score": [
+            2.0,
+            0.0,
+            0.0,
+            0.0
+          ]
         }
       ]
     },
     {
-      "id": "c004",
-      "name": "Individual Liberty vs. Drug Enforcement",
-      "description": "You favour civil liberties and limited state power, but strict drug enforcement.",
-      "explanation": "The war on drugs involves extensive state coercion, surveillance, and incarceration — typically opposed by civil libertarians across the political spectrum.",
-      "condition": "answers[24] !== undefined && answers[24] <= 1 && answers[13] !== undefined && answers[13] >= 2",
-      "severity": "medium",
-      "resolutions": [
+      "id": "Q004",
+      "sectionLabel": "Housing & Markets",
+      "text": "What is the primary solution to Canada's housing affordability crisis?",
+      "subtext": "Home prices have doubled in a decade. Rents are at record highs. The Carney government faces intense pressure.",
+      "difficulty": "basic",
+      "options": [
         {
-          "name": "Harm Reduction Liberty",
-          "text": "Apply libertarian principles consistently — decriminalize personal drug use."
+          "text": "Massive public and non-profit housing construction; strict rent control; heavy speculation taxes.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "name": "Community Standards",
-          "text": "Distinguish between personal freedoms and community protection standards."
+          "text": "Significant public investment plus zoning reform to increase supply; moderate rent controls.",
+          "score": [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Deregulate zoning and reduce development charges — let the market build.",
+          "score": [
+            1.3,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Get government out of the housing market entirely — subsidies and rent control make it worse.",
+          "score": [
+            2.0,
+            0.0,
+            0.0,
+            0.0
+          ]
         }
       ]
     },
     {
-      "id": "c005",
-      "name": "Fiscal Conservatism vs. Strong Military",
-      "description": "You want significant deficit reduction but also want to increase defence spending.",
-      "explanation": "Meeting NATO's 2% GDP target would add ~$15B annually to federal spending. This is hard to reconcile with urgent deficit reduction.",
-      "condition": "answers[4] !== undefined && answers[4] >= 3 && answers[35] !== undefined && answers[35] >= 2",
-      "severity": "medium",
-      "resolutions": [
+      "id": "Q005",
+      "sectionLabel": "Government Spending & Deficits",
+      "text": "How should Canada manage its federal deficit?",
+      "subtext": "Federal debt servicing costs $50B+ annually. Canada's debt-to-GDP ratio is lower than the G7 average but rising.",
+      "difficulty": "medium",
+      "options": [
         {
-          "name": "Reallocation",
-          "text": "Cut other spending to fund defence within a balanced budget."
+          "text": "Invest heavily in public services and infrastructure — debt is sustainable and the economy needs stimulus.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "name": "Phased Approach",
-          "text": "Accept that defence investment requires a longer fiscal timeline."
+          "text": "Spend on priorities but plan to balance the budget over the medium term.",
+          "score": [
+            0.6,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Cut non-essential spending to reduce the deficit meaningfully within this Parliament.",
+          "score": [
+            1.3,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Urgent austerity — the deficit is a crisis requiring immediate, significant cuts.",
+          "score": [
+            2.0,
+            0.0,
+            0.0,
+            0.0
+          ]
         }
       ]
     },
     {
-      "id": "c006",
-      "name": "Free Trade vs. Supply Management",
-      "description": "You support open free trade but also want to keep supply management.",
-      "explanation": "Supply management is a quota and tariff system that contradicts free trade principles. Every trade partner demands its removal. You can't fully hold both positions.",
-      "condition": "answers[31] !== undefined && answers[31] <= 1 && answers[44] !== undefined && answers[44] <= 1",
-      "severity": "medium",
-      "resolutions": [
+      "id": "Q006",
+      "sectionLabel": "Public Services vs. Privatization",
+      "text": "Should Canada privatize Crown corporations and public utilities?",
+      "subtext": "Canada Post, CBC, Via Rail, and provincial hydro companies are debated. Privatization has occurred in telecoms and airlines.",
+      "difficulty": "medium",
+      "options": [
         {
-          "name": "Managed Trade",
-          "text": "Accept that strategic sectors can be exempt from free trade rules."
+          "text": "Expand public ownership — nationalize key sectors like telecoms, internet, and energy.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "name": "Compensated Reform",
-          "text": "Phase out supply management with transition support for farmers."
+          "text": "Keep current public corporations but reform them for efficiency.",
+          "score": [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Privatize CBC and Canada Post; retain hydro and rail for practical reasons.",
+          "score": [
+            1.3,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Broad privatization — the private sector delivers services better and shouldn't be subsidized.",
+          "score": [
+            2.0,
+            0.0,
+            0.0,
+            0.0
+          ]
         }
       ]
     },
     {
-      "id": "c007",
-      "name": "Skeptical of State Power vs. Carbon Tax Support",
-      "description": "You distrust government authority but support a carbon pricing mechanism.",
-      "explanation": "Carbon pricing is a form of state-imposed economic intervention. Libertarian-minded conservatives sometimes hold this position but it creates philosophical tension.",
-      "condition": "answers[24] !== undefined && answers[24] >= 2 && answers[7] !== undefined && answers[7] <= 1",
-      "severity": "low",
-      "resolutions": [
+      "id": "Q007",
+      "sectionLabel": "Universal Basic Income",
+      "text": "Should Canada implement a universal basic income (UBI)?",
+      "subtext": "Ontario ran a pilot in 2017 (cancelled by Ford). Finland and several US cities have tested UBI. AI automation threatens jobs.",
+      "difficulty": "medium",
+      "options": [
         {
-          "name": "Market Mechanism",
-          "text": "A revenue-neutral carbon tax is actually more market-friendly than direct regulation."
+          "text": "Yes — a meaningful UBI replacing the patchwork of welfare programs and topping up low incomes.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "name": "Voluntary Alternative",
-          "text": "Prefer voluntary carbon offsets and technology investment over mandatory pricing."
+          "text": "Pilot it more broadly — the evidence is promising but we need better data at scale.",
+          "score": [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "No — targeted benefits are more efficient; UBI is too costly and crowds out other programs.",
+          "score": [
+            1.3,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Strongly against — UBI disincentivizes work and is fiscally irresponsible.",
+          "score": [
+            2.0,
+            0.0,
+            0.0,
+            0.0
+          ]
         }
       ]
     },
     {
-      "id": "c008",
-      "name": "Strong Nationalism vs. Free Trade",
-      "description": "You prioritize Canadian sovereignty and nationalism but also support open free trade.",
-      "explanation": "Free trade agreements require ceding sovereignty over economic policy. Trump's tariffs show that trade dependence is a sovereignty risk — nationalists typically prefer protectionism.",
-      "condition": "answers[31] !== undefined && answers[31] <= 1 && answers[32] !== undefined && answers[32] >= 2",
-      "severity": "medium",
-      "resolutions": [
+      "id": "Q008",
+      "sectionLabel": "Carbon Pricing & Climate Economics",
+      "text": "Is a carbon price the right tool to reduce Canadian emissions?",
+      "subtext": "The carbon tax was central to the 2025 federal election. Carney's Liberals are retooling it; Poilievre campaigned to axe it entirely.",
+      "difficulty": "medium",
+      "options": [
         {
-          "name": "Economic Nationalist",
-          "text": "Consistent nationalism requires protecting domestic industries through managed trade."
+          "text": "Carbon pricing is a good start — but we also need direct regulation, public investment, and corporate mandates.",
+          "score": [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ]
         },
         {
-          "name": "Sovereign Market",
-          "text": "Free trade is compatible with sovereignty when you have economic leverage."
+          "text": "A well-designed carbon price with full rebates is the most efficient mechanism.",
+          "score": [
+            0.7,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Replace with technology subsidies and voluntary measures — carbon pricing hurts ordinary Canadians.",
+          "score": [
+            1.3,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Abolish carbon pricing — economic growth and market innovation are the only real solutions.",
+          "score": [
+            2.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q009",
+      "sectionLabel": "Childcare & Social Investment",
+      "text": "Should Canada's $10/day childcare program be expanded or scaled back?",
+      "subtext": "The national childcare deal costs ~$30B annually. Waitlists remain. Some argue it crowds out private operators.",
+      "difficulty": "basic",
+      "options": [
+        {
+          "text": "Fully fund and expand — universal childcare is infrastructure as essential as roads.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Keep and improve it — it's working but needs better funding and capacity.",
+          "score": [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Reform it — use vouchers so parents can choose public or private providers.",
+          "score": [
+            1.3,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Wind it down — targeted subsidies for low-income families are enough; the market does the rest.",
+          "score": [
+            2.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q010",
+      "sectionLabel": "Corporate Regulation",
+      "text": "How strictly should Canada regulate large corporations?",
+      "subtext": "Grocery chains earned record profits during inflation. Banks post billions in quarterly profits. Tech giants pay little tax.",
+      "difficulty": "basic",
+      "options": [
+        {
+          "text": "Aggressive regulation and windfall taxes — corporate power is too concentrated and harms consumers.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Stronger antitrust enforcement and close tax loopholes — fair market, fair taxes.",
+          "score": [
+            0.6,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Current regulations are adequate — targeted enforcement where there are clear abuses.",
+          "score": [
+            1.2,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Deregulate — heavy regulation raises costs and stifles innovation and growth.",
+          "score": [
+            2.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q011",
+      "sectionLabel": "LGBTQ+ Rights & Gender Identity",
+      "text": "How should Canada approach gender identity recognition and LGBTQ+ rights?",
+      "subtext": "Gender-affirming care for youth, self-ID laws, and parental notification policies are active debates nationally.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Actively expand LGBTQ+ rights — fund gender-affirming care, protect trans youth, end religious exemptions.",
+          "score": [
+            0.0,
+            2.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Protect existing rights firmly — uphold Charter protections with balanced religious freedom accommodation.",
+          "score": [
+            0.0,
+            1.5,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Preserve parental rights — require notification for minors' gender-related decisions at school.",
+          "score": [
+            0.0,
+            0.7,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Limit gender ideology in public institutions — children should not be exposed to LGBTQ+ content in schools.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q012",
+      "sectionLabel": "Abortion & Reproductive Rights",
+      "text": "What should Canada's policy be on abortion access?",
+      "subtext": "Canada has no federal restrictions. Late-term access, gestational limits, and parental consent for minors are debated.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Full, unrestricted access including publicly funded; no gestational limits; no parental consent.",
+          "score": [
+            0.0,
+            2.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Unrestricted access in first two trimesters; reasonable medical standards after that.",
+          "score": [
+            0.0,
+            1.5,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Some restrictions on late-term; parental notification for minors in most cases.",
+          "score": [
+            0.0,
+            0.7,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Significant restrictions — life begins at conception; restrict except in specific circumstances.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q013",
+      "sectionLabel": "Education Curriculum",
+      "text": "What should determine public school curriculum on social topics?",
+      "subtext": "Debates over sex-ed, gender identity, Indigenous history, and critical race theory are active in Ontario, Alberta, and BC.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Inclusive, research-based curriculum — cover LGBTQ+ identities, systemic racism, decolonization comprehensively.",
+          "score": [
+            0.0,
+            2.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Evidence-based and age-appropriate — include diversity topics but with attention to parental concerns.",
+          "score": [
+            0.0,
+            1.5,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Core academics first — values education is the family's job, not the school's.",
+          "score": [
+            0.0,
+            0.7,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Protect children from ideological content — parents should have full opt-out rights for any progressive material.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q014",
+      "sectionLabel": "Drug Policy",
+      "text": "How should Canada approach drug use and addiction?",
+      "subtext": "BC decriminalized small amounts of hard drugs, then partially reversed it. Safe supply programs are expanding. Opioid deaths hit 7,300 in 2022.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Full decriminalization — addiction is a health issue; criminalization makes it worse and criminalizes the vulnerable.",
+          "score": [
+            0.0,
+            2.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Harm reduction approach — safe supply, decriminalise personal use, invest in treatment.",
+          "score": [
+            0.0,
+            1.5,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Treatment-first, not supply — safe supply normalizes drug use; focus on recovery.",
+          "score": [
+            0.0,
+            0.7,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Strict enforcement — drug use is a moral and criminal issue, not a health one.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q015",
+      "sectionLabel": "Indigenous Rights & Reconciliation",
+      "text": "How far should Canada go on Indigenous self-determination?",
+      "subtext": "UNDRIP implementation is underway. Land rights disputes block pipelines and development. Residential school survivors await reparations.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Full constitutional recognition of sovereignty — Indigenous nations have jurisdiction over their territories and resources.",
+          "score": [
+            0.0,
+            2.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Meaningful self-governance within Confederation — strong resource revenue sharing and land rights.",
+          "score": [
+            0.0,
+            1.5,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Targeted socioeconomic support — address poverty and health gaps, but equal citizenship within Canadian law.",
+          "score": [
+            0.0,
+            0.7,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Move on from reconciliation — decades of apologies and spending without improvement; equal treatment under law.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q016",
+      "sectionLabel": "Race & Systemic Inequality",
+      "text": "Does systemic racism exist in Canadian institutions, and should government actively address it?",
+      "subtext": "Data shows racial disparities in policing, incarceration, income, and healthcare. Debates focus on cause and remedy.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Systemic racism is a defining feature — major policy reform in policing, hiring, and public institutions is urgent.",
+          "score": [
+            0.0,
+            2.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Racial disparities are real — targeted programs and anti-discrimination enforcement are needed.",
+          "score": [
+            0.0,
+            1.5,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Disparities exist but are complex — individual factors matter as much as systemic ones.",
+          "score": [
+            0.0,
+            0.7,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Systemic racism is overstated — Canada is one of the most equal societies; focus on individual responsibility.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q017",
+      "sectionLabel": "Religion & Public Life",
+      "text": "What role should religious values play in Canadian public policy?",
+      "subtext": "Quebec's Bill 21 bans religious symbols for public servants. Federal debates over religious exemptions from equality law continue.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Strict separation — religious values have no place in public law or institutions; secularism is non-negotiable.",
+          "score": [
+            0.0,
+            2.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Accommodate religious freedom but equality law prevails — no exemptions from anti-discrimination.",
+          "score": [
+            0.0,
+            1.5,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Religious freedom is a fundamental right — meaningful exemptions in education and social services.",
+          "score": [
+            0.0,
+            0.7,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Canada's Christian heritage should be honoured in public life — policy should reflect traditional values.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q018",
+      "sectionLabel": "Criminal Justice & Policing",
+      "text": "What is the right approach to crime and public safety?",
+      "subtext": "Violent crime rose 39% from 2015-2022. Debates: root causes vs. enforcement, sentencing reform vs. mandatory minimums.",
+      "difficulty": "basic",
+      "options": [
+        {
+          "text": "Root causes first — poverty, addiction, and inequality drive crime; enforcement without investment fails.",
+          "score": [
+            0.0,
+            2.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Balance rehabilitation with accountability — smarter policing, treatment, and proportionate sentences.",
+          "score": [
+            0.0,
+            1.5,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Stronger enforcement — longer sentences for repeat and violent offenders; police need more resources.",
+          "score": [
+            0.0,
+            0.7,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Law and order priority — soft-on-crime policies have failed; mandatory minimums and more police.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q019",
+      "sectionLabel": "Gender Pay Gap",
+      "text": "What is the cause of, and solution to, the gender pay gap?",
+      "subtext": "Canadian women earn ~$0.89 for every dollar men earn. Pay equity legislation exists but gaps persist.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Structural discrimination — mandatory pay audits, pay transparency, and strong enforcement are needed.",
+          "score": [
+            0.0,
+            2.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "A real problem — expand pay equity legislation and improve access to childcare.",
+          "score": [
+            0.0,
+            1.5,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Partly individual choices — occupational selection explains most of the gap; targeted support is enough.",
+          "score": [
+            0.0,
+            0.7,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "The gap largely reflects different choices — government intervention risks distorting the market.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q020",
+      "sectionLabel": "Environmental Regulation",
+      "text": "How strictly should Canada regulate environmental damage from industry?",
+      "subtext": "Oil sands tailings ponds, pipeline spills, and agricultural runoff are major concerns. Industry says over-regulation costs jobs.",
+      "difficulty": "basic",
+      "options": [
+        {
+          "text": "Polluter pays fully — strict liability, mandatory cleanup, criminal penalties, and no grandfather clauses.",
+          "score": [
+            0.0,
+            2.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Strong regulations with meaningful enforcement — industry must internalize environmental costs.",
+          "score": [
+            0.0,
+            1.5,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Regulations are adequate — focus on technology solutions rather than new rules.",
+          "score": [
+            0.0,
+            0.7,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Current regulations are excessive — they kill projects and jobs without meaningful environmental benefit.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q021",
+      "sectionLabel": "Government Surveillance",
+      "text": "How much authority should Canadian security agencies have to surveil citizens?",
+      "subtext": "CSIS, RCMP, and CSE powers expanded post-2001 and post-2014 Parliament attack. Metadata collection, warrant thresholds debated.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Strict judicial oversight for all surveillance — no bulk collection, strong privacy protections.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Targeted surveillance with warrants — proportionate powers, independent oversight, sunset clauses.",
+          "score": [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ]
+        },
+        {
+          "text": "Agencies need operational flexibility — current courts oversight is adequate.",
+          "score": [
+            0.0,
+            0.0,
+            1.3,
+            0.0
+          ]
+        },
+        {
+          "text": "Security agencies should have broad powers — national security threats require proactive surveillance.",
+          "score": [
+            0.0,
+            0.0,
+            2.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q022",
+      "sectionLabel": "Police Powers & Civil Liberties",
+      "text": "When civil unrest occurs, what powers should police have?",
+      "subtext": "The 2022 Convoy, Gaza campus protests (2024), and Indigenous blockades have all tested the limits of police power.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Police should only use minimum necessary force — rights of assembly and protest are near-absolute.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Balanced approach — lawful protest protected; police can act on genuine public safety threats with court oversight.",
+          "score": [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ]
+        },
+        {
+          "text": "Police should restore order firmly — prolonged blockades are not protected protest.",
+          "score": [
+            0.0,
+            0.0,
+            1.3,
+            0.0
+          ]
+        },
+        {
+          "text": "The state must enforce law decisively — weakness emboldens those who disrupt the economy and daily life.",
+          "score": [
+            0.0,
+            0.0,
+            2.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q023",
+      "sectionLabel": "Hate Speech & Free Expression",
+      "text": "How should Canada handle hate speech and online harmful content?",
+      "subtext": "Bill C-63 proposed a digital safety regulator. Critics call it government censorship. Social media platforms host extremist content.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Regulate online platforms firmly — harmful content causes real harm; the state must act.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Strengthen enforcement of existing hate speech law — targeted enforcement, not broad speech regulation.",
+          "score": [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ]
+        },
+        {
+          "text": "Narrow hate speech laws tightly — the bar for criminality should be very high; err on speech freedom.",
+          "score": [
+            0.0,
+            0.0,
+            1.3,
+            0.0
+          ]
+        },
+        {
+          "text": "Repeal hate speech provisions — free expression is nearly absolute; the state should not regulate speech.",
+          "score": [
+            0.0,
+            0.0,
+            2.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q024",
+      "sectionLabel": "Gun Control",
+      "text": "Where should Canada set gun ownership rights?",
+      "subtext": "The 2020 assault-style weapons ban and handgun freeze are under review. Conservatives promise to reverse them.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Significantly stricter — ban all handguns, restrict long guns, mandatory buyback programs.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Current regulations are appropriate — enforce existing rules more consistently.",
+          "score": [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ]
+        },
+        {
+          "text": "Over-regulated — reverse the assault-style ban; focus on criminal enforcement, not lawful owners.",
+          "score": [
+            0.0,
+            0.0,
+            1.3,
+            0.0
+          ]
+        },
+        {
+          "text": "The right to self-defence is fundamental — responsible Canadians should be able to own firearms for protection.",
+          "score": [
+            0.0,
+            0.0,
+            2.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q025",
+      "sectionLabel": "Emergency Powers",
+      "text": "Was invocation of the Emergencies Act in February 2022 justified?",
+      "subtext": "Trudeau invoked the Act to clear the Ottawa convoy blockade. A Federal Court found the invocation unconstitutional in 2024.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Clearly unjustified — the threshold was not met; the court was right; this was a rights violation.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Borderline — the situation was serious but existing laws would have sufficed.",
+          "score": [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ]
+        },
+        {
+          "text": "Justified in context — the economic disruption was severe and other options had failed.",
+          "score": [
+            0.0,
+            0.0,
+            1.3,
+            0.0
+          ]
+        },
+        {
+          "text": "Absolutely justified — the government must be able to act decisively to protect the economy and public order.",
+          "score": [
+            0.0,
+            0.0,
+            2.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q026",
+      "sectionLabel": "Mandatory Minimums & Sentencing",
+      "text": "Should Canada reinstate or expand mandatory minimum sentences for serious crimes?",
+      "subtext": "The Supreme Court struck down several mandatory minimums as cruel. The Conservative platform proposes reinstating them.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Abolish mandatory minimums — judicial discretion is essential; mandatory minimums increase incarceration without reducing crime.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Very limited mandatory minimums — only for the most serious violent and sexual offences.",
+          "score": [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ]
+        },
+        {
+          "text": "Reinstate mandatory minimums for repeat violent offenders and drug trafficking.",
+          "score": [
+            0.0,
+            0.0,
+            1.3,
+            0.0
+          ]
+        },
+        {
+          "text": "Broad mandatory minimums — judges are too lenient; the public needs predictable harsh sentences.",
+          "score": [
+            0.0,
+            0.0,
+            2.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q027",
+      "sectionLabel": "National Security vs. Privacy",
+      "text": "Should Canada expand sharing of citizen data across government agencies to improve security?",
+      "subtext": "Post-9/11 data sharing between CSIS, CBSA, and CRA has expanded. Foreign interference concerns heighten the debate.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "No — data sharing across agencies without consent is a surveillance state; strict firewalls are essential.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Limited sharing — specific, targeted, with independent oversight and sunset clauses.",
+          "score": [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ]
+        },
+        {
+          "text": "Agencies should share data on national security cases — foreign threats require coordination.",
+          "score": [
+            0.0,
+            0.0,
+            1.3,
+            0.0
+          ]
+        },
+        {
+          "text": "Broad integration — the security benefits outweigh privacy concerns; we need a unified threat picture.",
+          "score": [
+            0.0,
+            0.0,
+            2.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q028",
+      "sectionLabel": "Press Freedom & Media Regulation",
+      "text": "How much authority should government have over media content?",
+      "subtext": "Bill C-11 (Online Streaming Act) mandated Canadian content on platforms. Critics call it censorship; supporters call it cultural protection.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Minimal government control — the state should not regulate content, only fund public broadcasting.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "C-11 is reasonable — CanCon requirements help Canadian creators without censoring.",
+          "score": [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ]
+        },
+        {
+          "text": "C-11 went too far — repeal it; regulate only for competition, not content.",
+          "score": [
+            0.0,
+            0.0,
+            1.3,
+            0.0
+          ]
+        },
+        {
+          "text": "Stronger content regulation is needed — platforms carry harmful content and must be held accountable.",
+          "score": [
+            0.0,
+            0.0,
+            2.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q029",
+      "sectionLabel": "Immigration Enforcement",
+      "text": "How should Canada handle illegal border crossings and refugee claims?",
+      "subtext": "Irregular crossings surged 2022-2024. Roxham Road was closed. Deportation and safe third-country debates are ongoing.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Humane processing — all irregular arrivals deserve full refugee hearings; detention is a last resort.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Process claims fairly but efficiently — faster hearings, clear criteria, deportation for failed claimants.",
+          "score": [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ]
+        },
+        {
+          "text": "Firm enforcement — irregular crossings are illegal; detain and deport failed claimants quickly.",
+          "score": [
+            0.0,
+            0.0,
+            1.3,
+            0.0
+          ]
+        },
+        {
+          "text": "Zero tolerance — irregular crossings must be stopped immediately; turn back at the border.",
+          "score": [
+            0.0,
+            0.0,
+            2.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q030",
+      "sectionLabel": "Electoral & Institutional Reform",
+      "text": "Should Canada change the first-past-the-post voting system?",
+      "subtext": "Trudeau promised electoral reform and broke that promise. Minority governments are now common. The Senate is still unelected.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Yes — proportional representation would make Parliament actually reflect how Canadians vote.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "A mixed system — mixed-member proportional as a compromise between stability and fairness.",
+          "score": [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ]
+        },
+        {
+          "text": "FPTP is fine — stable majority governments are more valuable than proportional complexity.",
+          "score": [
+            0.0,
+            0.0,
+            1.3,
+            0.0
+          ]
+        },
+        {
+          "text": "Change would destabilize democracy — the existing system produced 157 years of stable government.",
+          "score": [
+            0.0,
+            0.0,
+            2.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q031",
+      "sectionLabel": "Immigration Levels",
+      "text": "What immigration intake is right for Canada?",
+      "subtext": "Canada hit 1.2M+ newcomers in 2023-24 (all categories). The Carney government has cut targets back to ~395K for 2025.",
+      "difficulty": "basic",
+      "options": [
+        {
+          "text": "High immigration — Canada needs people; diversity is an economic and cultural strength.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Moderate intake at roughly 400K/year — match housing and integration capacity.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "text": "Significant reduction — current levels strain infrastructure; prioritize integration first.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            1.3
+          ]
+        },
+        {
+          "text": "Dramatically reduce — open-borders globalism has failed; Canada for Canadians first.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q032",
+      "sectionLabel": "Trade Policy",
+      "text": "How should Canada approach free trade agreements?",
+      "subtext": "USMCA is under pressure from Trump 2.0 tariffs. Canada relies on the US for 75% of exports. New trade diversification sought.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Pursue trade with strong labour, environmental, and human rights standards — 'fair trade' not 'free trade'.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Continue free trade but diversify from US dependence — Asia, EU, and Indo-Pacific.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "text": "Protect strategic sectors — supply management, culture, and key manufacturing from trade deals.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            1.3
+          ]
+        },
+        {
+          "text": "Protectionism first — Canadian industries and workers should be shielded from foreign competition.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q033",
+      "sectionLabel": "Canadian Sovereignty & US Relations",
+      "text": "How should Canada respond to US pressure — tariffs, territorial threats, and political interference?",
+      "subtext": "Trump's 51st state rhetoric, 25% tariff threats, and pressure on NORAD and energy are live issues in 2025.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Diplomatic resolution — Canada and the US are partners; we should negotiate, not retaliate.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Firm but measured response — counter-tariffs on strategic goods, diversify, and stand on international law.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "text": "Assert sovereignty strongly — Canada will not be bullied; retaliatory tariffs and alternative alliances.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            1.3
+          ]
+        },
+        {
+          "text": "Canada First — we need economic independence; reduce reliance on the US even if costly.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q034",
+      "sectionLabel": "Multiculturalism Policy",
+      "text": "Should Canada's official multiculturalism policy continue unchanged?",
+      "subtext": "Canada's official multiculturalism has existed since 1971. Immigration skeptics argue it prevents integration; others call it Canada's strength.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Strengthen multiculturalism — Canada's diversity is its identity; more funding for cultural communities.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Keep multiculturalism but emphasize Canadian civic values and integration outcomes.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "text": "Reform multiculturalism — integration into Canadian society should come before cultural preservation.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            1.3
+          ]
+        },
+        {
+          "text": "End multiculturalism policy — it fragments social cohesion; Canada needs one shared identity.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q035",
+      "sectionLabel": "Foreign Aid & International Obligations",
+      "text": "How much should Canada spend on foreign aid and international development?",
+      "subtext": "Canada spends ~0.3% of GNI on foreign aid, well below the UN's 0.7% target. The Conservative platform proposes cuts.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Increase to meet the 0.7% UN target — global poverty and instability affect Canada too.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Maintain current levels and focus aid strategically on Canadian foreign policy objectives.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "text": "Reduce — foreign aid is a luxury when Canadians face housing and healthcare crises.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            1.3
+          ]
+        },
+        {
+          "text": "Cut foreign aid dramatically — charity begins at home; the UN target is an outdated guilt payment.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q036",
+      "sectionLabel": "NATO & Military Spending",
+      "text": "Should Canada meet the NATO 2% GDP defence spending target?",
+      "subtext": "Canada spends ~1.37% of GDP on defence, well below NATO's 2% target. The war in Ukraine and Arctic security are pressures.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Prioritize diplomacy over military spending — Canada's foreign policy strength is peacekeeping, not arms.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Meet the 2% gradually — but invest in peacekeeping capacity and multilateral institutions too.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "text": "Meet the 2% now — Canada is a free-rider and we must pull our weight to maintain US alliance.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            1.3
+          ]
+        },
+        {
+          "text": "Rearm significantly beyond 2% — the world is more dangerous; Canada must be able to defend itself.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q037",
+      "sectionLabel": "Refugee Policy",
+      "text": "How many refugees should Canada accept, and under what conditions?",
+      "subtext": "Canada accepted ~40,000 government-assisted refugees in 2023. The UN HCR says global displacement is at record highs.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Significantly increase — Canada has the capacity and moral obligation to take far more refugees.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Maintain current levels — Canada does its fair share relative to population.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "text": "Reduce targets — integration resources are stretched; prioritize economic immigrants.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            1.3
+          ]
+        },
+        {
+          "text": "Minimal refugees — Canada's obligations are fulfilled; domestic need must come first.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q038",
+      "sectionLabel": "Quebec & Language",
+      "text": "How should the federal government respond to Quebec's Bill 96 (French language law)?",
+      "subtext": "Bill 96 restricts English and imposes French across most areas of Quebec life, affecting Anglophones and newcomers.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Respect Quebec's right to protect French — linguistic minorities everywhere deserve support.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Bilingualism is the framework — federal government should protect both official language minorities.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "text": "Provinces should decide — Ottawa should stay out of provincial language policy.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            1.3
+          ]
+        },
+        {
+          "text": "French-Canada's survival justifies strong measures — Quebec's cultural nationalism is legitimate.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q039",
+      "sectionLabel": "Arctic Sovereignty",
+      "text": "How should Canada assert sovereignty over the Arctic?",
+      "subtext": "Russia, the US, Denmark, and China are all active in Canada's claimed Arctic. Climate change is opening new shipping routes.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Multilateral Arctic governance — shared sovereignty through international law and Arctic Council.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Maintain current international engagement while investing in surveillance and Indigenous partnerships.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "text": "Assert sovereignty firmly — Canadian armed presence, infrastructure, and clear territorial claims.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            1.3
+          ]
+        },
+        {
+          "text": "Militarize the Arctic — Canada must be able to defend it unilaterally against Russia and China.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q040",
+      "sectionLabel": "Cultural Protectionism",
+      "text": "Should Canada use policy to protect Canadian culture from American media dominance?",
+      "subtext": "Streaming platforms now exceed traditional TV. C-11 mandates Canadian content. Critics say this distorts market choices.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Strong cultural protection — Canadian stories, voices, and creators need government support to survive.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Moderate CanCon requirements — support Canadian creators but don't mandate what audiences watch.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "text": "Minimal intervention — audiences should choose; subsidize public broadcasters only.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            1.3
+          ]
+        },
+        {
+          "text": "No cultural protectionism — Canadian culture is strong enough to compete; protectionism is paternalism.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q041",
+      "sectionLabel": "Israel-Palestine Conflict",
+      "text": "How should Canada position itself on the Israel-Gaza conflict?",
+      "subtext": "Canada abstained on UN resolutions in 2023-24, then shifted. Arms sales, humanitarian aid, and recognition of Palestinian state are active debates.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Strong support for Palestinian statehood — halt arms sales to Israel; increase humanitarian aid; back ICJ proceedings.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        },
+        {
+          "text": "Two-state solution with balanced critique — condemn civilian casualties on both sides; support ceasefire.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "text": "Support Israel's right to self-defence — Hamas is a terrorist organization; civilian casualties are Israel's regret, not intent.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            1.2
+          ]
+        },
+        {
+          "text": "Strong support for Israel — the only democracy in the region; Canada should not criticize its closest allies.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            1.8
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q042",
+      "sectionLabel": "Climate & Energy Jobs",
+      "text": "How should Canada balance decarbonization with fossil fuel employment?",
+      "subtext": "Over 200,000 Canadians work in oil and gas. Net-zero 2050 is government policy. The just transition is debated.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Rapid green transition — fund workers through retraining and income support; phase out oil sands by 2040.",
+          "score": [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Manage the transition — invest in clean energy while supporting oil sector workers through gradual phase-down.",
+          "score": [
+            0.6,
+            0.0,
+            0.0,
+            0.2
+          ]
+        },
+        {
+          "text": "Oil is essential for decades — Canada should maximize extraction and export while developing clean tech.",
+          "score": [
+            1.3,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "text": "No forced transition — abandon net-zero targets; oil is Canada's economic lifeblood.",
+          "score": [
+            2.0,
+            0.0,
+            0.0,
+            1.5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q043",
+      "sectionLabel": "Foreign Interference in Canadian Politics",
+      "text": "How seriously should Canada take foreign interference from China, India, and others?",
+      "subtext": "The Hogue Commission found evidence of Chinese and Indian interference in federal elections. Several MPs are implicated.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Treat it as a national security crisis — public registry of foreign agents, full expulsion of foreign influence operations.",
+          "score": [
+            0.0,
+            0.0,
+            0.5,
+            1.3
+          ]
+        },
+        {
+          "text": "Take it seriously with proportionate response — strengthen CSIS, prosecute violators, demand accountability from implicated MPs.",
+          "score": [
+            0.0,
+            0.0,
+            0.3,
+            0.8
+          ]
+        },
+        {
+          "text": "It's real but overstated — don't damage diplomatic relationships with evidence-free accusations.",
+          "score": [
+            0.0,
+            0.0,
+            0.2,
+            0.4
+          ]
+        },
+        {
+          "text": "It's a distraction — domestic poverty and healthcare matter more than geopolitical conspiracy theories.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q044",
+      "sectionLabel": "Convoy Protest & Political Legitimacy",
+      "text": "How do you assess the 2022 Ottawa Freedom Convoy and its legacy?",
+      "subtext": "The Convoy occupied Ottawa for 3 weeks, blockaded border crossings, and prompted the Emergencies Act. It remains polarizing.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "A legitimate protest movement — vaccine mandates were overreach; the protest, if not all tactics, was justified.",
+          "score": [
+            1.3,
+            0.0,
+            0.0,
+            1.3
+          ]
+        },
+        {
+          "text": "Mixed — legitimate grievances about mandates, but the blockades crossed a legal and democratic line.",
+          "score": [
+            0.8,
+            0.0,
+            0.5,
+            0.8
+          ]
+        },
+        {
+          "text": "Largely unjustified — pandemic measures were warranted; the convoy caused economic harm and threatened democracy.",
+          "score": [
+            0.3,
+            0.0,
+            0.8,
+            0.3
+          ]
+        },
+        {
+          "text": "An insurrectionist movement — it was funded by foreign actors and sought to overturn democratic government.",
+          "score": [
+            0.0,
+            0.0,
+            1.5,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q045",
+      "sectionLabel": "Supply Management",
+      "text": "Should Canada maintain supply management in dairy, eggs, and poultry?",
+      "subtext": "Supply management raises food prices 8-30% but supports ~14,000 farm families. Trade partners demand it be opened.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Keep it — farmers deserve income stability; not everything should be at the mercy of global commodity markets.",
+          "score": [
+            0.2,
+            0.0,
+            0.0,
+            1.5
+          ]
+        },
+        {
+          "text": "Retain with reforms — allow gradual market adjustment; provide transition support.",
+          "score": [
+            0.6,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "text": "Phase it out — Canadians pay too much for dairy and eggs; trade access matters more.",
+          "score": [
+            1.3,
+            0.0,
+            0.0,
+            0.3
+          ]
+        },
+        {
+          "text": "Abolish supply management — it's a cartel that punishes consumers to enrich a small number of farm families.",
+          "score": [
+            2.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q046",
+      "sectionLabel": "Digital Privacy & Big Tech",
+      "text": "How should Canada regulate big tech companies collecting and monetizing Canadian data?",
+      "subtext": "Bill C-27 (Digital Charter) stalled. Google, Meta, and Amazon collect extensive data on Canadians with limited accountability.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Mandatory data rights — Canadians own their data; opt-in consent, right to deletion, and strong fines.",
+          "score": [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ]
+        },
+        {
+          "text": "Comprehensive regulation — GDPR-style framework with real enforcement and penalties.",
+          "score": [
+            0.2,
+            0.0,
+            0.3,
+            0.0
+          ]
+        },
+        {
+          "text": "Industry self-regulation with minimum standards — over-regulation will drive investment away.",
+          "score": [
+            1.2,
+            0.0,
+            0.8,
+            0.0
+          ]
+        },
+        {
+          "text": "No regulation needed — competition and market forces will protect consumers.",
+          "score": [
+            2.0,
+            0.0,
+            1.5,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q047",
+      "sectionLabel": "Canada-China Relations",
+      "text": "What should Canada's approach to China be?",
+      "subtext": "China is Canada's second-largest trading partner. It has detained Canadians, interfered in elections, and threatened Taiwan.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Decouple strategically — reduce economic dependence; stand firm on human rights and Taiwan.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            1.5
+          ]
+        },
+        {
+          "text": "Competitive coexistence — engage on trade, but push back on interference and human rights.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.8
+          ]
+        },
+        {
+          "text": "Pragmatic engagement — trade and diplomatic relationships are too valuable to jeopardize.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.3
+          ]
+        },
+        {
+          "text": "Full integration into international institutions — confront China through multilateral, not unilateral, means.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q048",
+      "sectionLabel": "Poverty & Social Safety Net",
+      "text": "What should the federal government do about poverty in Canada?",
+      "subtext": "Canada's official poverty rate is 7.4% (MBM). 1 in 5 children live in food insecurity. The Senate passed anti-poverty measures that stalled.",
+      "difficulty": "basic",
+      "options": [
+        {
+          "text": "Poverty is a policy failure — a guaranteed livable income and major expansion of social programs is needed now.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Significant expansion of targeted supports — housing, childcare, dental, pharmacare as pillars.",
+          "score": [
+            0.3,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Current programs are enough — improve delivery and target better; more spending isn't the answer.",
+          "score": [
+            1.2,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Social safety net dependency is itself a cause of poverty — work requirements and reduction of benefits.",
+          "score": [
+            2.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q049",
+      "sectionLabel": "Healthcare Wait Times",
+      "text": "What is the best solution to Canada's healthcare wait time problem?",
+      "subtext": "Canada ranks last in OECD for wait times. Average wait from GP to specialist to treatment: 27+ weeks.",
+      "difficulty": "basic",
+      "options": [
+        {
+          "text": "Massive public investment — more doctors, nurses, hospitals; train domestically and streamline foreign credentials.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Federal-provincial investment surge — tied transfers to accountability on wait times.",
+          "score": [
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Allow private surgery centres — dequeue the public system by letting those who can pay, go private.",
+          "score": [
+            1.3,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Full parallel private system — competition will reduce waits for everyone through innovation.",
+          "score": [
+            2.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q050",
+      "sectionLabel": "University & Post-Secondary Education",
+      "text": "How should Canada address the cost and accessibility of post-secondary education?",
+      "subtext": "Average student debt is $28,000. Tuition has risen 40% in real terms since 2000. International student caps are new policy.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Free university — post-secondary should be treated like K-12; an educated population is a public good.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Significant grants and low-interest loans; freeze tuition; write off first $10K of debt.",
+          "score": [
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Income-contingent repayment — debt paid back only when earning above a threshold; no blanket forgiveness.",
+          "score": [
+            1.2,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Education is an investment — students should pay full freight; scholarships for the talented.",
+          "score": [
+            2.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q051",
+      "sectionLabel": "Pharmacare",
+      "text": "Should Canada implement universal pharmacare?",
+      "subtext": "The NDP-Liberal pharmacare deal (2024) covers diabetes and contraception. Full pharmacare could cost $15B/year.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Full universal pharmacare now — drugs are part of healthcare; no Canadian should choose between food and medicine.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Expand gradually — start with catastrophic drug coverage; build toward full pharmacare.",
+          "score": [
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Employer plans work fine for most — target pharmacare only at those without coverage.",
+          "score": [
+            1.2,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Pharmacare is unaffordable — the private system works; government shouldn't displace it.",
+          "score": [
+            2.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q052",
+      "sectionLabel": "Senior Care",
+      "text": "How should Canada fund and deliver long-term care for seniors?",
+      "subtext": "The COVID-19 pandemic killed 14,000+ long-term care residents. Most LTC is privately operated. Wait times for public beds: 4+ years.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Full public not-for-profit LTC — profit motive in elder care is incompatible with dignity.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "National standards with increased public funding — hold private operators to strict accountability.",
+          "score": [
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Private operators are fine if properly regulated — the issue is enforcement, not ownership.",
+          "score": [
+            1.2,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Market will allocate best — let families choose; government-run LTC has been the worst performer.",
+          "score": [
+            2.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q053",
+      "sectionLabel": "Alberta Sovereignty",
+      "text": "How should Ottawa respond to Alberta's sovereignty movement and firewall rhetoric?",
+      "subtext": "The Alberta Sovereignty Act (2023) claims the right to refuse federal laws. Separation polling hits 30%+.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Negotiate earnestly — alienation is real; asymmetric federalism and resource revenue sharing must be addressed.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.8
+          ]
+        },
+        {
+          "text": "Respect jurisdiction but enforce the Constitution — provinces cannot nullify federal law.",
+          "score": [
+            0.0,
+            0.0,
+            0.5,
+            0.4
+          ]
+        },
+        {
+          "text": "Stand firm — appeasement of separatism strengthens it; enforce the Constitution without negotiation.",
+          "score": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Alberta's grievances are manufactured — push back hard against firewall politics.",
+          "score": [
+            0.0,
+            0.0,
+            1.5,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q054",
+      "sectionLabel": "Wealth Inequality",
+      "text": "Is Canada's level of wealth inequality a problem that government should actively address?",
+      "subtext": "Canada's top 1% hold 25% of total wealth. The Gini coefficient has risen. Billionaire wealth doubled during COVID.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "A defining crisis — wealth concentration threatens democracy; wealth taxes, inheritance taxes, and redistribution.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "A significant problem — capital gains inclusion, estate taxes, and closing corporate loopholes.",
+          "score": [
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Inequality exists but economic growth lifts all boats — focus on opportunity, not redistribution.",
+          "score": [
+            1.2,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Wealth inequality is the natural result of talent and effort — redistribution punishes success.",
+          "score": [
+            2.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q055",
+      "sectionLabel": "Truth & Reconciliation",
+      "text": "What should Canada's response to the TRC Calls to Action look like?",
+      "subtext": "Of 94 Calls to Action from the 2015 Truth and Reconciliation Commission, fewer than half are complete a decade later.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Full implementation is a legal and moral obligation — it must be funded and completed urgently.",
+          "score": [
+            0.0,
+            2.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Prioritize the most impactful calls — child welfare, health, language, and education.",
+          "score": [
+            0.0,
+            1.5,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Much has been done — reconciliation requires partnership, not just government checklists.",
+          "score": [
+            0.0,
+            0.8,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Canada has moved on — ongoing focus on past wrongs prevents building a shared future.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q056",
+      "sectionLabel": "Proportional Representation",
+      "text": "Should Canada adopt proportional representation for federal elections?",
+      "subtext": "Every government since 1980 has won a majority with under 40% of votes. The 2021 election cost $600M for a near-identical Parliament.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Yes — FPTP is a democratic deficit; proportional representation is more fair and produces better policy.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "A mixed system — retain local representation with proportional top-up.",
+          "score": [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ]
+        },
+        {
+          "text": "FPTP produces stable government — proportional systems create endless coalitions.",
+          "score": [
+            0.0,
+            0.0,
+            1.3,
+            0.0
+          ]
+        },
+        {
+          "text": "The existing system has served Canada well — change would be destabilizing.",
+          "score": [
+            0.0,
+            0.0,
+            2.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q057",
+      "sectionLabel": "Trans Mountain Pipeline",
+      "text": "Was Canada right to complete the Trans Mountain pipeline expansion?",
+      "subtext": "Trans Mountain cost taxpayers $34B after the government bought it for $4.5B in 2018. Oil carries 890,000 barrels/day.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Wrong — public money should not fund fossil fuel infrastructure; it undermines climate commitments.",
+          "score": [
+            0.2,
+            0.0,
+            0.0,
+            0.2
+          ]
+        },
+        {
+          "text": "Complicated — the resource is real; the government intervention prevented foreign ownership.",
+          "score": [
+            0.7,
+            0.0,
+            0.0,
+            0.7
+          ]
+        },
+        {
+          "text": "Right — Canada needs to get oil to tidewater; Asian markets reduce US dependence.",
+          "score": [
+            1.3,
+            0.0,
+            0.0,
+            1.3
+          ]
+        },
+        {
+          "text": "Absolutely right — energy sovereignty; oil sands are Canada's greatest asset.",
+          "score": [
+            2.0,
+            0.0,
+            0.0,
+            1.8
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q058",
+      "sectionLabel": "Bank of Canada Independence",
+      "text": "Should the Bank of Canada be more responsive to government direction on interest rates?",
+      "subtext": "High interest rates (2022-2024) slowed inflation but crushed mortgage holders. Some argue the Bank is too independent.",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Fully independent — monetary policy must be insulated from political pressure.",
+          "score": [
+            0.3,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Maintain independence but improve accountability and transparency to Parliament.",
+          "score": [
+            0.7,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Government should be able to issue directives in exceptional circumstances.",
+          "score": [
+            1.3,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "The Bank should serve elected government — technocrats should not control the economy.",
+          "score": [
+            2.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q059",
+      "sectionLabel": "Social Media & Youth Mental Health",
+      "text": "Should the Canadian government regulate social media to protect youth?",
+      "subtext": "Rates of adolescent anxiety and depression have risen sharply since 2012, correlating with smartphone adoption.",
+      "difficulty": "medium",
+      "options": [
+        {
+          "text": "Age verification requirements and content restrictions are necessary — the harm to youth is documented.",
+          "score": [
+            0.0,
+            0.0,
+            0.3,
+            0.0
+          ]
+        },
+        {
+          "text": "Require platforms to implement parental controls and disclose algorithmic amplification.",
+          "score": [
+            0.0,
+            0.0,
+            0.7,
+            0.0
+          ]
+        },
+        {
+          "text": "Educate parents and youth — regulation of content risks setting precedents for speech control.",
+          "score": [
+            0.0,
+            0.0,
+            1.3,
+            0.0
+          ]
+        },
+        {
+          "text": "Not the government's role — parents should monitor their children's screen use.",
+          "score": [
+            0.0,
+            0.0,
+            2.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q060",
+      "sectionLabel": "Scoop Jackson Doctrine — Neoconservatism & Canada",
+      "text": "Should Canada adopt a more assertive, interventionist foreign policy to promote democracy and security?",
+      "subtext": "Scoop Jackson Democrats and neoconservatives argued that liberal democracy must be actively promoted and defended — by force if necessary. Should Canada be a more active force in the world?",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Peacekeeping and multilateralism — Canada's role is to mediate and support international institutions, not project power.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Selective engagement — support democracies and allies but avoid unilateral military action.",
+          "score": [
+            0.0,
+            0.0,
+            0.3,
+            0.5
+          ]
+        },
+        {
+          "text": "Canada should be a more capable military power — NATO burden-sharing and democracy promotion require real capacity.",
+          "score": [
+            0.0,
+            0.0,
+            0.8,
+            1.0
+          ]
+        },
+        {
+          "text": "Active strategic power — Canada should use economic and military tools to advance democratic values and deter authoritarian states.",
+          "score": [
+            0.0,
+            0.0,
+            0.5,
+            1.5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q061",
+      "sectionLabel": "Liberal International Order",
+      "text": "Is the rules-based international order — the UN, WTO, ICC — worth defending?",
+      "subtext": "The post-WWII institutions are under pressure from China, Russia, the US under Trump, and rising populism. Are they still worth defending?",
+      "difficulty": "hard",
+      "options": [
+        {
+          "text": "Absolutely — the rules-based order, despite its flaws, is the architecture that prevents great power war.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "text": "Reform it, don't abandon it — make the UN Security Council and WTO more representative.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            0.4
+          ]
+        },
+        {
+          "text": "Pragmatic — support international institutions where they advance Canadian interests, bypass them where they don't.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "text": "It's a relic — China and Russia hollowed it out; Canada should operate through direct alliances, not paper institutions.",
+          "score": [
+            0.0,
+            0.0,
+            0.0,
+            1.8
+          ]
         }
       ]
     }
