@@ -154,397 +154,401 @@
   "factions": {
     "liberal": {
       "name": "Liberal Party of Canada",
-      "primaryColor": "#E8102E",
       "factions": [
         {
-          "id": "social-liberal",
-          "name": "Social Liberal Wing",
-          "description": "Progressive on social issues, interventionist on economy, strong public programs",
+          "id": "trudeau-liberal",
+          "name": "Progressive Liberal",
+          "description": "Post-2015 Liberal mainstream: intersectional progressivism, active government, multilateral foreign policy, identity-conscious politics. The Trudeau synthesis of social liberalism and fiscal pragmatism.",
           "characteristics": {
             "economic": [
-              0,
-              40
-            ],
-            "progressive": [
-              60,
-              100
-            ],
-            "authority": [
               30,
-              50
-            ],
-            "nationalism": [
-              40,
-              60
-            ]
-          },
-          "probability": 0,
-          "keyPositions": {
-            "healthcare": "Universal public system, pharmacare, dental care",
-            "environment": "Aggressive carbon pricing, climate action",
-            "immigration": "High immigration, refugee acceptance",
-            "indigenous": "Strong reconciliation, land rights",
-            "labor": "Strong union support, worker protections"
-          },
-          "examples": [
-            "Justin Trudeau (early)",
-            "Chrystia Freeland"
-          ],
-          "historicalContext": "Dominant under Pierre Trudeau (1970s-80s), resurgent under Trudeau Jr."
-        },
-        {
-          "id": "centrist",
-          "name": "Centrist Pragmatists",
-          "description": "Balance efficiency with social programs, moderate on most issues, incremental change",
-          "characteristics": {
-            "economic": [
-              40,
               55
             ],
             "progressive": [
-              45,
-              65
+              68,
+              90
             ],
             "authority": [
-              40,
-              55
+              38,
+              58
             ],
             "nationalism": [
-              45,
-              60
-            ]
-          },
-          "probability": 0,
-          "keyPositions": {
-            "healthcare": "Public system with private options, modest funding increases",
-            "environment": "Balanced approach, technology-focused",
-            "immigration": "Moderate levels, focus on integration",
-            "economy": "Pragmatic spending, deficit management",
-            "labor": "Work with unions, not against them"
-          },
-          "examples": [
-            "Jean Chrétien",
-            "Paul Martin"
-          ],
-          "historicalContext": "Dominated Canadian politics 1993-2006, currently strong faction"
-        },
-        {
-          "id": "bay-street",
-          "name": "Bay Street Liberals",
-          "description": "Business-friendly, lower spending, market-oriented, pro-trade",
-          "characteristics": {
-            "economic": [
-              50,
-              70
-            ],
-            "progressive": [
               35,
               55
-            ],
-            "authority": [
-              40,
-              60
-            ],
-            "nationalism": [
-              45,
-              65
             ]
           },
           "probability": 0,
+          "examples": [
+            "Justin Trudeau",
+            "Chrystia Freeland",
+            "Mark Carney"
+          ],
+          "historicalContext": "Dominant Liberal faction 2015–present. Defined by social progressivism, reconciliation, and internationalism.",
           "keyPositions": {
-            "healthcare": "More private sector involvement, user fees",
-            "economy": "Lower corporate taxes, reduced spending",
-            "trade": "Free trade, USMCA support",
-            "regulation": "Deregulation, business-friendly policies",
-            "deficits": "Balance budget priority"
+            "Healthcare": "Expand public system; pharmacare; dental care",
+            "Climate": "Carbon pricing; clean tech investment; Paris accord",
+            "Immigration": "High, managed intake; multiculturalism",
+            "Indigenous": "UNDRIP implementation; land rights; reconciliation",
+            "Foreign Policy": "NATO + multilateralism; Ukraine support; rules-based order"
+          }
+        },
+        {
+          "id": "bay-street-liberal",
+          "name": "Bay Street Liberal",
+          "description": "Business-wing Liberals: pro-market, fiscally cautious, socially moderate. Descended from the Chrétien–Martin era of deficit-slaying and pro-trade policy.",
+          "characteristics": {
+            "economic": [
+              48,
+              68
+            ],
+            "progressive": [
+              45,
+              68
+            ],
+            "authority": [
+              40,
+              58
+            ],
+            "nationalism": [
+              38,
+              58
+            ]
           },
+          "probability": 0,
           "examples": [
             "Paul Martin",
-            "Some Finance Ministers"
+            "John Manley",
+            "Frank McKenna"
           ],
-          "historicalContext": "Influential on economic policy, weaker on social issues"
+          "historicalContext": "Dominated 1993–2006. Pro-NAFTA, balanced budgets, Bay Street ties.",
+          "keyPositions": {
+            "Economy": "Balanced budgets; public-private partnerships; corporate competitiveness",
+            "Trade": "Free trade; USMCA; market access over protectionism",
+            "Healthcare": "Public system with private efficiency tools",
+            "Deficits": "Fiscal responsibility; reduce debt-to-GDP",
+            "Regulation": "Targeted, not excessive; pro-investment climate"
+          }
         },
         {
-          "id": "civil-libertarian",
-          "name": "Civil Libertarian Liberals",
-          "description": "Strong on civil rights and privacy, skeptical of government power, progressive on freedoms",
+          "id": "civil-libertarian-liberal",
+          "name": "Civil Libertarian Liberal",
+          "description": "Charter-focused Liberals who prioritize individual rights, privacy, and limits on state power. Skeptical of both social conservative moralizing and progressive overreach.",
           "characteristics": {
             "economic": [
               35,
               55
             ],
             "progressive": [
-              65,
-              85
+              58,
+              78
             ],
             "authority": [
-              20,
+              18,
               40
             ],
             "nationalism": [
-              40,
-              60
+              30,
+              52
             ]
           },
           "probability": 0,
-          "keyPositions": {
-            "privacy": "Strong privacy protection, oppose surveillance",
-            "freedoms": "Strong protection of civil liberties",
-            "justice": "Criminal justice reform, minimize incarceration",
-            "lgbtq": "Full rights expansion, no religious exemptions",
-            "government": "Skeptical of government overreach"
-          },
           "examples": [
-            "Some Justice Ministers",
-            "Privacy advocates"
+            "Stéphane Dion",
+            "Irwin Cotler",
+            "Scott Brison"
           ],
-          "historicalContext": "Smaller faction, influential on justice/privacy issues"
+          "historicalContext": "Charter generation Liberals. Privacy hawks, critics of C-51, defenders of judicial independence.",
+          "keyPositions": {
+            "Civil Liberties": "Charter rights are near-absolute; no security-state overreach",
+            "Privacy": "Strong data protection; oppose bulk surveillance",
+            "Justice": "Judicial independence; oppose mandatory minimums",
+            "Democracy": "Electoral reform; Senate reform; transparency",
+            "International": "International law; ICC; human rights diplomacy"
+          }
+        },
+        {
+          "id": "carney-technocrat",
+          "name": "Technocratic Centrist",
+          "description": "The emerging Carney-era Liberal: market-minded climate pragmatist, institutionalist, fiscal hawk with green investment priorities. Believes in evidence-based governance and international institutions.",
+          "characteristics": {
+            "economic": [
+              42,
+              62
+            ],
+            "progressive": [
+              52,
+              72
+            ],
+            "authority": [
+              40,
+              58
+            ],
+            "nationalism": [
+              32,
+              52
+            ]
+          },
+          "probability": 0,
+          "examples": [
+            "Mark Carney",
+            "Dominic LeBlanc"
+          ],
+          "historicalContext": "Post-Trudeau Liberal realignment toward competence politics and green growth.",
+          "keyPositions": {
+            "Economy": "Industrial strategy; green investment; trade diversification",
+            "Climate": "Carbon pricing reform; clean tech; net-zero by 2050",
+            "Housing": "Market-led supply + targeted public investment",
+            "Trade": "Reduce US dependence; Indo-Pacific strategy",
+            "Governance": "Evidence-based; depoliticize institutions"
+          }
         }
       ]
     },
     "ndp": {
       "name": "New Democratic Party",
-      "primaryColor": "#F37021",
       "factions": [
+        {
+          "id": "social-democrat",
+          "name": "Social Democrat",
+          "description": "The NDP mainstream: Layton–Singh tradition of pragmatic social democracy. Accepts the market economy but demands a strong welfare state, workers' rights, and universal programs.",
+          "characteristics": {
+            "economic": [
+              8,
+              38
+            ],
+            "progressive": [
+              68,
+              86
+            ],
+            "authority": [
+              30,
+              52
+            ],
+            "nationalism": [
+              36,
+              58
+            ]
+          },
+          "probability": 0,
+          "examples": [
+            "Jack Layton",
+            "Jagmeet Singh",
+            "Ed Broadbent"
+          ],
+          "historicalContext": "Core NDP tradition since Tommy Douglas. Electoral peak under Layton 2011 (103 seats).",
+          "keyPositions": {
+            "Healthcare": "Fully public; pharmacare; dental; mental health",
+            "Labour": "Strengthen unions; sectoral bargaining; anti-scab legislation",
+            "Housing": "Public and non-profit housing; rent control",
+            "Climate": "Green investment; just transition for workers",
+            "Indigenous": "Full UNDRIP implementation; land rights"
+          }
+        },
         {
           "id": "socialist-left",
           "name": "Socialist Left",
-          "description": "Left-wing, anti-capitalist, supports worker control, radical social change",
+          "description": "The NDP's anti-capitalist wing: wealth redistribution, public ownership, structural economic transformation. Aligned with Bernie Sanders / AOC-style democratic socialism.",
           "characteristics": {
             "economic": [
               0,
-              30
-            ],
-            "progressive": [
-              70,
-              100
-            ],
-            "authority": [
-              35,
-              55
-            ],
-            "nationalism": [
-              40,
-              60
-            ]
-          },
-          "probability": 0,
-          "keyPositions": {
-            "economy": "Wealth redistribution, worker cooperatives, anti-corporate",
-            "healthcare": "Fully public, expand dramatically",
-            "labor": "Strong union support, worker control of production",
-            "environment": "Radical climate action, ban fossil fuels",
-            "capitalism": "Fundamentally opposed to capitalism"
-          },
-          "examples": [
-            "Émilie Nguyen-Tass",
-            "Some riding activists"
-          ],
-          "historicalContext": "Present since CCF founding, minority faction within NDP"
-        },
-        {
-          "id": "social-democrat",
-          "name": "Social Democrats",
-          "description": "Left-leaning but accepts capitalism, strong public programs, worker power",
-          "characteristics": {
-            "economic": [
-              20,
-              45
-            ],
-            "progressive": [
-              65,
-              85
-            ],
-            "authority": [
-              40,
-              55
-            ],
-            "nationalism": [
-              45,
-              60
-            ]
-          },
-          "probability": 0,
-          "keyPositions": {
-            "healthcare": "Universal public system, expand coverage",
-            "economy": "Progressive taxation, public services",
-            "labor": "Strong union backing, worker rights",
-            "environment": "Aggressive climate action",
-            "housing": "Public and co-op housing"
-          },
-          "examples": [
-            "Jack Layton",
-            "Jagmeet Singh (current)"
-          ],
-          "historicalContext": "Dominant faction, provides NDP mainstream appeal"
-        },
-        {
-          "id": "progressive-identity",
-          "name": "Progressive Identity Politics",
-          "description": "Focus on social justice, identity issues, intersectionality, activism",
-          "characteristics": {
-            "economic": [
-              25,
-              50
+              18
             ],
             "progressive": [
               75,
               100
             ],
             "authority": [
-              35,
-              50
+              18,
+              42
             ],
             "nationalism": [
-              40,
-              60
+              28,
+              52
             ]
           },
           "probability": 0,
-          "keyPositions": {
-            "identity": "Strong focus on marginalized communities",
-            "indigenous": "Land back, sovereignty support",
-            "lgbtq": "Full rights expansion, no compromises",
-            "climate": "Climate justice, impacts on communities",
-            "police": "Defund police, transform justice system",
-            "immigration": "Pro-refugee, anti-border"
-          },
           "examples": [
-            "Mustapha Farrakhan critics, grassroots activists"
+            "Avi Lewis",
+            "Svend Robinson",
+            "Nikki Ashton"
           ],
-          "historicalContext": "Growing faction, influences policy direction"
+          "historicalContext": "Waffle movement in 1970s; re-emerged with Occupy and Bernie Sanders influence.",
+          "keyPositions": {
+            "Economy": "Wealth tax; break up corporate monopolies; public banking",
+            "Housing": "Public housing as primary tenure form",
+            "Climate": "Green New Deal; end fossil fuel subsidies immediately",
+            "Police": "Defund and fundamentally reform policing",
+            "Trade": "Fair trade not free trade; no ISDS clauses"
+          }
         },
         {
-          "id": "economic-nationalist",
-          "name": "Economic Nationalist NDP",
-          "description": "Left-wing economically, nationalist on trade/sovereignty, Canadian focus",
+          "id": "progressive-identity",
+          "name": "Progressive Identity",
+          "description": "The intersectional, social justice wing: prioritizes anti-racism, Indigenous solidarity, LGBTQ+ advocacy, and decolonization over traditional class politics.",
           "characteristics": {
             "economic": [
-              15,
-              40
+              18,
+              45
             ],
             "progressive": [
-              55,
-              75
+              85,
+              100
             ],
             "authority": [
-              45,
-              60
+              15,
+              38
             ],
             "nationalism": [
-              60,
-              80
+              22,
+              46
             ]
           },
           "probability": 0,
-          "keyPositions": {
-            "trade": "Skeptical of free trade, protect Canadian industries",
-            "resources": "Resource nationalism, keep wealth in Canada",
-            "sovereignty": "Strong Canadian sovereignty focus",
-            "american": "Skeptical of American influence",
-            "culture": "Protect Canadian culture and identity"
-          },
           "examples": [
-            "Some Western NDP members"
+            "Leah Gazan",
+            "NDP student left"
           ],
-          "historicalContext": "Present in Western Canada, less prominent nationally"
+          "historicalContext": "Grew significantly post-2015 with BLM, #MeToo, and Indigenous rights movements.",
+          "keyPositions": {
+            "Police": "Defund police; invest in community safety alternatives",
+            "Indigenous": "Full sovereignty; land back; reparations",
+            "LGBTQ+": "Trans rights; ban conversion therapy; fully funded gender-affirming care",
+            "Immigration": "Near-open borders; no deportations; sanctuary cities",
+            "Racism": "Systemic racism as Canada's defining structural crisis"
+          }
+        },
+        {
+          "id": "economic-nationalist-ndp",
+          "name": "Economic Nationalist NDP",
+          "description": "The labour-nationalist wing: economic left but skeptical of globalization and corporate-led free trade. Closer to old CCF roots — workers' party first. Strong in resource communities and industrial Canada.",
+          "characteristics": {
+            "economic": [
+              8,
+              32
+            ],
+            "progressive": [
+              50,
+              72
+            ],
+            "authority": [
+              36,
+              58
+            ],
+            "nationalism": [
+              55,
+              75
+            ]
+          },
+          "probability": 0,
+          "examples": [
+            "Buzz Hargrove (CAW)",
+            "Charlie Angus",
+            "Peter Julian"
+          ],
+          "historicalContext": "Old CCF working-class base. Opposes CUSMA investor provisions; wants Canadian industrial strategy.",
+          "keyPositions": {
+            "Trade": "Renegotiate CUSMA; oppose ISDS; buy Canadian",
+            "Industry": "Reindustrialize Canada; public ownership of strategic sectors",
+            "Immigration": "Enforce labour standards; stop using TFWs to undercut wages",
+            "Resources": "Nationalize oil sands; guarantee transition incomes",
+            "Sovereignty": "Reduce US economic dependence; Canadian content requirements"
+          }
         }
       ]
     },
     "conservative": {
       "name": "Conservative Party of Canada",
-      "primaryColor": "#1F4788",
       "factions": [
         {
-          "id": "social-conservative",
-          "name": "Social Conservative Wing",
-          "description": "Right-wing economically and socially, traditional values, law and order",
+          "id": "western-populist",
+          "name": "Western Populist",
+          "description": "The Poilievre coalition: anti-establishment, anti-carbon tax, pro-pipeline, populist right. Fuses economic libertarianism with cultural conservatism and strong Canadian nationalism. Hostile to 'gatekeepers' in media, housing, banking, and government.",
           "characteristics": {
             "economic": [
-              60,
-              80
+              68,
+              85
             ],
             "progressive": [
-              20,
-              40
+              12,
+              32
             ],
             "authority": [
               55,
-              75
+              72
             ],
             "nationalism": [
-              60,
-              80
+              68,
+              88
             ]
           },
           "probability": 0,
-          "keyPositions": {
-            "abortion": "Restrict access, defund abortion services",
-            "lgbtq": "Oppose expansion of rights, religious exemptions",
-            "immigration": "Reduce immigration, stricter enforcement",
-            "law-order": "Law and order priority, tough on crime",
-            "guns": "Gun rights support, oppose restrictions",
-            "values": "Traditional family values, Christian heritage"
-          },
           "examples": [
-            "Pierre Poilievre (appeals to)",
-            "Some caucus members"
+            "Pierre Poilievre",
+            "Danielle Smith",
+            "Preston Manning"
           ],
-          "historicalContext": "Influential since Reform/Alliance merger, strong Western support"
+          "historicalContext": "Reform Party legacy + Trump-era populism. Dominant in CPC since 2022. Strongest in Alberta and rural Ontario.",
+          "keyPositions": {
+            "Economy": "Axe the carbon tax; cut red tape; end deficit; crypto-friendly",
+            "Housing": "Deregulate zoning; get government out of housing",
+            "Energy": "Approve pipelines; expand oil sands; energy sovereignty",
+            "Crime": "Mandatory minimums; more police; reverse bail reform",
+            "Sovereignty": "Canada First on trade; push back on US pressure and Chinese interference"
+          }
+        },
+        {
+          "id": "social-conservative",
+          "name": "Social Conservative",
+          "description": "The values-driven right: traditional family, faith, opposition to abortion access and gender ideology in schools. Often rural, religious, and culturally defensive. The CPC's largest faction by membership.",
+          "characteristics": {
+            "economic": [
+              58,
+              80
+            ],
+            "progressive": [
+              4,
+              22
+            ],
+            "authority": [
+              62,
+              88
+            ],
+            "nationalism": [
+              60,
+              95
+            ]
+          },
+          "probability": 0,
+          "examples": [
+            "Brad Trost",
+            "Derek Sloan",
+            "Leslyn Lewis"
+          ],
+          "historicalContext": "Social conservatism drives CPC membership votes but is kept backstage electorally. International comparisons: Orbán-style values politics.",
+          "keyPositions": {
+            "Abortion": "Restrict late-term; parental consent for minors",
+            "LGBTQ+": "Parental notification in schools; limit gender curricula",
+            "Religion": "Robust religious freedom exemptions",
+            "Drugs": "Oppose decriminalization and safe supply programs",
+            "Family": "Tax policy supporting traditional family structures"
+          }
         },
         {
           "id": "red-tory",
           "name": "Red Tory / Progressive Conservative",
-          "description": "Market-oriented but pragmatic, some social spending, moderate on social issues",
+          "description": "The old Progressive Conservative tradition: fiscal conservatism with pragmatic social moderation. Accepts public healthcare, values environmental stewardship, avoids culture wars.",
           "characteristics": {
             "economic": [
               55,
-              70
+              72
             ],
             "progressive": [
-              40,
-              60
+              35,
+              58
             ],
             "authority": [
-              50,
-              65
-            ],
-            "nationalism": [
-              55,
-              70
-            ]
-          },
-          "probability": 0,
-          "keyPositions": {
-            "healthcare": "Public system but more efficiency focus",
-            "social": "Pragmatic on social issues, not ideological",
-            "spending": "Lower spending but maintain programs",
-            "environment": "Technology-focused climate action",
-            "immigration": "Moderate intake, skills-based",
-            "tradition": "Respect institutions and traditions"
-          },
-          "examples": [
-            "Brian Mulroney",
-            "Some Moderate MPs"
-          ],
-          "historicalContext": "Declining faction, stronger under Progressive Conservatives"
-        },
-        {
-          "id": "libertarian-right",
-          "name": "Libertarian Right",
-          "description": "Strong free market, minimal government, individual liberty, low taxes",
-          "characteristics": {
-            "economic": [
-              70,
-              90
-            ],
-            "progressive": [
-              30,
-              50
-            ],
-            "authority": [
-              30,
-              50
+              42,
+              62
             ],
             "nationalism": [
               45,
@@ -552,56 +556,95 @@
             ]
           },
           "probability": 0,
-          "keyPositions": {
-            "economy": "Free market, minimal regulation",
-            "taxes": "Low taxes, reduce government",
-            "spending": "Cut government programs",
-            "government": "Skeptical of government power",
-            "regulation": "Deregulation priority",
-            "freedom": "Individual choice priority"
-          },
           "examples": [
-            "Some Alberta-based MPs",
-            "Reform roots"
+            "Joe Clark",
+            "Peter MacKay",
+            "Jean Charest",
+            "Bill Davis"
           ],
-          "historicalContext": "Present since Alliance days, strong in Western Canada"
+          "historicalContext": "The old PC Party 1942–2003. Lost the internal war to Reform/Alliance. Still crucial in Ontario swing ridings.",
+          "keyPositions": {
+            "Healthcare": "Efficiency reforms; some private delivery; no parallel private insurance",
+            "Environment": "Technology solutions; lighter carbon pricing; not denial",
+            "Trade": "Free trade; rules-based international order",
+            "Social": "Pragmatic; don't legislate bedrooms; focus on economic management",
+            "Immigration": "Moderate; economic immigration focus; integration first"
+          }
         },
         {
-          "id": "western-populist",
-          "name": "Western Populist / Sovereigntist",
-          "description": "Right-wing economically and socially, strong Canadian/Western nationalism, anti-establishment",
+          "id": "libertarian-right",
+          "name": "Libertarian Right",
+          "description": "Market fundamentalists within the CPC: minimal government, low taxes, deregulation, individual freedom over collective rights. Anti-mandate, anti-surveillance, skeptical of state power in all directions.",
           "characteristics": {
             "economic": [
-              65,
-              80
+              80,
+              98
             ],
             "progressive": [
-              20,
-              40
+              28,
+              50
             ],
             "authority": [
-              55,
-              70
+              22,
+              48
             ],
             "nationalism": [
-              70,
-              90
+              40,
+              65
             ]
           },
           "probability": 0,
-          "keyPositions": {
-            "sovereignty": "Strong Canadian sovereignty, skeptical of globalism",
-            "western": "Western Canada focus, alienation responsive",
-            "trade": "Skeptical of international agreements",
-            "immigration": "Reduce immigration, protect Canadian jobs",
-            "establishment": "Anti-establishment, populist rhetoric",
-            "nationalism": "Strong nationalist sentiment"
-          },
           "examples": [
-            "Pierre Poilievre (appeals to)",
-            "Western MPs"
+            "Maxime Bernier (former CPC)",
+            "Fraser Institute wing",
+            "PPC adjacent"
           ],
-          "historicalContext": "Strong in Western Canada, growing appeal across party"
+          "historicalContext": "Maxime Bernier wing left to form PPC in 2018. Remains influential on CPC deregulation, CBC abolition, and Bank of Canada policy.",
+          "keyPositions": {
+            "Economy": "Flat tax; abolish corporate welfare; end supply management entirely",
+            "Government": "Privatize CBC; sell Canada Post; dramatically shrink federal state",
+            "Freedom": "Anti-mandate; anti-surveillance; absolute property rights",
+            "Trade": "Full free trade including dairy and cultural exemptions",
+            "Spending": "Balanced budget constitutional amendment"
+          }
+        },
+        {
+          "id": "neocon-hawk",
+          "name": "Neoconservative / Atlanticist Hawk",
+          "description": "The Scoop Jackson tradition applied to Canada: pro-NATO, hawkish on China and Russia, democracy promotion abroad, strong national security state. Harper's foreign policy doctrine. Fiscally right, socially moderate, defining axis is assertive foreign policy.",
+          "characteristics": {
+            "economic": [
+              62,
+              80
+            ],
+            "progressive": [
+              24,
+              48
+            ],
+            "authority": [
+              58,
+              80
+            ],
+            "nationalism": [
+              55,
+              80
+            ]
+          },
+          "probability": 0,
+          "examples": [
+            "Stephen Harper",
+            "Jason Kenney",
+            "Erin O'Toole",
+            "Stockwell Day"
+          ],
+          "historicalContext": "Harper foreign policy 2006–2015: pro-Israel, hawkish on Iran, NATO 2%, anti-Russia. Thatcher and Reagan are international touchstones.",
+          "keyPositions": {
+            "Foreign Policy": "NATO 2% now; strong Israel support; confront China and Russia",
+            "Security": "CSIS powers; foreign interference crackdown; Five Eyes integration",
+            "Defence": "Arctic sovereignty; military modernization; NORAD upgrade",
+            "Trade": "Ally-shoring; Indo-Pacific strategy; reduce China dependence",
+            "Democracy": "Promote democracy abroad; sanction authoritarian states"
+          }
         }
       ]
     }
