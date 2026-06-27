@@ -4,6 +4,7 @@
 class QuizApp {
     constructor() {
         this.questions = [];
+        this.activeQuestions = [];  // Subset used during quiz (full or quick mode)
         this.phaseData = null;
         this.currentQuestionIndex = 0;
         this.scores = [0, 0, 0, 0];
@@ -81,6 +82,12 @@ class QuizApp {
             this.scores = progress.scores;
             this.answers = progress.answers;
             this.testMode = progress.testMode;
+            // Restore activeQuestions to match saved mode
+            this.activeQuestions = this.testMode === 'quick'
+                ? this.questions.filter((_, i) => i % 3 === 0)
+                : this.questions;
+        } else {
+            this.activeQuestions = this.questions;
         }
     }
 
@@ -102,6 +109,19 @@ class QuizApp {
     startQuiz(mode) {
         this.testMode = mode;
         this.startTime = Date.now();
+        this.scores = [0, 0, 0, 0];
+        this.answers = [];
+        this.currentQuestionIndex = 0;
+        this.currentSection = '';
+
+        if (mode === 'quick') {
+            // Quick mode: pick every 3rd question, ensuring coverage of all 5 sections.
+            // Result: ~20 questions, ~10 minutes, all axes represented.
+            this.activeQuestions = this.questions.filter((_, i) => i % 3 === 0);
+        } else {
+            this.activeQuestions = this.questions;
+        }
+
         document.getElementById('welcomeScreen').style.display = 'none';
         document.getElementById('resetBtn').style.display = 'inline-block';
         this.renderQuestion();
@@ -115,25 +135,35 @@ class QuizApp {
         }
         screen.style.display = 'block';
 
-        if (!this.questions || this.questions.length === 0) {
+        if (!this.activeQuestions || this.activeQuestions.length === 0) {
             console.error('No questions loaded');
             return;
         }
 
-        if (this.currentQuestionIndex >= this.questions.length) {
+        if (this.currentQuestionIndex >= this.activeQuestions.length) {
             console.error('Question index out of bounds');
             this.showResults();
             return;
         }
 
-        const question = this.questions[this.currentQuestionIndex];
-        const isNewSection = question.sectionLabel !== this.currentSection;
+        const question = this.activeQuestions[this.currentQuestionIndex];
+        
+        // Map question index to a broad section group (not per-question unique labels)
+        const idx = this.currentQuestionIndex;
+        const sectionGroup =
+            idx < 10  ? '📊 Economic Policy' :
+            idx < 20  ? '🌱 Social & Progressive Values' :
+            idx < 30  ? '⚖️ Authority & Civil Liberties' :
+            idx < 40  ? '🌍 National Identity & Foreign Policy' :
+                        '🔀 Cross-cutting Issues';
+
+        const isNewSection = sectionGroup !== this.currentSection;
 
         if (isNewSection) {
-            this.currentSection = question.sectionLabel;
+            this.currentSection = sectionGroup;
             const sectionLabel = document.getElementById('sectionLabel');
             if (sectionLabel) {
-                sectionLabel.textContent = question.sectionLabel;
+                sectionLabel.textContent = sectionGroup;
                 sectionLabel.style.display = 'block';
             }
         } else {
@@ -151,7 +181,7 @@ class QuizApp {
         const questionNumber = document.getElementById('questionNumber');
         const totalQuestions = document.getElementById('totalQuestions');
         if (questionNumber) questionNumber.textContent = this.currentQuestionIndex + 1;
-        if (totalQuestions) totalQuestions.textContent = this.questions.length;
+        if (totalQuestions) totalQuestions.textContent = this.activeQuestions.length;
         this.updateProgressBar();
 
         this.renderOptions(question);
@@ -186,7 +216,7 @@ class QuizApp {
     }
 
     selectOption(optionIndex) {
-        const question = this.questions[this.currentQuestionIndex];
+        const question = this.activeQuestions[this.currentQuestionIndex];
         const option = question.options[optionIndex];
 
         // If answer is already set, undo previous score
@@ -215,7 +245,7 @@ class QuizApp {
     }
 
     nextQuestion() {
-        if (this.currentQuestionIndex < this.questions.length - 1) {
+        if (this.currentQuestionIndex < this.activeQuestions.length - 1) {
             this.currentQuestionIndex++;
             this.renderQuestion();
         } else {
@@ -234,7 +264,7 @@ class QuizApp {
         const progressFill = document.getElementById('progressFill');
         if (!progressFill) return;
 
-        const progress = ((this.currentQuestionIndex + 1) / this.questions.length) * 100;
+        const progress = ((this.currentQuestionIndex + 1) / this.activeQuestions.length) * 100;
         progressFill.style.width = progress + '%';
     }
 
@@ -250,7 +280,7 @@ class QuizApp {
         // Each option scores 0.0–2.0 per axis. Max possible = sum of max scores across axis.
         // This ensures 0% = most left/prog/lib/global, 100% = most right/trad/order/nat.
         const axisMax = [0, 0, 0, 0];
-        this.questions.forEach((question, qIdx) => {
+        this.activeQuestions.forEach((question, qIdx) => {
             if (this.answers[qIdx] !== undefined) {
                 for (let axis = 0; axis < 4; axis++) {
                     const maxForQ = Math.max(...question.options.map(o => o.score[axis]));
@@ -270,15 +300,17 @@ class QuizApp {
         this.renderIssueAnalysis();
         this.renderFactionAnalysis(econ, prog, auth, nat);
         this.renderEnhancedContradictions();
-        this.renderPoliticalTrajectory();
-        this.showComparisonMode();
-        
+
+        // Save BEFORE trajectory and comparison so they read current result
         this.saveResults({
             econ, prog, auth, nat,
             scores: this.scores,
             answers: this.answers,
             timestamp: Date.now()
         });
+
+        this.renderPoliticalTrajectory();
+        this.showComparisonMode();
     }
 
     renderAxisResults(econ, prog, auth, nat) {
@@ -317,7 +349,7 @@ class QuizApp {
 
         const section = document.createElement('div');
         section.className = 'results-section';
-        section.innerHTML = axisHTML;
+        section.innerHTML = `<h3>Your Scores</h3>${axisHTML}`;
         container.appendChild(section);
     }
 
@@ -348,59 +380,44 @@ class QuizApp {
     }
 
     calculatePartyAlignment(econ, prog, auth, nat) {
-        const parties = [];
-        
-        if (econ < 45) {
-            if (prog > 60) {
-                parties.push({
-                    name: 'NDP',
-                    desc: 'Economic left + progressive. Social programs, workers, climate, Indigenous rights.',
-                    match: Math.round(Math.min(95, 85 - Math.abs(econ - 25) + Math.abs(prog - 75)))
-                });
-            }
-            if (prog >= 45 && prog <= 60) {
-                parties.push({
-                    name: 'Liberals (Left Wing)',
-                    desc: 'Centre-left pragmatism with progressive social policy.',
-                    match: Math.round(Math.min(90, 75 - Math.abs(econ - 35) + Math.abs(prog - 55)))
-                });
-            }
+        if (!this.phaseData || !this.phaseData.factions) {
+            return [{ name: 'Unknown', desc: 'Data not loaded.', match: 0 }];
         }
 
-        if (econ >= 40 && econ <= 55 && prog >= 45 && prog <= 60) {
-            parties.push({
-                name: 'Liberals',
-                desc: 'Political centre. Pragmatic balance of competing values.',
-                match: Math.round(Math.min(90, 80 - Math.abs(econ - 48) + Math.abs(prog - 50)))
-            });
-        }
+        // Compute each party's centroid as the mean of its factions' midpoints
+        const partyScores = Object.entries(this.phaseData.factions).map(([partyId, party]) => {
+            const centroids = party.factions.map(f => ({
+                econ: (f.characteristics.economic[0] + f.characteristics.economic[1]) / 2,
+                prog: (f.characteristics.progressive[0] + f.characteristics.progressive[1]) / 2,
+                auth: (f.characteristics.authority[0] + f.characteristics.authority[1]) / 2,
+                nat:  (f.characteristics.nationalism[0] + f.characteristics.nationalism[1]) / 2,
+            }));
+            const centroid = {
+                econ: centroids.reduce((s, c) => s + c.econ, 0) / centroids.length,
+                prog: centroids.reduce((s, c) => s + c.prog, 0) / centroids.length,
+                auth: centroids.reduce((s, c) => s + c.auth, 0) / centroids.length,
+                nat:  centroids.reduce((s, c) => s + c.nat, 0) / centroids.length,
+            };
 
-        if (econ > 55) {
-            if (prog < 45) {
-                parties.push({
-                    name: 'Conservatives',
-                    desc: 'Economic right + traditional values. Markets, lower taxes, law & order.',
-                    match: Math.round(Math.min(95, 85 - Math.abs(econ - 75) + Math.abs(prog - 30)))
-                });
-            }
-            if (prog >= 45 && prog <= 60) {
-                parties.push({
-                    name: 'Conservatives (Mainstream)',
-                    desc: 'Market solutions with pragmatism on some social issues.',
-                    match: Math.round(Math.min(85, 70 - Math.abs(econ - 65) + Math.abs(prog - 45)))
-                });
-            }
-        }
+            // Average axis distance, scaled to 0–100% match
+            const avgDiff = (
+                Math.abs(econ - centroid.econ) +
+                Math.abs(prog - centroid.prog) +
+                Math.abs(auth - centroid.auth) +
+                Math.abs(nat  - centroid.nat)
+            ) / 4;
+            const match = Math.max(0, Math.round(100 - avgDiff));
 
-        if (parties.length === 0) {
-            parties.push({
-                name: 'Independent/Cross-party',
-                desc: 'Your positions blend views across party lines in unique ways.',
-                match: 65
-            });
-        }
+            const descs = {
+                liberal:      'Centrist pragmatism — social investment, multilateralism, and managed markets.',
+                ndp:          'Progressive left — universal programs, workers\' rights, and social justice.',
+                conservative: 'Economic right — lower taxes, strong law and order, and Canadian sovereignty.',
+            };
 
-        return parties;
+            return { name: party.name, desc: descs[partyId] || party.name, match };
+        });
+
+        return partyScores.sort((a, b) => b.match - a.match);
     }
 
     // PHASE 3: ISSUE ANALYSIS
@@ -455,24 +472,29 @@ class QuizApp {
             let count = 0;
             
             issue.questions.forEach(qIdx => {
-                if (this.answers[qIdx] !== undefined) {
-                    const option = this.questions[qIdx].options[this.answers[qIdx]];
-                    // Strength = sum of all score components
-                    const strength = option.score.reduce((a, b) => a + b, 0);
-                    totalStrength += strength;
-                    count++;
-                }
+                // qIdx refers to the full questions array index.
+                // Find its position in activeQuestions to check if it was answered.
+                const activeIdx = this.activeQuestions.findIndex(q => q.id === this.questions[qIdx]?.id);
+                if (activeIdx === -1 || this.answers[activeIdx] === undefined) return;
+
+                const question = this.activeQuestions[activeIdx];
+                const chosen = question.options[this.answers[activeIdx]];
+                const maxPerAxis = chosen.score.map((s, i) =>
+                    Math.max(...question.options.map(o => o.score[i]))
+                );
+                const primaryAxis = maxPerAxis.indexOf(Math.max(...maxPerAxis));
+                const maxPossible = maxPerAxis[primaryAxis];
+                const strength = maxPossible > 0
+                    ? (chosen.score[primaryAxis] / maxPossible) * 100
+                    : 50;
+                totalStrength += strength;
+                count++;
             });
             
-            // Get weight from issue data (default 1.0 if not set)
-            const weight = issue.weight || 1.0;
-            
-            // Scale to 0-100%: avg per question ~0.5-3, multiply by 20 = 10-60%
-            // Then apply weight multiplier
             scores[issue.id] = {
-                strength: count > 0 ? Math.min(100, Math.round((totalStrength / count) * 20 * weight)) : 0,
+                strength: count > 0 ? Math.round(totalStrength / count) : 0,
                 count: count,
-                weight: weight
+                weight: issue.weight || 1.0
             };
         });
         
@@ -499,7 +521,7 @@ class QuizApp {
             <div class="faction-primary">
                 <h4>${topFaction.faction.name}</h4>
                 <p class="faction-party">Within: ${topFaction.party}</p>
-                <p class="faction-prob">Probability: ${topFaction.probability}%</p>
+                <p class="faction-prob">Alignment: ${topFaction.probability}%</p>
                 <p class="faction-desc">${topFaction.faction.description}</p>
                 <div class="faction-positions">
                     <h5>Key Positions:</h5>
@@ -518,7 +540,7 @@ class QuizApp {
             factionHTML += `
                 <div class="faction-alt">
                     <h5>${f.faction.name}</h5>
-                    <p>${f.probability}% match</p>
+                    <p>${f.probability}% alignment</p>
                 </div>
             `;
         });
@@ -568,7 +590,7 @@ class QuizApp {
         const pieSection = document.createElement('div');
         pieSection.className = 'results-section';
         pieSection.innerHTML = `
-            <h3>Faction Probability Distribution</h3>
+            <h3>Faction Alignment Distribution</h3>
             <canvas id="factionPieChart" width="300" height="300"></canvas>
         `;
         container.appendChild(pieSection);
@@ -653,25 +675,13 @@ class QuizApp {
                 scores.push({
                     party: party.name,
                     faction: faction,
-                    rawScore: avgMatch,
-                    probability: 0, // Will be normalized
+                    // Use raw match score directly — normalization dilutes strong matches
+                    // (85% match divided across 13 factions becomes ~9%, which reads as weak)
+                    probability: Math.round(avgMatch),
                     matches: { econMatch, progMatch, authMatch, natMatch }
                 });
             });
         });
-
-        // Normalize probabilities to sum to 100%
-        const totalScore = scores.reduce((sum, s) => sum + s.rawScore, 0);
-        scores.forEach(score => {
-            score.probability = Math.round((score.rawScore / totalScore) * 100);
-        });
-
-        // Ensure sum = 100% (handle rounding errors)
-        const sum = scores.reduce((total, s) => total + s.probability, 0);
-        if (sum !== 100) {
-            const diff = 100 - sum;
-            if (scores[0]) scores[0].probability += diff; // Add/subtract from top faction
-        }
 
         return scores.sort((a, b) => b.probability - a.probability);
     }
@@ -1035,6 +1045,7 @@ class QuizApp {
             this.scores = [0, 0, 0, 0];
             this.answers = [];
             this.currentSection = '';
+            this.activeQuestions = this.questions; // reset to full mode default
             
             document.getElementById('quizScreen').style.display = 'none';
             document.getElementById('resultsScreen').style.display = 'none';
@@ -1088,43 +1099,44 @@ class QuizApp {
     }
 
     exportPDF() {
-        const results = JSON.parse(localStorage.getItem('quizResults') || '[]');
-        if (results.length === 0) {
-            alert('No results to export. Take the quiz first.');
+        const resultsContent = document.getElementById('results-content');
+        if (!resultsContent || resultsContent.innerHTML.trim() === '') {
+            alert('No results to export. Complete the quiz first.');
             return;
         }
-
-        const latestResult = results[results.length - 1];
-
-        const content = `
-Canadian Political Alignment Test - Phase 3 Results
-
-Test Date: ${new Date(latestResult.timestamp).toLocaleDateString()}
-
-SCORES:
-Economic: ${latestResult.econ}% | Progressive: ${latestResult.prog}%
-Authority: ${latestResult.auth}% | Nationalism: ${latestResult.nat}%
-
-Generated by Canadian Political Alignment Test v3.0
-        `.trim();
-
-        const element = document.createElement('div');
-        element.innerHTML = `<pre>${content}</pre>`;
-        
-        const opt = {
-            margin: 10,
-            filename: `political-quiz-${Date.now()}.pdf`,
-            image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 2 },
-            jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
-        };
 
         if (typeof html2pdf === 'undefined') {
             alert('PDF export library not loaded. Try again in a moment.');
             return;
         }
 
-        html2pdf().set(opt).from(element).save();
+        const opt = {
+            margin: [10, 10, 10, 10],
+            filename: `canadian-political-alignment-${Date.now()}.pdf`,
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true },
+            jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
+        };
+
+        // Clone results to avoid canvas serialization issues with Chart.js
+        const clone = resultsContent.cloneNode(true);
+        // Remove canvas elements (charts can't be cloned — they'll appear blank)
+        clone.querySelectorAll('canvas').forEach(c => {
+            const note = document.createElement('p');
+            note.style.cssText = 'color:#888;font-style:italic;font-size:12px;';
+            note.textContent = '[Chart available in browser version]';
+            c.parentNode.replaceChild(note, c);
+        });
+
+        const wrapper = document.createElement('div');
+        wrapper.style.cssText = 'font-family: Arial, sans-serif; padding: 20px;';
+        const title = document.createElement('h1');
+        title.textContent = 'Canadian Political Alignment Test — Results';
+        title.style.cssText = 'font-size: 20px; margin-bottom: 16px; color: #1976D2;';
+        wrapper.appendChild(title);
+        wrapper.appendChild(clone);
+
+        html2pdf().set(opt).from(wrapper).save();
     }
 
     shareURL() {
