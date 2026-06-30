@@ -222,12 +222,36 @@ class QuizApp {
             const button = document.createElement('button');
             button.className = 'option-btn';
             button.textContent = option.text;
+            button.setAttribute('role', 'radio');
+            button.setAttribute('aria-checked', this.answers[this.currentQuestionIndex] === index ? 'true' : 'false');
+            button.setAttribute('tabindex', index === 0 ? '0' : '-1');
 
             if (this.answers[this.currentQuestionIndex] === index) {
                 button.classList.add('selected');
             }
 
             button.addEventListener('click', () => this.selectOption(index));
+            // Arrow-key navigation between options, matching native radiogroup behaviour
+            button.addEventListener('keydown', (e) => {
+                const buttons = Array.from(container.querySelectorAll('.option-btn'));
+                const currentIdx = buttons.indexOf(e.target);
+                if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    const next = buttons[(currentIdx + 1) % buttons.length];
+                    next.setAttribute('tabindex', '0');
+                    e.target.setAttribute('tabindex', '-1');
+                    next.focus();
+                } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    const prev = buttons[(currentIdx - 1 + buttons.length) % buttons.length];
+                    prev.setAttribute('tabindex', '0');
+                    e.target.setAttribute('tabindex', '-1');
+                    prev.focus();
+                } else if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.selectOption(index);
+                }
+            });
             container.appendChild(button);
         });
 
@@ -243,10 +267,13 @@ class QuizApp {
         const wrapper = document.createElement('div');
         wrapper.className = 'intensity-slider-wrapper';
         wrapper.innerHTML = `
-            <p class="intensity-label">How strongly do you hold this view?</p>
+            <p class="intensity-label" id="intensityLabel">How strongly do you hold this view?</p>
             <input type="range" id="intensitySlider" class="intensity-slider"
-                   min="0" max="4" step="1" value="${currentIntensity}">
-            <div class="intensity-ticks">
+                   min="0" max="4" step="1" value="${currentIntensity}"
+                   role="slider" aria-labelledby="intensityLabel"
+                   aria-valuemin="0" aria-valuemax="4" aria-valuenow="${currentIntensity}"
+                   aria-valuetext="${INTENSITY_LEVELS[currentIntensity].label}">
+            <div class="intensity-ticks" aria-hidden="true">
                 ${INTENSITY_LEVELS.map((lvl, i) =>
                     `<span class="intensity-tick${i === currentIntensity ? ' active' : ''}">${lvl.label}</span>`
                 ).join('')}
@@ -277,10 +304,15 @@ class QuizApp {
 
         this.intensities[qIdx] = intensityIndex;
 
-        // Update tick highlighting without a full re-render
+        // Update tick highlighting and ARIA slider state without a full re-render
         document.querySelectorAll('.intensity-tick').forEach((tick, i) => {
             tick.classList.toggle('active', i === intensityIndex);
         });
+        const sliderEl = document.getElementById('intensitySlider');
+        if (sliderEl) {
+            sliderEl.setAttribute('aria-valuenow', intensityIndex);
+            sliderEl.setAttribute('aria-valuetext', INTENSITY_LEVELS[intensityIndex].label);
+        }
 
         this.saveProgress();
     }
@@ -342,6 +374,13 @@ class QuizApp {
 
         const progress = ((this.currentQuestionIndex + 1) / this.activeQuestions.length) * 100;
         progressFill.style.width = progress + '%';
+
+        const progressBarOuter = document.getElementById('progressBarOuter');
+        if (progressBarOuter) {
+            progressBarOuter.setAttribute('aria-valuenow', Math.round(progress));
+            progressBarOuter.setAttribute('aria-valuetext',
+                `Question ${this.currentQuestionIndex + 1} of ${this.activeQuestions.length}`);
+        }
     }
 
     showResults() {
@@ -403,6 +442,11 @@ class QuizApp {
 
         this.renderPoliticalTrajectory();
         this.showComparisonMode();
+
+        // Move focus to the results region so screen-reader and keyboard users
+        // are taken directly to the results instead of being left on the old quiz screen
+        const resultsContainer = document.getElementById('results-content');
+        if (resultsContainer) resultsContainer.focus();
     }
 
     renderAxisResults(econ, prog, auth, nat) {
@@ -1221,12 +1265,15 @@ class QuizApp {
     }
 
     applyDarkMode() {
+        const toggle = document.getElementById('themeToggle');
         if (this.darkMode) {
             document.body.classList.add('dark-mode');
-            document.getElementById('themeToggle').textContent = '☀️';
+            toggle.textContent = '☀️';
+            toggle.setAttribute('aria-pressed', 'true');
         } else {
             document.body.classList.remove('dark-mode');
-            document.getElementById('themeToggle').textContent = '🌙';
+            toggle.textContent = '🌙';
+            toggle.setAttribute('aria-pressed', 'false');
         }
     }
 
@@ -1512,16 +1559,37 @@ class QuizApp {
 }
 
 // ── Unified modal helpers ────────────────────────────────────────────────────
+let _modalReturnFocusEl = null;
+
 function openModal(bodyHTML, shareHTML) {
+    _modalReturnFocusEl = document.activeElement;
     document.getElementById('modalBody').innerHTML   = bodyHTML  || '';
     document.getElementById('shareContent').innerHTML = shareHTML || '';
-    document.getElementById('modal').style.display  = 'flex';
+    const modal = document.getElementById('modal');
+    modal.style.display = 'flex';
+
+    // Move focus into the dialog so keyboard and screen-reader users land inside it
+    const closeBtn = modal.querySelector('.modal-close');
+    if (closeBtn) closeBtn.focus();
+
+    document.addEventListener('keydown', _modalEscapeHandler);
+}
+
+function _modalEscapeHandler(e) {
+    if (e.key === 'Escape') closeModal();
 }
 
 function closeModal() {
     document.getElementById('modal').style.display = 'none';
     document.getElementById('modalBody').innerHTML   = '';
     document.getElementById('shareContent').innerHTML = '';
+    document.removeEventListener('keydown', _modalEscapeHandler);
+
+    // Return focus to whatever triggered the modal, so keyboard users aren't stranded
+    if (_modalReturnFocusEl && typeof _modalReturnFocusEl.focus === 'function') {
+        _modalReturnFocusEl.focus();
+    }
+    _modalReturnFocusEl = null;
 }
 
 function copyToClipboard(button) {
