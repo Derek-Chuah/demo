@@ -1,6 +1,19 @@
 // Canadian Political Alignment Test - Phase 3
 // Complete with Issue Clustering, Faction Analysis, Enhanced Contradictions, Visualizations
 
+// Likert intensity scale: how strongly the user holds their chosen position.
+// Multiplier scales the raw option score before it's added to axis totals.
+// This prevents a weakly-held extreme view from scoring identically to a
+// strongly-held one — addresses the "forced choice" critique of fixed-option quizzes.
+const INTENSITY_LEVELS = [
+    { label: 'Slightly',   multiplier: 0.55 },
+    { label: 'Somewhat',   multiplier: 0.70 },
+    { label: 'Mostly',     multiplier: 0.85 },
+    { label: 'Strongly',   multiplier: 1.00 },
+    { label: 'Completely', multiplier: 1.15 },
+];
+const DEFAULT_INTENSITY_INDEX = 3; // "Strongly" — full score, matches pre-existing behaviour
+
 class QuizApp {
     constructor() {
         this.questions = [];
@@ -9,6 +22,7 @@ class QuizApp {
         this.currentQuestionIndex = 0;
         this.scores = [0, 0, 0, 0];
         this.answers = [];
+        this.intensities = []; // Likert intensity (0-4) per question, scales score contribution
         this.currentSection = '';
         this.testMode = 'full';
         this.startTime = null;
@@ -81,6 +95,7 @@ class QuizApp {
             this.currentQuestionIndex = progress.currentQuestionIndex;
             this.scores = progress.scores;
             this.answers = progress.answers;
+            this.intensities = progress.intensities || [];
             this.testMode = progress.testMode;
             // Restore activeQuestions to match saved mode
             this.activeQuestions = this.testMode === 'quick'
@@ -96,6 +111,7 @@ class QuizApp {
             currentQuestionIndex: this.currentQuestionIndex,
             scores: this.scores,
             answers: this.answers,
+            intensities: this.intensities,
             testMode: this.testMode,
             timestamp: Date.now()
         };
@@ -111,6 +127,7 @@ class QuizApp {
         this.startTime = Date.now();
         this.scores = [0, 0, 0, 0];
         this.answers = [];
+        this.intensities = [];
         this.currentQuestionIndex = 0;
         this.currentSection = '';
 
@@ -213,32 +230,91 @@ class QuizApp {
             button.addEventListener('click', () => this.selectOption(index));
             container.appendChild(button);
         });
+
+        // Show intensity slider only after a statement has been picked for this question
+        if (this.answers[this.currentQuestionIndex] !== undefined) {
+            this.renderIntensitySlider(container);
+        }
+    }
+
+    renderIntensitySlider(container) {
+        const currentIntensity = this.intensities[this.currentQuestionIndex] ?? DEFAULT_INTENSITY_INDEX;
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'intensity-slider-wrapper';
+        wrapper.innerHTML = `
+            <p class="intensity-label">How strongly do you hold this view?</p>
+            <input type="range" id="intensitySlider" class="intensity-slider"
+                   min="0" max="4" step="1" value="${currentIntensity}">
+            <div class="intensity-ticks">
+                ${INTENSITY_LEVELS.map((lvl, i) =>
+                    `<span class="intensity-tick${i === currentIntensity ? ' active' : ''}">${lvl.label}</span>`
+                ).join('')}
+            </div>
+        `;
+        container.appendChild(wrapper);
+
+        const slider = wrapper.querySelector('#intensitySlider');
+        slider.addEventListener('input', (e) => this.setIntensity(parseInt(e.target.value, 10)));
+    }
+
+    setIntensity(intensityIndex) {
+        const qIdx = this.currentQuestionIndex;
+        const optionIdx = this.answers[qIdx];
+        if (optionIdx === undefined) return;
+
+        const question = this.activeQuestions[qIdx];
+        const option = question.options[optionIdx];
+        const oldIntensity = this.intensities[qIdx] ?? DEFAULT_INTENSITY_INDEX;
+        const oldMultiplier = INTENSITY_LEVELS[oldIntensity].multiplier;
+        const newMultiplier = INTENSITY_LEVELS[intensityIndex].multiplier;
+
+        // Remove old weighted score, apply new weighted score
+        for (let i = 0; i < 4; i++) {
+            this.scores[i] -= option.score[i] * oldMultiplier;
+            this.scores[i] += option.score[i] * newMultiplier;
+        }
+
+        this.intensities[qIdx] = intensityIndex;
+
+        // Update tick highlighting without a full re-render
+        document.querySelectorAll('.intensity-tick').forEach((tick, i) => {
+            tick.classList.toggle('active', i === intensityIndex);
+        });
+
+        this.saveProgress();
     }
 
     selectOption(optionIndex) {
         const question = this.activeQuestions[this.currentQuestionIndex];
         const option = question.options[optionIndex];
 
-        // If answer is already set, undo previous score
+        // If answer is already set, undo previous score (using its stored intensity)
         if (this.answers[this.currentQuestionIndex] !== undefined) {
             const previousOption = question.options[this.answers[this.currentQuestionIndex]];
+            const previousIntensity = this.intensities[this.currentQuestionIndex] ?? DEFAULT_INTENSITY_INDEX;
+            const previousMultiplier = INTENSITY_LEVELS[previousIntensity].multiplier;
             for (let i = 0; i < 4; i++) {
-                this.scores[i] -= previousOption.score[i];
+                this.scores[i] -= previousOption.score[i] * previousMultiplier;
             }
         }
 
-        // Set new answer
+        // Set new answer with default intensity ("Strongly" = 1.0x, preserves prior scoring behaviour)
         this.answers[this.currentQuestionIndex] = optionIndex;
-        
-        // Add new score — no clamping; normalization happens in showResults()
+        this.intensities[this.currentQuestionIndex] = DEFAULT_INTENSITY_INDEX;
+        const defaultMultiplier = INTENSITY_LEVELS[DEFAULT_INTENSITY_INDEX].multiplier;
+
         for (let i = 0; i < 4; i++) {
-            this.scores[i] += option.score[i];
+            this.scores[i] += option.score[i] * defaultMultiplier;
         }
 
         const buttons = document.querySelectorAll('.option-btn');
         buttons.forEach((btn, idx) => {
             btn.classList.toggle('selected', idx === optionIndex);
         });
+
+        // Re-render options to reveal the intensity slider beneath the chosen statement
+        this.renderOptions(question);
 
         document.getElementById('nextBtn').disabled = false;
         this.saveProgress();
@@ -276,15 +352,18 @@ class QuizApp {
         const container = document.getElementById('results-content');
         container.innerHTML = '';
         
-        // NEW NORMALIZATION: compute max possible per axis from answered questions.
-        // Each option scores 0.0–2.0 per axis. Max possible = sum of max scores across axis.
-        // This ensures 0% = most left/prog/lib/global, 100% = most right/trad/order/nat.
+        // NORMALIZATION: compute max possible per axis from answered questions.
+        // Each option scores 0.0–2.0 per axis, further scaled by intensity multiplier (0.55–1.15).
+        // Max possible = sum of (max raw score × max intensity multiplier) across answered questions.
+        // This ensures 0% = most left/prog/lib/global, 100% = most right/trad/order/nat,
+        // even when users pick "Completely" (1.15x) on their most extreme answers.
+        const maxIntensityMultiplier = Math.max(...INTENSITY_LEVELS.map(l => l.multiplier));
         const axisMax = [0, 0, 0, 0];
         this.activeQuestions.forEach((question, qIdx) => {
             if (this.answers[qIdx] !== undefined) {
                 for (let axis = 0; axis < 4; axis++) {
                     const maxForQ = Math.max(...question.options.map(o => o.score[axis]));
-                    axisMax[axis] += maxForQ;
+                    axisMax[axis] += maxForQ * maxIntensityMultiplier;
                 }
             }
         });
@@ -301,11 +380,24 @@ class QuizApp {
         this.renderFactionAnalysis(econ, prog, auth, nat);
         this.renderEnhancedContradictions();
 
+        // Confidence = average intensity multiplier across answered questions, normalized.
+        // Low confidence (lots of "Slightly"/"Somewhat" picks) signals a less decisive
+        // respondent; high confidence signals strongly-held, consistent positions.
+        const answeredIntensities = this.intensities.filter(i => i !== undefined);
+        const avgMultiplier = answeredIntensities.length > 0
+            ? answeredIntensities.reduce((sum, i) => sum + INTENSITY_LEVELS[i].multiplier, 0) / answeredIntensities.length
+            : INTENSITY_LEVELS[DEFAULT_INTENSITY_INDEX].multiplier;
+        const minMult = Math.min(...INTENSITY_LEVELS.map(l => l.multiplier));
+        const maxMult = Math.max(...INTENSITY_LEVELS.map(l => l.multiplier));
+        const confidence = Math.round(((avgMultiplier - minMult) / (maxMult - minMult)) * 100);
+
         // Save BEFORE trajectory and comparison so they read current result
         this.saveResults({
             econ, prog, auth, nat,
             scores: this.scores,
             answers: this.answers,
+            intensities: this.intensities,
+            confidence,
             timestamp: Date.now()
         });
 
@@ -347,9 +439,33 @@ class QuizApp {
             `;
         });
 
+        // Confidence indicator: reflects how strongly-held the user's answers were,
+        // not how "correct" or precise the result is. Low confidence = lots of
+        // "Slightly"/"Somewhat" picks; high confidence = consistently strong convictions.
+        const answeredIntensities = this.intensities.filter(i => i !== undefined);
+        const avgMultiplier = answeredIntensities.length > 0
+            ? answeredIntensities.reduce((sum, i) => sum + INTENSITY_LEVELS[i].multiplier, 0) / answeredIntensities.length
+            : INTENSITY_LEVELS[DEFAULT_INTENSITY_INDEX].multiplier;
+        const minMult = Math.min(...INTENSITY_LEVELS.map(l => l.multiplier));
+        const maxMult = Math.max(...INTENSITY_LEVELS.map(l => l.multiplier));
+        const confidence = Math.round(((avgMultiplier - minMult) / (maxMult - minMult)) * 100);
+        const confidenceLabel = confidence >= 70 ? 'High confidence' : confidence >= 40 ? 'Moderate confidence' : 'Low confidence';
+        const confidenceNote = confidence >= 70
+            ? 'You held your positions strongly and consistently.'
+            : confidence >= 40
+            ? 'Your positions were moderate — some convictions, some uncertainty.'
+            : 'You leaned toward weaker convictions — your results may shift if you retake the test.';
+
         const section = document.createElement('div');
         section.className = 'results-section';
-        section.innerHTML = `<h3>Your Scores</h3>${axisHTML}`;
+        section.innerHTML = `
+            <h3>Your Scores</h3>
+            <div class="confidence-badge confidence-${confidence >= 70 ? 'high' : confidence >= 40 ? 'medium' : 'low'}">
+                <strong>${confidenceLabel} (${confidence}%)</strong>
+                <p>${confidenceNote}</p>
+            </div>
+            ${axisHTML}
+        `;
         container.appendChild(section);
     }
 
@@ -479,14 +595,19 @@ class QuizApp {
 
                 const question = this.activeQuestions[activeIdx];
                 const chosen = question.options[this.answers[activeIdx]];
+                const intensityIdx = this.intensities[activeIdx] ?? DEFAULT_INTENSITY_INDEX;
+                const intensityMultiplier = INTENSITY_LEVELS[intensityIdx].multiplier;
                 const maxPerAxis = chosen.score.map((s, i) =>
                     Math.max(...question.options.map(o => o.score[i]))
                 );
                 const primaryAxis = maxPerAxis.indexOf(Math.max(...maxPerAxis));
                 const maxPossible = maxPerAxis[primaryAxis];
-                const strength = maxPossible > 0
+                // Strength reflects both how extreme the chosen statement is AND
+                // how strongly the user holds it (Likert intensity).
+                const rawStrength = maxPossible > 0
                     ? (chosen.score[primaryAxis] / maxPossible) * 100
                     : 50;
+                const strength = Math.min(100, rawStrength * intensityMultiplier);
                 totalStrength += strength;
                 count++;
             });
@@ -514,8 +635,10 @@ class QuizApp {
             return;
         }
         
-        const factionScores = this.calculateFactionScores(econ, prog, auth, nat);
-        const topFaction = factionScores[0];
+        const allScores = this.calculateFactionScores(econ, prog, auth, nat);
+        const partyScores = allScores.filter(f => !f.isCoalition);
+        const coalitionScores = allScores.filter(f => f.isCoalition).sort((a, b) => b.probability - a.probability);
+        const topFaction = partyScores[0];
         
         let factionHTML = `
             <div class="faction-primary">
@@ -536,7 +659,7 @@ class QuizApp {
             <div class="faction-alternatives">
         `;
         
-        factionScores.slice(1, 4).forEach(f => {
+        partyScores.slice(1, 4).forEach(f => {
             factionHTML += `
                 <div class="faction-alt">
                     <h5>${f.faction.name}</h5>
@@ -546,14 +669,36 @@ class QuizApp {
         });
         
         factionHTML += '</div>';
+
+        // Coalition factions: only surface this section if the user has a meaningfully
+        // strong match (≥55%) to one of the cross-cutting coalitions. These represent
+        // axis combinations that break the "expected" party-line correlation — showing
+        // a weak match would just be noise, since everyone scores SOMETHING here.
+        const topCoalition = coalitionScores[0];
+        if (topCoalition && topCoalition.probability >= 55) {
+            factionHTML += `
+                <div class="coalition-callout">
+                    <h5>🔀 You may also belong to a cross-party coalition</h5>
+                    <p class="coalition-intro">Some Canadians don't fit neatly into one party's internal factions —
+                    their views combine in ways that cut across the usual left-right alignment.
+                    Your answers show a strong match to:</p>
+                    <div class="coalition-card">
+                        <h4>${topCoalition.faction.name}</h4>
+                        <p class="faction-prob">Alignment: ${topCoalition.probability}%</p>
+                        <p class="faction-desc">${topCoalition.faction.description}</p>
+                    </div>
+                </div>
+            `;
+        }
         
         const factionSection = document.createElement('div');
         factionSection.className = 'results-section';
         factionSection.innerHTML = `<h3>Your Political Faction</h3>${factionHTML}`;
         container.appendChild(factionSection);
         
-        // Render faction pie chart after main faction display
-        this.renderFactionPieChart(factionScores);
+        // Render faction pie chart after main faction display (party factions only —
+        // coalitions are a separate lens, not a competing slice of the same pie)
+        this.renderFactionPieChart(partyScores);
     }
 
     // PHASE 3 TIER 2: FACTION PIE CHART
@@ -683,6 +828,34 @@ class QuizApp {
             });
         });
 
+        // Coalition factions: cross-cutting groups that don't map to a single party,
+        // defined by axis combinations that violate the "expected" left/right correlation
+        // (e.g. economically left but authority-leaning, or economically right but libertarian).
+        // Scored the same way, but tagged separately so results can present them distinctly.
+        if (this.phaseData.coalitionFactions) {
+            this.phaseData.coalitionFactions.forEach(faction => {
+                const [econMin, econMax] = faction.characteristics.economic;
+                const [progMin, progMax] = faction.characteristics.progressive;
+                const [authMin, authMax] = faction.characteristics.authority;
+                const [natMin, natMax] = faction.characteristics.nationalism;
+
+                const econMatch = econ >= econMin && econ <= econMax ? 100 : Math.max(0, 100 - Math.abs(econ - (econMin + econMax) / 2) * 2);
+                const progMatch = prog >= progMin && prog <= progMax ? 100 : Math.max(0, 100 - Math.abs(prog - (progMin + progMax) / 2) * 2);
+                const authMatch = auth >= authMin && auth <= authMax ? 100 : Math.max(0, 100 - Math.abs(auth - (authMin + authMax) / 2) * 2);
+                const natMatch = nat >= natMin && nat <= natMax ? 100 : Math.max(0, 100 - Math.abs(nat - (natMin + natMax) / 2) * 2);
+
+                const avgMatch = (econMatch + progMatch + authMatch + natMatch) / 4;
+
+                scores.push({
+                    party: 'Cross-Party Coalition',
+                    faction: faction,
+                    probability: Math.round(avgMatch),
+                    matches: { econMatch, progMatch, authMatch, natMatch },
+                    isCoalition: true
+                });
+            });
+        }
+
         return scores.sort((a, b) => b.probability - a.probability);
     }
 
@@ -801,25 +974,47 @@ class QuizApp {
         }
 
         const found = [];
-        
+        const answers = this.answers;
+
         this.phaseData.contradictions.forEach(contradiction => {
-            const condition = contradiction.condition;
-            
             try {
-                // Use Function constructor to properly scope 'answers' parameter
-                const fn = new Function('answers', `return ${condition}`);
-                if (fn(this.answers)) {
-                    found.push({
-                        contradiction: contradiction,
-                        severity: contradiction.severity
-                    });
+                if (this._evalCondition(contradiction.condition, answers)) {
+                    found.push({ contradiction, severity: contradiction.severity });
                 }
             } catch (e) {
-                console.error('Error evaluating contradiction:', condition, e);
+                console.error('Error evaluating contradiction:', contradiction.id, e);
             }
         });
-        
+
         return found;
+    }
+
+    // Safe condition evaluator — no eval() or new Function().
+    // Parses conditions of the form:
+    //   answers[N] !== undefined && answers[N] OP VALUE && ...
+    // where OP is one of: <=, >=, ===, !==, <, >
+    _evalCondition(condition, answers) {
+        // Split on && and evaluate each clause independently
+        const clauses = condition.split('&&').map(s => s.trim());
+        return clauses.every(clause => {
+            // Match: answers[N] OP VALUE
+            const m = clause.match(/^answers\[(\d+)\]\s*(===|!==|<=|>=|<|>)\s*(.+)$/);
+            if (!m) return true; // unknown clause format — skip (don't falsely fail)
+            const idx = parseInt(m[1], 10);
+            const op  = m[2];
+            const raw = m[3].trim();
+            const rhs = raw === 'undefined' ? undefined : Number(raw);
+            const lhs = answers[idx];
+            switch (op) {
+                case '===': return lhs === rhs;
+                case '!==': return lhs !== rhs;
+                case '<=':  return lhs !== undefined && lhs <= rhs;
+                case '>=':  return lhs !== undefined && lhs >= rhs;
+                case '<':   return lhs !== undefined && lhs <  rhs;
+                case '>':   return lhs !== undefined && lhs >  rhs;
+                default:    return true;
+            }
+        });
     }
 
     // COMPARISON MODE (From Phase 2)
@@ -894,71 +1089,46 @@ class QuizApp {
     }
 
     renderNationalComparison(container, userScores) {
-        const nationalAvg = {
-            econ: 48,
-            prog: 55,
-            auth: 50,
-            nat: 52
+        // Estimated national averages derived from 2021/2025 federal election vote shares
+        // and Environics/Leger polling on policy positions. Not from quiz data (no server).
+        // Liberal ~33% + NDP ~18% pull left on econ/prog; CPC ~34% pulls right.
+        // Weighted centroid across party vote shares gives approximate population centre.
+        const nationalAvg = { econ: 46, prog: 58, auth: 52, nat: 54 };
+
+        const axisLabels = {
+            econ: { label: 'Economic', left: 'Left', right: 'Right' },
+            prog: { label: 'Progressive', left: 'Traditional', right: 'Progressive' },
+            auth: { label: 'Authority', left: 'Civil Liberties', right: 'Law & Order' },
+            nat:  { label: 'Nationalism', left: 'Globalist', right: 'Nationalist' },
         };
 
-        const html = `
-            <div class="comparison-grid">
-                <div class="comparison-item">
-                    <h4>Economic Axis</h4>
-                    <div class="score-comparison">
-                        <div class="score-bar user">
-                            <span>You: ${userScores.econ}%</span>
-                            <div class="bar" style="width: ${userScores.econ}%"></div>
-                        </div>
-                        <div class="score-bar national">
-                            <span>National: ${nationalAvg.econ}%</span>
-                            <div class="bar" style="width: ${nationalAvg.econ}%"></div>
-                        </div>
+        const rows = Object.entries(axisLabels).map(([key, meta]) => `
+            <div class="comparison-item">
+                <h4>${meta.label}</h4>
+                <div class="score-comparison">
+                    <div class="score-bar user">
+                        <span>You: ${userScores[key]}%</span>
+                        <div class="bar" style="width: ${userScores[key]}%"></div>
                     </div>
-                </div>
-                <div class="comparison-item">
-                    <h4>Progressive Axis</h4>
-                    <div class="score-comparison">
-                        <div class="score-bar user">
-                            <span>You: ${userScores.prog}%</span>
-                            <div class="bar" style="width: ${userScores.prog}%"></div>
-                        </div>
-                        <div class="score-bar national">
-                            <span>National: ${nationalAvg.prog}%</span>
-                            <div class="bar" style="width: ${nationalAvg.prog}%"></div>
-                        </div>
+                    <div class="score-bar national">
+                        <span>Est. National: ${nationalAvg[key]}%</span>
+                        <div class="bar" style="width: ${nationalAvg[key]}%"></div>
                     </div>
-                </div>
-                <div class="comparison-item">
-                    <h4>Authority Axis</h4>
-                    <div class="score-comparison">
-                        <div class="score-bar user">
-                            <span>You: ${userScores.auth}%</span>
-                            <div class="bar" style="width: ${userScores.auth}%"></div>
-                        </div>
-                        <div class="score-bar national">
-                            <span>National: ${nationalAvg.auth}%</span>
-                            <div class="bar" style="width: ${nationalAvg.auth}%"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="comparison-item">
-                    <h4>Nationalism Axis</h4>
-                    <div class="score-comparison">
-                        <div class="score-bar user">
-                            <span>You: ${userScores.nat}%</span>
-                            <div class="bar" style="width: ${userScores.nat}%"></div>
-                        </div>
-                        <div class="score-bar national">
-                            <span>National: ${nationalAvg.nat}%</span>
-                            <div class="bar" style="width: ${nationalAvg.nat}%"></div>
-                        </div>
+                    <div class="axis-endpoints" style="display:flex;justify-content:space-between;font-size:11px;color:#888;margin-top:2px;">
+                        <span>← ${meta.left}</span><span>${meta.right} →</span>
                     </div>
                 </div>
             </div>
-        `;
+        `).join('');
 
-        container.innerHTML = html;
+        container.innerHTML = `
+            <div class="comparison-grid">${rows}</div>
+            <p style="font-size:12px;color:#888;margin-top:16px;font-style:italic;">
+                * National estimates are approximations derived from 2021–2025 federal election
+                vote shares and published Environics/Leger polling. They are not collected from
+                quiz responses — all data stays on your device.
+            </p>
+        `;
     }
 
     renderPartyComparison(container, userScores) {
@@ -1044,6 +1214,7 @@ class QuizApp {
             this.currentQuestionIndex = 0;
             this.scores = [0, 0, 0, 0];
             this.answers = [];
+            this.intensities = [];
             this.currentSection = '';
             this.activeQuestions = this.questions; // reset to full mode default
             
@@ -1146,36 +1317,22 @@ class QuizApp {
             return;
         }
 
-        const latestResult = results[results.length - 1];
-        
-        const data = {
-            econ: latestResult.econ,
-            prog: latestResult.prog,
-            auth: latestResult.auth,
-            nat: latestResult.nat
-        };
-
-        const encoded = btoa(JSON.stringify(data));
+        const { econ, prog, auth, nat } = results[results.length - 1];
+        const encoded = btoa(JSON.stringify({ econ, prog, auth, nat }));
         const shareUrl = `${window.location.origin}${window.location.pathname}?results=${encoded}`;
-        
-        const modal = document.getElementById('shareModal');
-        if (!modal) {
-            alert('Share modal not found in page.');
-            return;
-        }
 
-        const shareContent = document.getElementById('shareContent');
-        if (!shareContent) {
-            alert('Share content container not found.');
-            return;
-        }
-
-        shareContent.innerHTML = `
+        openModal('', `
             <h3>Share Your Results</h3>
-            <input type="text" value="${shareUrl}" readonly style="width: 100%; padding: 10px; margin: 10px 0;">
-            <button onclick="copyToClipboard(this)">Copy Link</button>
-        `;
-        modal.style.display = 'flex';
+            <p style="color:#666;margin-bottom:12px;">Anyone with this link will see your scores on the compass.</p>
+            <div style="display:flex;gap:8px;align-items:center;">
+                <input type="text" value="${shareUrl}" readonly
+                    style="flex:1;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:13px;">
+                <button onclick="copyToClipboard(this)"
+                    style="padding:10px 16px;background:#1976D2;color:#fff;border:none;border-radius:4px;cursor:pointer;">
+                    Copy Link
+                </button>
+            </div>
+        `);
     }
 
     shareQR() {
@@ -1185,44 +1342,23 @@ class QuizApp {
             return;
         }
 
-        const latestResult = results[results.length - 1];
-        
-        const data = {
-            econ: latestResult.econ,
-            prog: latestResult.prog,
-            auth: latestResult.auth,
-            nat: latestResult.nat
-        };
-
-        const encoded = btoa(JSON.stringify(data));
+        const { econ, prog, auth, nat } = results[results.length - 1];
+        const encoded = btoa(JSON.stringify({ econ, prog, auth, nat }));
         const shareUrl = `${window.location.origin}${window.location.pathname}?results=${encoded}`;
 
-        const modal = document.getElementById('shareModal');
-        if (!modal) {
-            alert('Share modal not found in page.');
-            return;
-        }
-
-        const shareContent = document.getElementById('shareContent');
-        if (!shareContent) {
-            alert('Share content container not found.');
-            return;
-        }
-
-        shareContent.innerHTML = '<h3>Share via QR Code</h3><div id="qrcode"></div>';
+        openModal('', '<h3>Share via QR Code</h3><div id="qrcode" style="margin-top:16px;"></div>');
 
         if (typeof QRCode === 'undefined') {
-            shareContent.innerHTML = '<p>QR Code library not loaded. Try again in a moment.</p>';
+            document.getElementById('shareContent').innerHTML +=
+                '<p style="color:#e53935;">QR Code library not loaded. Try the Copy Link option instead.</p>';
             return;
         }
-        
+
         new QRCode(document.getElementById('qrcode'), {
             text: shareUrl,
             width: 200,
             height: 200
         });
-        
-        modal.style.display = 'flex';
     }
 
     // PHASE 3 TIER 2: POLITICAL TRAJECTORY
@@ -1385,9 +1521,17 @@ class QuizApp {
     }
 }
 
-// Utility functions
+// ── Unified modal helpers ────────────────────────────────────────────────────
+function openModal(bodyHTML, shareHTML) {
+    document.getElementById('modalBody').innerHTML   = bodyHTML  || '';
+    document.getElementById('shareContent').innerHTML = shareHTML || '';
+    document.getElementById('modal').style.display  = 'flex';
+}
+
 function closeModal() {
-    document.getElementById('shareModal').style.display = 'none';
+    document.getElementById('modal').style.display = 'none';
+    document.getElementById('modalBody').innerHTML   = '';
+    document.getElementById('shareContent').innerHTML = '';
 }
 
 function copyToClipboard(button) {
@@ -1399,25 +1543,30 @@ function copyToClipboard(button) {
 }
 
 function showAbout() {
-    const modal = document.getElementById('modal');
-    document.getElementById('modalBody').innerHTML = `
-        <h2>About This Test - Phase 3</h2>
-        <p>Advanced political alignment test with issue clustering, faction analysis, and contradiction detection.</p>
-        <p>Version 3.0 | Phase 3 Complete</p>
-    `;
-    modal.style.display = 'flex';
+    openModal(`
+        <h2>About This Test</h2>
+        <p>A research-based Canadian political alignment test mapping your positions across four axes: Economic, Progressive, Authority, and Nationalism.</p>
+        <p>Questions are grounded in real Canadian policy debates and calibrated against character composites of known political figures (Trudeau, Singh, Harper, Poilievre, and others).</p>
+        <p><strong>Version 3.0</strong> — Phase 3 rebuild with issue clustering, faction analysis, and contradiction detection.</p>
+        <p>All data is stored locally on your device. Nothing is sent to any server.</p>
+    `);
 }
 
 function showFAQ() {
-    const modal = document.getElementById('modal');
-    document.getElementById('modalBody').innerHTML = `
-        <h2>FAQ</h2>
-        <h3>What's new in Phase 3?</h3>
-        <p>Issue clustering shows which topics matter most to you. Faction analysis reveals nuanced political positions. Enhanced contradictions explain tensions in your views.</p>
+    openModal(`
+        <h2>Frequently Asked Questions</h2>
+        <h3>How is this different from other political compasses?</h3>
+        <p>Most quizzes use arbitrary scoring. This one is calibrated against research-based character composites of real political figures and grounded in actual Canadian policy positions.</p>
+        <h3>What do the four axes mean?</h3>
+        <p><strong>Economic:</strong> Left (public programs, redistribution) ↔ Right (markets, low taxes).<br>
+        <strong>Progressive:</strong> Traditional (social conservatism) ↔ Progressive (social liberalism).<br>
+        <strong>Authority:</strong> Civil libertarian (individual rights) ↔ Order (strong state).<br>
+        <strong>Nationalism:</strong> Globalist (multilateralism) ↔ Nationalist (sovereignty-first).</p>
         <h3>Are my results private?</h3>
-        <p>Completely! All data stored locally on your device.</p>
-    `;
-    modal.style.display = 'flex';
+        <p>Yes. All data is stored locally in your browser. Nothing leaves your device.</p>
+        <h3>What is Quick Mode?</h3>
+        <p>Quick Mode runs every third question (~20 questions, ~10 minutes) and covers all four axes. Full Mode runs all 61 questions (~30 minutes) for a more precise result.</p>
+    `);
 }
 
 // Initialize
