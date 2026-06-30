@@ -659,7 +659,7 @@ class QuizApp {
             <div class="faction-alternatives">
         `;
         
-        partyScores.slice(1, 4).forEach(f => {
+        partyScores.slice(1, 5).forEach(f => {
             factionHTML += `
                 <div class="faction-alt">
                     <h5>${f.faction.name}</h5>
@@ -706,36 +706,26 @@ class QuizApp {
         const container = document.getElementById('results-content');
         if (!container) return;
 
-        // Normalize probabilities to 100% (they're currently independent matches)
-        const totalProbability = factionScores.reduce((sum, f) => sum + f.probability, 0);
-        const normalizedScores = factionScores.map(f => ({
+        // Take only the top 5 factions, then normalize THEIR probabilities to sum to 100%.
+        // No "Other Factions" catch-all slice — showing exactly 5 keeps the chart readable
+        // and matches the "Other Possible Factions" list above it one-to-one.
+        const topFactions = factionScores.slice(0, 5);
+        const top5Total = topFactions.reduce((sum, f) => sum + f.probability, 0);
+        const normalizedTop5 = topFactions.map(f => ({
             ...f,
-            probability: Math.round((f.probability / totalProbability) * 100)
+            probability: top5Total > 0 ? Math.round((f.probability / top5Total) * 100) : 0
         }));
 
-        // Get top 5 factions, group rest as "Other"
-        const topFactions = normalizedScores.slice(0, 5);
-        let otherProbability = 0;
-        normalizedScores.slice(5).forEach(f => {
-            otherProbability += f.probability;
-        });
-
-        let chartLabels = topFactions.map(f => f.faction.name);
-        let chartData = topFactions.map(f => f.probability);
+        let chartLabels = normalizedTop5.map(f => f.faction.name);
+        let chartData = normalizedTop5.map(f => f.probability);
         let chartColors = [
             '#1976D2', '#D32F2F', '#388E3C', '#F57C00', '#7B1FA2'
         ];
 
-        if (otherProbability > 0) {
-            chartLabels.push('Other Factions');
-            chartData.push(otherProbability);
-            chartColors.push('#BDBDBD');
-        }
-
         const pieSection = document.createElement('div');
         pieSection.className = 'results-section';
         pieSection.innerHTML = `
-            <h3>Faction Alignment Distribution</h3>
+            <h3>Top 5 Faction Matches</h3>
             <canvas id="factionPieChart" width="300" height="300"></canvas>
         `;
         container.appendChild(pieSection);
