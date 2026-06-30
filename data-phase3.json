@@ -906,6 +906,80 @@
         "Economy": "Strong labour protections, higher minimum wage, union support"
       },
       "type": "coalition"
+    },
+    {
+      "id": "anti-establishment-nationalist",
+      "name": "Anti-Establishment Nationalist",
+      "description": "Distrusts state power and institutional authority — opposes mandates, surveillance, and 'government overreach' — while also wanting much lower immigration, skepticism of multiculturalism, and withdrawal from international bodies like the UN and Paris Accord. Combines economic libertarianism with sovereigntist nationalism. The Bernier/PPC coalition: 'freedom and liberty' anti-mandate politics fused with hard immigration restriction.",
+      "characteristics": {
+        "economic": [
+          68,
+          90
+        ],
+        "progressive": [
+          12,
+          32
+        ],
+        "authority": [
+          8,
+          28
+        ],
+        "nationalism": [
+          78,
+          96
+        ]
+      },
+      "examples": [
+        "People's Party of Canada base",
+        "Freedom Convoy organizers (libertarian wing)",
+        "Anti-mandate rally attendees"
+      ],
+      "historicalContext": "Distinct from the CPC's Western Populist coalition, which retains moderate-to-high support for law and order and policing. This coalition is defined by opposing state authority categorically — mandates, vaccine passports, and 'government overreach' — while simultaneously wanting much harder immigration restriction than mainstream conservatism. Reporting on the PPC's formation noted internal tension between libertarians and the more nativist wing that eventually dominated the party's public image, confirming this is a real but uneasy coalition rather than a natural ideological pairing.",
+      "keyPositions": {
+        "Government": "Shrink government dramatically; end supply management; defund CBC",
+        "Mandates": "Oppose vaccine passports and mandates as fundamental rights violations",
+        "Immigration": "Steep cuts to immigration; repeal the Multiculturalism Act",
+        "International": "Withdraw from the Paris Accord; reduce UN involvement; cut foreign aid entirely",
+        "Climate": "Reject climate policy as a justification for economic and personal restriction"
+      },
+      "type": "coalition"
+    },
+    {
+      "id": "market-progressive",
+      "name": "Market Progressive",
+      "description": "Fiscally conservative but socially liberal — wants minimal business regulation and lower taxes, while strongly supporting LGBTQ+ rights, reproductive rights, immigration, and civil liberties. Common among tech-sector professionals and urban entrepreneurs who feel politically homeless: too pro-market for the NDP, too socially liberal for the CPC mainstream.",
+      "characteristics": {
+        "economic": [
+          55,
+          78
+        ],
+        "progressive": [
+          68,
+          90
+        ],
+        "authority": [
+          20,
+          42
+        ],
+        "nationalism": [
+          18,
+          38
+        ]
+      },
+      "examples": [
+        "Tech-sector entrepreneurs",
+        "Urban professional libertarians",
+        "Civil-liberties-focused business owners"
+      ],
+      "historicalContext": "Historically what 'libertarian' meant before the term became coded as purely right-wing — fiscally hands-off but socially liberal. Maxime Bernier himself was once described this way (marching in Pride parades while branding himself a fiscal hawk) before the PPC's eventual base pulled toward social conservatism and nationalism instead — a real-world example of how this coalition and the Anti-Establishment Nationalist coalition can emerge from similar libertarian starting points but diverge sharply on social and nationalism axes. Distinct from Bay Street Liberal (more moderate on both economics and progressivism) and from CPC's Libertarian Right (notably more socially conservative).",
+      "keyPositions": {
+        "Economy": "Minimal business regulation; lower corporate and personal taxes; oppose subsidies",
+        "Social Issues": "Full reproductive rights; LGBTQ+ rights; cannabis and drug policy liberalization",
+        "Immigration": "High, skills-based immigration; welcomes global talent",
+        "Privacy": "Strong opposition to government surveillance and data collection",
+        "Trade": "Full free trade; minimal tariffs; global economic integration"
+      },
+      "type": "coalition"
     }
   ]
 }
