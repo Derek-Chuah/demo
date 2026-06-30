@@ -293,6 +293,11 @@ body {
 }
 
 /* Quiz Screen */
+.quiz-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .progress-container {
     margin-bottom: 2rem;
 }
@@ -497,7 +502,7 @@ body {
 
 /* Modal */
 .modal {
-    display: none !important;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -508,10 +513,6 @@ body {
     align-items: center;
     justify-content: center;
     padding: 1rem;
-}
-
-.modal.show {
-    display: flex !important;
 }
 
 .modal-content {
@@ -661,6 +662,34 @@ body {
 button:focus {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
+}
+
+.intensity-slider:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 4px;
+}
+
+#results-content:focus {
+    outline: none; /* programmatic focus target only, no visible ring needed */
+}
+
+/* Skip link: hidden until focused, lets keyboard users bypass the header */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.75rem 1.25rem;
+    z-index: 2000;
+    border-radius: 0 0 var(--border-radius) 0;
+    font-weight: 600;
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 0;
 }
 
 /* Print styles */
