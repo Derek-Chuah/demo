@@ -18,26 +18,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
+    <a href="#mainContent" class="skip-link">Skip to main content</a>
     <div class="app">
         <!-- Navigation Header -->
-        <header class="header">
+        <header class="header" role="banner">
             <div class="header-content">
                 <h1>Canadian Political Alignment Test</h1>
                 <p class="subtitle">Where do you stand on Canadian politics?</p>
                 <div class="header-controls">
-                    <button id="themeToggle" class="theme-btn" title="Toggle dark mode">🌙</button>
-                    <button id="resetBtn" class="reset-btn" style="display: none;">Start Over</button>
+                    <button id="themeToggle" class="theme-btn" title="Toggle dark mode" aria-label="Toggle dark mode" aria-pressed="false">🌙</button>
+                    <button id="resetBtn" class="reset-btn" style="display: none;" aria-label="Reset test and start over">Start Over</button>
                 </div>
             </div>
         </header>
 
-        <div class="container">
+        <main id="mainContent" class="container" role="main">
             <!-- Loading Screen -->
-            <div id="loadingScreen" class="screen active">
+            <div id="loadingScreen" class="screen active" role="status" aria-live="polite">
                 <div class="loading-content">
                     <h2>Loading Canadian Political Test...</h2>
                     <p>Preparing questions and scoring system</p>
-                    <div class="spinner"></div>
+                    <div class="spinner" aria-hidden="true"></div>
                 </div>
             </div>
 
@@ -95,7 +96,8 @@
             <!-- Quiz Screen -->
             <div id="quizScreen" class="screen" style="display: none;">
                 <div class="progress-container">
-                    <div class="progress-bar">
+                    <div class="progress-bar" role="progressbar" aria-label="Quiz progress"
+                         aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressBarOuter">
                         <div id="progressFill" class="progress-fill"></div>
                     </div>
                     <div class="progress-text">
@@ -104,27 +106,27 @@
                 </div>
 
                 <div class="quiz-content">
-                    <div id="sectionLabel" class="section-label" style="display: none;"></div>
+                    <div id="sectionLabel" class="section-label" style="display: none;" role="status" aria-live="polite"></div>
                     
-                    <div id="questionCard" class="question-card">
-                        <h2 id="questionText" class="question-text"></h2>
+                    <div id="questionCard" class="question-card" role="group" aria-labelledby="questionText">
+                        <h2 id="questionText" class="question-text" aria-live="polite"></h2>
                         <p id="questionSubtext" class="question-subtext"></p>
                         
-                        <div id="optionsContainer" class="options-container">
+                        <div id="optionsContainer" class="options-container" role="radiogroup" aria-label="Answer choices">
                             <!-- Options will be inserted here -->
                         </div>
                     </div>
 
                     <div class="quiz-controls">
-                        <button id="prevBtn" class="btn btn-secondary" style="display: none;">← Back</button>
-                        <button id="nextBtn" class="btn btn-primary" disabled>Next →</button>
+                        <button id="prevBtn" class="btn btn-secondary" style="display: none;" aria-label="Go back to previous question">← Back</button>
+                        <button id="nextBtn" class="btn btn-primary" disabled aria-label="Go to next question">Next →</button>
                     </div>
                 </div>
             </div>
 
             <!-- Results Screen -->
             <div id="resultsScreen" class="screen" style="display: none;">
-                <div id="results-content" class="results-content">
+                <div id="results-content" class="results-content" role="region" aria-label="Your test results" tabindex="-1">
                     <h2>Your Political Alignment</h2>
                     
                     <!-- Axis Results -->
@@ -155,16 +157,10 @@
                     <div class="results-section">
                         <h3>Share & Export</h3>
                         <div class="export-buttons">
-                            <button id="exportJsonBtn" class="btn btn-secondary">📥 Download JSON</button>
-                            <button id="exportPdfBtn" class="btn btn-secondary">📄 Download PDF</button>
-                            <button id="shareUrlBtn" class="btn btn-secondary">🔗 Get Share Link</button>
-                            <button id="shareQrBtn" class="btn btn-secondary">📱 QR Code</button>
-                        </div>
-                        <div id="shareModal" class="modal" style="display: none;">
-                            <div class="modal-content">
-                                <button class="modal-close" onclick="closeModal()">&times;</button>
-                                <div id="shareContent"></div>
-                            </div>
+                            <button id="exportJsonBtn" class="btn btn-secondary" aria-label="Download results as JSON file">📥 Download JSON</button>
+                            <button id="exportPdfBtn" class="btn btn-secondary" aria-label="Download results as PDF file">📄 Download PDF</button>
+                            <button id="shareUrlBtn" class="btn btn-secondary" aria-label="Generate a shareable link to your results">🔗 Get Share Link</button>
+                            <button id="shareQrBtn" class="btn btn-secondary" aria-label="Generate a QR code for your results">📱 QR Code</button>
                         </div>
                     </div>
 
@@ -174,19 +170,21 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
 
         <!-- Footer -->
-        <footer class="footer">
+        <footer class="footer" role="contentinfo">
             <p>Canadian Political Alignment Test v3.0 | Phase 3 with Issue Clustering, Faction Analysis & Contradictions | <a href="#" onclick="showAbout()">About</a> | <a href="#" onclick="showFAQ()">FAQ</a></p>
         </footer>
     </div>
 
-    <!-- Modals -->
-    <div id="modal" class="modal" style="display: none;">
+    <!-- Unified Modal -->
+    <div id="modal" class="modal" style="display: none;" onclick="if(event.target===this)closeModal()"
+         role="dialog" aria-modal="true" aria-labelledby="modalBody">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <button class="modal-close" onclick="closeModal()" aria-label="Close dialog">&times;</button>
             <div id="modalBody"></div>
+            <div id="shareContent"></div>
         </div>
     </div>
 
