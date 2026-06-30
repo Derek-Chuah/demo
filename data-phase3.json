@@ -794,5 +794,118 @@
         }
       ]
     }
+  ],
+  "coalitionFactions": [
+    {
+      "id": "blue-collar-conservative",
+      "name": "Blue Collar Conservative",
+      "description": "Private-sector union and resource-industry workers who back strong worker protections, pensions, and Canadian jobs — but vote Conservative on cultural and crime issues. Distrust both Bay Street elites and progressive urban activists. The 'hard hat vote': economically interventionist on jobs and resources, but traditional and order-focused everywhere else.",
+      "characteristics": {
+        "economic": [
+          32,
+          55
+        ],
+        "progressive": [
+          15,
+          35
+        ],
+        "authority": [
+          55,
+          75
+        ],
+        "nationalism": [
+          62,
+          82
+        ]
+      },
+      "examples": [
+        "Northern Ontario steelworkers",
+        "Alberta oil sands trades",
+        "Brian Jean-era UCP base"
+      ],
+      "historicalContext": "A real and electorally significant coalition that the Liberal/NDP/CPC framework misreads as simply 'Conservative.' Economically they'd often agree with NDP labour policy; culturally and on crime they vote CPC. Captures Northern Ontario ridings that flip between NDP and CPC, and rural Alberta union households.",
+      "keyPositions": {
+        "Jobs": "Protect Canadian jobs from outsourcing; resist automation without retraining support",
+        "Resources": "Defend oil, gas, and mining jobs; oppose rapid green transition without worker compensation",
+        "Crime": "Mandatory minimums; more police; oppose bail reform",
+        "Culture": "Skeptical of gender ideology in schools; traditional family values",
+        "Trade": "Protect domestic manufacturing; skeptical of free trade agreements that cost jobs"
+      },
+      "type": "coalition"
+    },
+    {
+      "id": "libertarian-left",
+      "name": "Libertarian Left",
+      "description": "Anti-capitalist on economics but deeply distrustful of state power in any form — police, surveillance, and government mandates alike. Believes concentrated power corrupts whether it's a corporation or a government agency. Found among harm-reduction advocates, mutual-aid organizers, and anti-mandate progressives who don't fit neatly into mainstream NDP social democracy.",
+      "characteristics": {
+        "economic": [
+          0,
+          20
+        ],
+        "progressive": [
+          70,
+          95
+        ],
+        "authority": [
+          5,
+          25
+        ],
+        "nationalism": [
+          15,
+          38
+        ]
+      },
+      "examples": [
+        "Mutual aid network organizers",
+        "Harm reduction advocates",
+        "Anti-mandate progressive left"
+      ],
+      "historicalContext": "Distinct from mainstream NDP social democrats, who are comfortable using state power for redistribution and regulation. This faction trusts neither corporations nor governments — its members supported vaccine access but opposed mandates, support drug decriminalization on civil-liberties grounds (not just harm reduction), and were prominent in defund-the-police organizing. A real but small Canadian coalition, growing among younger urban voters disillusioned with both NDP statism and Liberal incrementalism.",
+      "keyPositions": {
+        "Police": "Abolish or radically defund; community-based safety alternatives only",
+        "Drugs": "Full decriminalization on civil liberties grounds, not just public health",
+        "Mandates": "Oppose vaccine and health mandates even while supporting access and education",
+        "Surveillance": "Zero tolerance for state or corporate surveillance",
+        "Economy": "Wealth redistribution and worker ownership, but skeptical of centralized state control"
+      },
+      "type": "coalition"
+    },
+    {
+      "id": "order-opportunity-left",
+      "name": "Order & Opportunity Left",
+      "description": "Economically left — strong support for healthcare, housing, and labour protections — but more concerned about crime and public disorder than other progressives, and more cautious on immigration levels due to labour market and housing pressure concerns. Common among working-class and immigrant communities who want economic security and safe neighborhoods, not culture-war politics.",
+      "characteristics": {
+        "economic": [
+          10,
+          32
+        ],
+        "progressive": [
+          42,
+          65
+        ],
+        "authority": [
+          55,
+          75
+        ],
+        "nationalism": [
+          50,
+          70
+        ]
+      },
+      "examples": [
+        "Working-class immigrant communities",
+        "Suburban union households",
+        "Transit-dependent urban voters"
+      ],
+      "historicalContext": "Modeled on Pew Research's 2021 'Outsider Left' / 'Democratic Mainstays' finding that some left-leaning voters are more concerned about crime and more supportive of immigration restriction than the progressive mainstream. In Canada this shows up among working-class immigrant and suburban transit-riding communities who back NDP-style economic policy but feel abandoned by progressive messaging on crime and disorder, and worry new arrivals compete for the same scarce housing and entry-level jobs they rely on.",
+      "keyPositions": {
+        "Crime": "Visible policing and safe public transit; skeptical that root-causes-only approaches work fast enough",
+        "Immigration": "Support newcomers but want levels matched to housing and job market capacity",
+        "Healthcare": "Fully public, well-funded; opposes any privatization",
+        "Housing": "Aggressive public investment; sees housing competition with high immigration as a real tension",
+        "Economy": "Strong labour protections, higher minimum wage, union support"
+      },
+      "type": "coalition"
+    }
   ]
 }
