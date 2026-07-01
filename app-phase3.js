@@ -63,6 +63,81 @@ class QuizApp {
                 console.warn(`Button element not found: ${id}`);
             }
         });
+
+        this.setupGlobalQuizKeyboardNav();
+    }
+
+    // Global keyboard shortcuts for the quiz screen. Scoped to fire only when:
+    //  - the quiz screen is actually visible (not welcome/results/loading)
+    //  - the modal is closed (modal has its own Escape handler and shouldn't
+    //    have quiz shortcuts leaking through underneath it)
+    //  - focus isn't inside the intensity slider (native range input already
+    //    handles its own arrow-key behaviour; we don't want to hijack that)
+    //
+    // Shortcuts:
+    //   1–4        select that option directly (matches on-screen order)
+    //   Enter       advance to next question (only once an answer is chosen)
+    //   ← / Backspace / Alt+ArrowLeft   previous question
+    //   → / Alt+ArrowRight              next question (only once answered)
+    // Arrow-key navigation WITHIN the option list (Up/Down/Left/Right while an
+    // option button has focus) is handled separately in renderOptions(), since
+    // that's scoped per-button via the radiogroup pattern.
+    setupGlobalQuizKeyboardNav() {
+        document.addEventListener('keydown', (e) => {
+            const quizScreen = document.getElementById('quizScreen');
+            const modal = document.getElementById('modal');
+            const quizVisible = quizScreen && quizScreen.style.display !== 'none';
+            const modalOpen = modal && modal.style.display !== 'none';
+            if (!quizVisible || modalOpen) return;
+
+            // Don't hijack keys while the user is interacting with the intensity slider —
+            // it needs its own native arrow-key range behaviour untouched.
+            if (document.activeElement && document.activeElement.id === 'intensitySlider') return;
+
+            // Number keys 1–4: jump straight to that option, regardless of current focus.
+            if (/^[1-4]$/.test(e.key)) {
+                const idx = parseInt(e.key, 10) - 1;
+                const options = document.querySelectorAll('.option-btn');
+                if (options[idx]) {
+                    e.preventDefault();
+                    this.selectOption(idx); // re-renders the options container internally
+                    // Re-query after selectOption(), since it replaces the DOM nodes —
+                    // the pre-selection reference above is stale once renderOptions() runs.
+                    const refreshedOptions = document.querySelectorAll('.option-btn');
+                    if (refreshedOptions[idx]) refreshedOptions[idx].focus();
+                }
+                return;
+            }
+
+            // Enter: advance to the next question, but only if focus isn't already on
+            // an option button (which has its own Enter-to-select behaviour) or a
+            // clickable control that should handle Enter itself.
+            const tag = document.activeElement ? document.activeElement.tagName : '';
+            const isOptionBtn = document.activeElement && document.activeElement.classList.contains('option-btn');
+            if (e.key === 'Enter' && !isOptionBtn && tag !== 'BUTTON' && tag !== 'A') {
+                const nextBtn = document.getElementById('nextBtn');
+                if (nextBtn && !nextBtn.disabled) {
+                    e.preventDefault();
+                    this.nextQuestion();
+                }
+                return;
+            }
+
+            // Question-level navigation via Backspace or Alt+Arrow. These never conflict
+            // with the radiogroup's own plain-arrow-key navigation (Up/Down/Left/Right
+            // move between options; the Alt modifier here makes next/prev unambiguous
+            // regardless of where focus currently is on the quiz screen).
+            if (e.key === 'Backspace' || (e.altKey && e.key === 'ArrowLeft')) {
+                e.preventDefault();
+                this.previousQuestion();
+            } else if (e.altKey && e.key === 'ArrowRight') {
+                const nextBtn = document.getElementById('nextBtn');
+                if (nextBtn && !nextBtn.disabled) {
+                    e.preventDefault();
+                    this.nextQuestion();
+                }
+            }
+        });
     }
 
     async loadQuestions() {
@@ -247,9 +322,22 @@ class QuizApp {
                     prev.setAttribute('tabindex', '0');
                     e.target.setAttribute('tabindex', '-1');
                     prev.focus();
-                } else if (e.key === 'Enter' || e.key === ' ') {
+                } else if (e.key === ' ') {
                     e.preventDefault();
+                    e.stopPropagation();
                     this.selectOption(index);
+                } else if (e.key === 'Enter') {
+                    e.preventDefault();
+                    e.stopPropagation(); // prevent the global handler from double-advancing —
+                                          // this.nextQuestion() below can detach this button from
+                                          // the DOM mid-bubble, which resets focus to <body> and
+                                          // would otherwise let the event reach the document listener
+                    const alreadySelected = this.answers[this.currentQuestionIndex] === index;
+                    this.selectOption(index);
+                    if (alreadySelected) {
+                        const nextBtn = document.getElementById('nextBtn');
+                        if (nextBtn && !nextBtn.disabled) this.nextQuestion();
+                    }
                 }
             });
             container.appendChild(button);
