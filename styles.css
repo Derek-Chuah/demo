@@ -711,3 +711,29 @@ button:focus {
         padding: 0;
     }
 }
+
+/* Keyboard shortcut hint */
+.keyboard-hint {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    margin-top: 1rem;
+}
+
+.keyboard-hint kbd {
+    display: inline-block;
+    padding: 0.1rem 0.4rem;
+    font-family: monospace;
+    font-size: 0.75rem;
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 1px 0 var(--border-color);
+    color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+    .keyboard-hint {
+        display: none; /* touch devices don't have a keyboard; hide to save space */
+    }
+}
